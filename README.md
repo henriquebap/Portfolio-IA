@@ -15,6 +15,8 @@ My Machine Learning and Deep Learning Projects
 - [Porto Seguro Challenge - COCO/Detectron2 - Bike Detection Project](https://github.com/henriquebap/R-CNN-OD-Sprint)
 - [Object Detection Project - YOLOV5 - Shark, Fish and Ray Fish dataset project](https://github.com/henriquebap/YoloV5-Shark-Detection)
 - [GYMBUDDY - Keras - GPT API Project](https://github.com/henriquebap/GYMBUDDY-IA)
+- [DQN - CartPole- OpenIa Gym](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Deep%20Q-Learning/CartPole-DQN.ipynb)
+- [Q-Learning - Mountain Car - OpenIA Gym](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Mountain-Car-Gym-Q-Learning.ipynb)
 
 
 ---
