@@ -2,6 +2,7 @@
 My Machine Learning and Deep Learning Projects
 ---
 # About Me
+Hello! I'm Henrique, a 20-year-old IT student (Analysis and Development of Systems) at FIAP, currently in my final year. I have a strong passion for Machine Learning and Deep Learning, which has driven me to undertake various projects in these fields. My portfolio showcases my dedication to applying AI and data science to solve real-world problems. From customer churn forecasting to advanced object detection systems, my work demonstrates a commitment to leveraging technology for innovation and positive impact. I am excited to share my projects with you and explore new opportunities to create meaningful solutions.
 
 ---
 ## Machine Learning Projects:
