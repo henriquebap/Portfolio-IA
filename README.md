@@ -8,7 +8,7 @@ Hello! I'm Henrique, a 20-year-old IT student (Analysis and Development of Syste
 ## Machine Learning Projects:
 - [Customer Churn - Forecast Models(KNN,SVC,RandomForestClassifier,Logistic Regression)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
 - [PIB x ACBR LinearRegression](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
-
+- [EDA - Airline Flights ( Fare Prediction Project )](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
 
 ---
 ## Deep Learning Projects:
