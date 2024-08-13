@@ -9,6 +9,7 @@ Hello! I'm Henrique, a 21-year-old IT student (Analysis and Development of Syste
 - [Customer Churn - Forecast Models(KNN,SVC,RandomForestClassifier,Logistic Regression)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
 - [PIB x ACBR LinearRegression](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
 - [EDA - Airline Flights ( Fare Prediction Project )](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
+- [Avocado Prices Prediction & EDA](https://github.com/henriquebap/Avocado-Prices-EDA-Model-Traning/tree/main)
 
 ---
 ## Deep Learning Projects:
@@ -22,7 +23,7 @@ Hello! I'm Henrique, a 21-year-old IT student (Analysis and Development of Syste
 
 
 ---
-# Contato
+# Contact
 - **LinkedIn** : [Henrique Baptista](https://www.linkedin.com/in/henrique-baptista777/)
 - **GitHub** : [henriquebap](https://github.com/henriquebap)
 - **Email** : [henriquebaptista2003@gmail.com](mailto:henriquebaptista2003@gmail.com)
