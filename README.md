@@ -1,5 +1,6 @@
 # Portfolio-IA
 
+![HEADER](https://github.com/henriquebap/Portifolio-IA/blob/main/Untitled%20design.png)
 
 ## About Me
 
