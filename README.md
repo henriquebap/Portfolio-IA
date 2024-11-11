@@ -2,21 +2,22 @@
 
 ## Table of Contents
 
-- [About Me](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-- [Machine Learning Projects](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Avocado Price Analysis and Forecasting](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Exploratory Analysis of Airline Flights](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Customer Churn Prediction](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [GDP vs. ACBR Linear Regression](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-- [Deep Learning Projects](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Diabetes Prediction in Pima Indians](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Bike Detection with Detectron2](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Marine Animal Detection with YOLOv5](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [GYMBUDDY - AI Fitness Assistant](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [DQN - CartPole with OpenAI Gym](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Q-Learning - Mountain Car with OpenAI Gym](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-    - [Marine Garbage Detection with YOLOv9](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
-- [Contact](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+- [About Me](#about-me)
+- [Machine Learning Projects](#machine-learning-projects)
+    - [Avocado Price Analysis and Forecasting](#-avocado-price-analysis-and-forecasting)
+    - [Exploratory Analysis of Airline Flights](#-exploratory-analysis-of-airline-flights)
+    - [Customer Churn Prediction](#-customer-churn-prediction)
+    - [GDP vs. ACBR Linear Regression](#-gdp-vs-acbr-linear-regression)
+- [Deep Learning Projects](#deep-learning-projects)
+    - [Diabetes Prediction in Pima Indians](#-diabetes-prediction-in-pima-indians)
+    - [Bike Detection with Detectron2](#-porto-seguro-challenge---bike-detection-with-detectron2)
+    - [Marine Animal Detection with YOLOv5](#-marine-animal-detection-with-yolov5)
+    - [GYMBUDDY - AI Fitness Assistant](#-gymbuddy---ai-fitness-assistant)
+    - [DQN - CartPole with OpenAI Gym](#-dqn---cartpole-with-openai-gym)
+    - [Q-Learning - Mountain Car with OpenAI Gym](#-q-learning---mountain-car-with-openai-gym)
+    - [Marine Garbage Detection with YOLOv9](#-marine-garbage-detection-with-yolov9)
+- [Contact](#-contact)
+
 ---
 
 ## About Me
