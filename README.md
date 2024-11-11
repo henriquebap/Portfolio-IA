@@ -1,112 +1,128 @@
-# Portfolio-IA
+# Artificial Intelligence Portfolio
 
-![HEADER](https://github.com/henriquebap/Portifolio-IA/blob/main/Untitled%20design.png)
+## Table of Contents
+
+- [About Me](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+- [Machine Learning Projects](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Avocado Price Analysis and Forecasting](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Exploratory Analysis of Airline Flights](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Customer Churn Prediction](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [GDP vs. ACBR Linear Regression](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+- [Deep Learning Projects](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Diabetes Prediction in Pima Indians](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Bike Detection with Detectron2](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Marine Animal Detection with YOLOv5](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [GYMBUDDY - AI Fitness Assistant](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [DQN - CartPole with OpenAI Gym](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Q-Learning - Mountain Car with OpenAI Gym](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+    - [Marine Garbage Detection with YOLOv9](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+- [Contact](https://www.notion.so/Study-11952bf5aceb80c88757e1cebe82f652?pvs=21)
+---
 
 ## About Me
 
-Hello! I'm Henrique, a final-year IT student at FIAP, specializing in Systems Analysis and Development. My passion for Machine Learning and Deep Learning has driven me to undertake diverse projects in these fields. My portfolio reflects my dedication to leveraging AI and data science to address real-world challenges. From customer churn forecasting to advanced object detection, my work demonstrates a commitment to utilizing technology for innovation and impactful solutions. I am eager to share my projects and explore opportunities to create meaningful advancements in AI.
+Hello! I’m Henrique, a final-year Systems Analysis and Development student at FIAP. My passion for Machine Learning and Deep Learning has led me to develop numerous projects in these fields. My portfolio reflects my dedication to applying AI and data science to solve real-world challenges. From customer churn prediction to advanced object detection, my work demonstrates a commitment to leveraging technology for impactful solutions. I look forward to sharing my projects and exploring opportunities to drive meaningful advancements in AI.
 
 ---
 
-## 🔍 Machine Learning Projects
-
-### 🥑 Avocado Prices Prediction & EDA
-
-Analysis and prediction models for avocado prices using EDA techniques. **Built prediction models to assist in price forecasting, aiding businesses in optimizing inventory and sales strategies.**
 
 
-- **Tech Stack**: Python, Pandas, Scikit-learn, Matplotlib
+## Machine Learning Projects
+
+### 🥑 Avocado Price Analysis and Forecasting
+
+Conducted exploratory data analysis and forecasting models for avocado prices using EDA techniques. Developed predictive models to assist in price forecasting, helping companies optimize stock and sales strategies.
+
+- **Technologies Used: Python, Pandas, Scikit-learn, Matplotlib**
+- **Repository:** [GitHub - Avocado Prices EDA & Model Training](https://github.com/henriquebap/Avocado-Prices-EDA-Model-Traning/tree/main)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Avocado-Prices-EDA-Model-Traning/tree/main)
 
-### ✈️ EDA - Airline Flights (Fare Prediction Project)
 
-Extensive Exploratory Data Analysis on airline flight data to predict fare prices. **Processed and analyzed large-scale flight datasets to uncover insights into fare fluctuations, aiding in market forecasting.**
+### ✈️ Exploratory Analysis of Airline Flights
 
+Extensive exploratory analysis of airline flight data to predict fare prices. Processed and analyzed large flight datasets to identify insights on fare fluctuations, aiding in market forecasting.
 
-- **Tech Stack**: Python, Pandas, Seaborn, Matplotlib
+- **Technologies Used: Python, Pandas, Seaborn, Matplotlib**
+- **Repository:** [GitHub - EDA & Airline Fare Model Training](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
 
 
-### 🏠 Customer Churn - Forecast Models
+### 🏠 Customer Churn Prediction
 
-Using multiple algorithms like KNN, SVC, RandomForestClassifier, and Logistic Regression to predict customer churn. **Built robust models to assist businesses in retaining customers by forecasting churn risks.**
+Implemented algorithms such as KNN, SVC, RandomForestClassifier, and Logistic Regression to predict customer churn. Built robust models to help companies retain clients by predicting churn risks.
 
-
-- **Tech Stack**: Python, Scikit-learn, Pandas, Matplotlib
+- **Technologies Used: Python, Scikit-learn, Pandas, Matplotlib**
+- **Repository:** [GitHub - Classification Exercise](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
 
 
-### 📈 PIB x ACBR Linear Regression
+### 📈 GDP vs. ACBR Linear Regression
 
-A study on economic indicators using Linear Regression. **Developed models to forecast economic trends, contributing to data-driven decision-making.**
+Analyzed economic indicators using Linear Regression. Developed models to forecast economic trends, contributing to data-driven decision-making.
 
-- **Tech Stack**: Python, Scikit-learn, Pandas, Matplotlib
+- **Technologies Used: Python, Scikit-learn, Pandas, Matplotlib**
+- **Repository:** [GitHub - GDP vs. ACBR Linear Regression](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
     
 
 ---
 
-## 🚀 Deep Learning Projects
+## Deep Learning Projects
 
-### 🧬 Pima Indians Diabetes - Keras
+### 🧬 Diabetes Prediction in Pima Indians
 
-Using Keras for a neural network model to predict diabetes in Pima Indians. **Leveraged deep learning techniques to contribute to healthcare diagnostics.**
+Built a neural network model using Keras to predict diabetes occurrence in the Pima Indian population. This project involved constructing and training a deep neural network to support early diagnosis.
 
-
-- **Tech Stack**: Python, Keras, TensorFlow
+- **Technologies Used: Python, Keras, TensorFlow**
+- **Repository:** [GitHub - Pima Indians Diabetes Prediction](https://github.com/henriquebap/Machine_Learning_HB/tree/main/Keras)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/tree/main/Keras)
 
+### 🚴 Porto Seguro Challenge - Bike Detection with Detectron2
 
-### 🚴 Porto Seguro Challenge - COCO/Detectron2 - Bike Detection Project
+Implemented an object detection system to identify bikes using Detectron2 and the COCO dataset. The model was deployed on AWS for cloud-based training and monitoring, aiming to streamline insurance processes with real-time detection.
 
-An object detection system for bikes using Detectron2 and the COCO dataset. **Deployed the model on AWS for cloud-based training and monitoring, optimizing the insurance process with real-time detection.**
-
-
-- **Tech Stack**: Python, Detectron2, COCO
+- **Technologies Used: Python, Detectron2, COCO**
+- **Repository:** [GitHub - Bike Detection Project](https://github.com/henriquebap/R-CNN-OD-Sprint)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/R-CNN-OD-Sprint)
 
-### 🦈 Object Detection Project - YOLOV5 - Shark, Fish, and Ray Fish dataset project
+### 🦈 Marine Animal Detection with YOLOv5
 
-Detecting marine animals using YOLOV5. **Utilized object detection for marine research, aiding in species monitoring and conservation efforts.**
+Developed an object detection model using YOLOv5 to identify marine animals, such as sharks, fish, and rays. This project contributes to marine research by supporting species monitoring and conservation efforts.
 
-
-- **Tech Stack**: Python, YOLOv5
+- **Technologies Used: Python, YOLOv5**
+- **Repository:** [GitHub - Shark Detection with YOLOv5](https://github.com/henriquebap/YoloV5-Shark-Detection)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/YoloV5-Shark-Detection)
 
+### 🤖 GYMBUDDY - AI Fitness Assistant
 
-### 🤖 GYMBUDDY - Keras - GPT API Project
+Created an innovative fitness assistant using Keras and the GPT-3 API. This project integrates AI-based conversational agents to provide personalized fitness guidance to users.
 
-An innovative fitness assistant using Keras and GPT API. **Integrated AI-powered conversational agents to create personalized fitness guidance.**
-
-
-- **Tech Stack**: Python, Keras, GPT-3 API
+- **Technologies Used: Python, Keras, GPT-3 API**
+- **Repository:** [GitHub - GYMBUDDY AI](https://github.com/henriquebap/GYMBUDDY-IA)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/GYMBUDDY-IA)
 
+### 🎮 DQN - CartPole with OpenAI Gym
 
-### 🎮 DQN - CartPole- OpenAI Gym
+Implemented a Deep Q-Learning model to solve the CartPole balancing problem in OpenAI Gym. This project explores reinforcement learning strategies for continuous control challenges.
 
-A deep Q-learning model for the CartPole balancing game. **Explored reinforcement learning strategies for continuous control problems.**
-
-
-- **Tech Stack**: Python, OpenAI Gym, TensorFlow
+- **Technologies Used: Python, OpenAI Gym, TensorFlow**
+- **Repository:** [GitHub - CartPole DQN](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Deep%20Q-Learning/CartPole-DQN.ipynb)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Deep%20Q-Learning/CartPole-DQN.ipynb)
  
+### 🚗 Q-Learning - Mountain Car with OpenAI Gym
 
-### 🚗 Q-Learning - Mountain Car - OpenAI Gym
+Developed a Q-Learning model to solve the Mountain Car problem in OpenAI Gym. This project addresses reinforcement learning techniques for solving complex optimization challenges.
 
-Implementing Q-learning for the Mountain Car problem in OpenAI Gym. **Developed reinforcement learning models to solve complex optimization problems.**
-
-
-- **Tech Stack**: Python, OpenAI Gym
+- **Technologies Used:  Python, OpenAI Gym**
+- **Repository:** [GitHub - Mountain Car Q-Learning](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Mountain-Car-Gym-Q-Learning.ipynb)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Mountain-Car-Gym-Q-Learning.ipynb)
 
+### 🌊 Marine Garbage Detection with YOLOv9
 
-### 🌊 Sea Garbage - Object Detection - YoloV9
+Developed a marine garbage detection model using YOLOv9. The model was optimized for real-time detection on edge devices, contributing to environmental protection efforts.
 
-Detecting sea garbage with YOLOV9. **Optimized the model for real-time detection on edge devices, contributing to environmental protection efforts.**
-
-
-- **Tech Stack**: Python, YOLOv9
+- **Technologies Used: Python, YOLOv9**
+- **Repository:** [GitHub - Sea Garbage Detection with YOLOv9](https://github.com/henriquebap/Blue-Clean-YoloV9/tree/main)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Blue-Clean-YoloV9/tree/main)
 
 ---
@@ -116,3 +132,6 @@ Detecting sea garbage with YOLOV9. **Optimized the model for real-time detection
 - **LinkedIn** : [Henrique Baptista](https://www.linkedin.com/in/henrique-baptista777/)
 - **GitHub** : [henriquebap](https://github.com/henriquebap)
 - **Email** : [henriquebaptista2003@gmail.com](mailto:henriquebaptista2003@gmail.com)
+
+---
+
