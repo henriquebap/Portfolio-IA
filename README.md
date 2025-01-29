@@ -4,10 +4,10 @@
 
 - [About Me](#about-me)
 - [Machine Learning Projects](#machine-learning-projects)
+    - [Genetic Syndrome Classification with Embeddings](#-genetic-syndrome-classification-with-embeddings)    
     - [Avocado Price Analysis and Forecasting](#-avocado-price-analysis-and-forecasting)
     - [Exploratory Analysis of Airline Flights](#-exploratory-analysis-of-airline-flights)
     - [Customer Churn Prediction](#-customer-churn-prediction)
-    - [Genetic Syndrome Classification with Embeddings](#-genetic-syndrome-classification-with-embeddings)
     - [GDP vs. ACBR Linear Regression](#-gdp-vs-acbr-linear-regression)
 - [Deep Learning Projects](#deep-learning-projects)
     - [Diabetes Prediction in Pima Indians](#-diabetes-prediction-in-pima-indians)
