@@ -7,6 +7,7 @@
     - [Avocado Price Analysis and Forecasting](#-avocado-price-analysis-and-forecasting)
     - [Exploratory Analysis of Airline Flights](#-exploratory-analysis-of-airline-flights)
     - [Customer Churn Prediction](#-customer-churn-prediction)
+    - [Genetic Syndrome Classification with Embeddings](#-genetic-syndrome-classification-with-embeddings)
     - [GDP vs. ACBR Linear Regression](#-gdp-vs-acbr-linear-regression)
 - [Deep Learning Projects](#deep-learning-projects)
     - [Diabetes Prediction in Pima Indians](#-diabetes-prediction-in-pima-indians)
@@ -29,6 +30,15 @@ Hello! I’m Henrique, a final-year Systems Analysis and Development student at 
 
 
 ## Machine Learning Projects
+
+### 🧬 Genetic Syndrome Classification with Embeddings
+
+Developed a machine learning pipeline to classify genetic syndromes based on 320-dimensional image embeddings. The project involved data preprocessing, exploratory analysis, t-SNE visualization, K-Nearest Neighbors classification, and performance evaluation using multiple metrics.
+
+- **Technologies Used:** Python, Scikit-learn, NumPy, Matplotlib, Seaborn
+- **Repository:** [GitHub - Genetic Syndrome Classification](https://github.com/henriquebap/Genetic_Syndrome_Classification_w_Embeddings_KNN)
+- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Genetic_Syndrome_Classification_w_Embeddings_KNN)
+
 
 ### 🥑 Avocado Price Analysis and Forecasting
 
