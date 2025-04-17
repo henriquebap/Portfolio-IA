@@ -17,6 +17,10 @@
     - [DQN - CartPole with OpenAI Gym](#-dqn---cartpole-with-openai-gym)
     - [Q-Learning - Mountain Car with OpenAI Gym](#-q-learning---mountain-car-with-openai-gym)
     - [Marine Garbage Detection with YOLOv9](#-marine-garbage-detection-with-yolov9)
+ 
+- [LLM Projects](#llm-projects)
+   - [Arnold - Personal Gym Fit](#-arnold-personal-gym-fit-ai-fitness-coach)
+  
 - [Contact](#-contact)
 
 ---
@@ -135,6 +139,19 @@ Developed a marine garbage detection model using YOLOv9. The model was optimized
 - **Technologies Used: Python, YOLOv9**
 - **Repository:** [GitHub - Sea Garbage Detection with YOLOv9](https://github.com/henriquebap/Blue-Clean-YoloV9/tree/main)
 - [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Blue-Clean-YoloV9/tree/main)
+
+---
+## LLM Projects
+
+### Arnold Personal Gym Fit – AI Fitness Coach
+
+Developing an AI personal trainer based on a local fine-tuned LLM. The goal is to create a highly personalized fitness assistant capable of helping individuals who don't know how to train effectively for specific goals or who don't have access to a personal trainer.
+Arnold will also support fitness professionals by assisting in the creation of customized workout plans for their clients across various fitness levels and disciplines.
+
+- **Technologies Used: Python, Ollama, Mistral-7b, LLM Fine-tuning**
+
+- **Repository:** [GitHub - Gym Fit Assistant](https://github.com/henriquebap/Arnold)
+- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Arnold)
 
 ---
 
