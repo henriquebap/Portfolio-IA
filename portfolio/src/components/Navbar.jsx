@@ -55,74 +55,79 @@ const Navbar = () => {
         maxW="7xl"
         mx="auto"
         px={{ base: 6, md: 12, lg: 20, xl: 24 }}
+        position="relative"
       >
+        {/* Desktop Navigation - Centered Absolutely (rendered first to be behind) */}
+        <Flex
+          display={{ base: 'none', md: 'flex' }}
+          gap={2}
+          position="absolute"
+          left="50%"
+          top="50%"
+          transform="translate(-50%, -50%)"
+          zIndex={1}
+        >
+          {navLinks.map((link) => (
+            <Button
+              key={link.name}
+              as="a"
+              href={link.href}
+              variant="ghost"
+              size="sm"
+              px={5}
+              py={2.5}
+              fontSize="sm"
+              fontWeight="medium"
+              color="gray.400"
+              borderRadius="xl"
+              bg="whiteAlpha.50"
+              backdropFilter="blur(10px)"
+              border="1px solid"
+              borderColor="whiteAlpha.100"
+              _hover={{
+                color: 'white',
+                bg: 'whiteAlpha.100',
+                borderColor: 'whiteAlpha.200',
+                transform: 'translateY(-1px)',
+              }}
+              transition="all 0.2s"
+            >
+              {link.name}
+            </Button>
+          ))}
+        </Flex>
+
         <Flex
           align="center"
           justify="space-between"
           position="relative"
+          zIndex={2}
         >
           {/* Logo */}
-          <Box flex="1">
-            <Button
-              as="a"
-              href="#"
-              variant="unstyled"
-              fontSize="2xl"
-              fontWeight="bold"
-              display="flex"
-              _hover={{ transform: 'scale(1.05)' }}
-              transition="transform 0.2s"
-            >
-              <Box
-                bgGradient="linear(to-r, brand.500, cyan.500)"
-                bgClip="text"
-              >
-                HB
-              </Box>
-              <Box color="whiteAlpha.800">.</Box>
-            </Button>
-          </Box>
-
-          {/* Desktop Navigation - Centered Absolutely */}
-          <Flex
-            display={{ base: 'none', md: 'flex' }}
-            gap={2}
-            position="absolute"
-            left="50%"
-            transform="translateX(-50%)"
+          <Button
+            as="a"
+            href="#"
+            variant="unstyled"
+            fontSize="2xl"
+            fontWeight="bold"
+            display="flex"
+            _hover={{ transform: 'scale(1.05)' }}
+            transition="transform 0.2s"
           >
-            {navLinks.map((link) => (
-              <Button
-                key={link.name}
-                as="a"
-                href={link.href}
-                variant="ghost"
-                size="sm"
-                px={5}
-                py={2.5}
-                fontSize="sm"
-                fontWeight="medium"
-                color="gray.400"
-                borderRadius="xl"
-                bg="whiteAlpha.50"
-                backdropFilter="blur(10px)"
-                border="1px solid"
-                borderColor="whiteAlpha.100"
-                _hover={{
-                  color: 'white',
-                  bg: 'whiteAlpha.100',
-                  borderColor: 'whiteAlpha.200',
-                  transform: 'translateY(-1px)',
-                }}
-                transition="all 0.2s"
-              >
-                {link.name}
-              </Button>
-            ))}
-          </Flex>
+            <Box
+              bgGradient="linear(to-r, brand.500, cyan.500)"
+              bgClip="text"
+            >
+              HB
+            </Box>
+            <Box color="whiteAlpha.800">.</Box>
+          </Button>
+
+          {/* Spacer for centered navigation */}
+          <Box display={{ base: 'none', md: 'block' }} />
 
           {/* Social Links - Desktop */}
-          <HStack flex="1" justify="flex-end" display={{ base: 'none', md: 'flex' }} spacing={3}>
+          <HStack display={{ base: 'none', md: 'flex' }} spacing={3}>
             <IconButton
               as="a"
               href={profile.contact.github}
@@ -172,25 +177,24 @@ const Navbar = () => {
           </HStack>
 
           {/* Mobile Menu Button */}
-          <Box flex="1" display={{ base: 'flex', md: 'none' }} justify="flex-end">
-            <IconButton
-              icon={<FiMenu size={22} />}
-              onClick={onOpen}
-              aria-label="Open menu"
-              variant="ghost"
-              size="md"
-              borderRadius="xl"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.100"
-              color="gray.400"
-              _hover={{
-                color: 'white',
-                bg: 'whiteAlpha.100',
-              }}
-            />
-          </Box>
+          <IconButton
+            display={{ base: 'flex', md: 'none' }}
+            icon={<FiMenu size={22} />}
+            onClick={onOpen}
+            aria-label="Open menu"
+            variant="ghost"
+            size="md"
+            borderRadius="xl"
+            bg="whiteAlpha.50"
+            backdropFilter="blur(10px)"
+            border="1px solid"
+            borderColor="whiteAlpha.100"
+            color="gray.400"
+            _hover={{
+              color: 'white',
+              bg: 'whiteAlpha.100',
+            }}
+          />
         </Flex>
       </Box>
 
