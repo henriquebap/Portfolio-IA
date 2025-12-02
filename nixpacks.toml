@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = ["cd portfolio && npm ci"]
+
+[phases.build]
+cmds = ["cd portfolio && npm run build"]
+
+[start]
+cmd = "cd portfolio && npm run start"
+
