@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-ia",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "cd portfolio && npm install",
+    "build": "cd portfolio && npm run build",
+    "start": "cd portfolio && npm run start",
+    "dev": "cd portfolio && npm run dev"
+  }
+}
+
