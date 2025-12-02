@@ -286,8 +286,7 @@ const ProjectCard = ({ project, featured = false }) => {
             w={11}
             h={11}
             borderRadius="xl"
-            bgGradient="linear(to-br, brand.500, cyan.500)"
-            bgOpacity={0.15}
+            bg="whiteAlpha.50"
             border="1px solid"
             borderColor="whiteAlpha.100"
             align="center"
