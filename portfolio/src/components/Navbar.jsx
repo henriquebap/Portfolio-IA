@@ -51,141 +51,148 @@ const Navbar = () => {
       transition="all 0.3s"
       boxShadow={scrolled ? '0 4px 24px rgba(0, 0, 0, 0.25)' : 'none'}
     >
-      <Flex
+      <Box
         maxW="7xl"
         mx="auto"
         px={{ base: 6, md: 12, lg: 20, xl: 24 }}
-        align="center"
-        justify="space-between"
-        gap={6}
       >
-        {/* Logo */}
-        <Button
-          as="a"
-          href="#"
-          variant="unstyled"
-          fontSize="2xl"
-          fontWeight="bold"
-          display="flex"
-          _hover={{ transform: 'scale(1.05)' }}
-          transition="transform 0.2s"
-        >
-          <Box
-            bgGradient="linear(to-r, brand.500, cyan.500)"
-            bgClip="text"
-          >
-            HB
-          </Box>
-          <Box color="whiteAlpha.800">.</Box>
-        </Button>
-
-        {/* Desktop Navigation */}
         <Flex
-          display={{ base: 'none', md: 'flex' }}
-          gap={2}
-          flex={1}
-          justify="center"
+          align="center"
+          justify="space-between"
+          position="relative"
         >
-          {navLinks.map((link) => (
+          {/* Logo */}
+          <Box flex="1">
             <Button
-              key={link.name}
               as="a"
-              href={link.href}
+              href="#"
+              variant="unstyled"
+              fontSize="2xl"
+              fontWeight="bold"
+              display="flex"
+              _hover={{ transform: 'scale(1.05)' }}
+              transition="transform 0.2s"
+            >
+              <Box
+                bgGradient="linear(to-r, brand.500, cyan.500)"
+                bgClip="text"
+              >
+                HB
+              </Box>
+              <Box color="whiteAlpha.800">.</Box>
+            </Button>
+          </Box>
+
+          {/* Desktop Navigation - Centered Absolutely */}
+          <Flex
+            display={{ base: 'none', md: 'flex' }}
+            gap={2}
+            position="absolute"
+            left="50%"
+            transform="translateX(-50%)"
+          >
+            {navLinks.map((link) => (
+              <Button
+                key={link.name}
+                as="a"
+                href={link.href}
+                variant="ghost"
+                size="sm"
+                px={5}
+                py={2.5}
+                fontSize="sm"
+                fontWeight="medium"
+                color="gray.400"
+                borderRadius="xl"
+                bg="whiteAlpha.50"
+                backdropFilter="blur(10px)"
+                border="1px solid"
+                borderColor="whiteAlpha.100"
+                _hover={{
+                  color: 'white',
+                  bg: 'whiteAlpha.100',
+                  borderColor: 'whiteAlpha.200',
+                  transform: 'translateY(-1px)',
+                }}
+                transition="all 0.2s"
+              >
+                {link.name}
+              </Button>
+            ))}
+          </Flex>
+
+          {/* Social Links - Desktop */}
+          <HStack flex="1" justify="flex-end" display={{ base: 'none', md: 'flex' }} spacing={3}>
+            <IconButton
+              as="a"
+              href={profile.contact.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              icon={<FiGithub size={20} />}
               variant="ghost"
-              size="sm"
-              px={5}
-              py={2.5}
-              fontSize="sm"
-              fontWeight="medium"
-              color="gray.400"
+              size="md"
               borderRadius="xl"
               bg="whiteAlpha.50"
               backdropFilter="blur(10px)"
               border="1px solid"
               borderColor="whiteAlpha.100"
+              color="gray.400"
               _hover={{
                 color: 'white',
                 bg: 'whiteAlpha.100',
                 borderColor: 'whiteAlpha.200',
-                transform: 'translateY(-1px)',
+                transform: 'translateY(-2px)',
               }}
               transition="all 0.2s"
-            >
-              {link.name}
-            </Button>
-          ))}
+            />
+            <IconButton
+              as="a"
+              href={profile.contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              icon={<FiLinkedin size={20} />}
+              variant="ghost"
+              size="md"
+              borderRadius="xl"
+              bg="whiteAlpha.50"
+              backdropFilter="blur(10px)"
+              border="1px solid"
+              borderColor="whiteAlpha.100"
+              color="gray.400"
+              _hover={{
+                color: 'white',
+                bg: 'whiteAlpha.100',
+                borderColor: 'whiteAlpha.200',
+                transform: 'translateY(-2px)',
+              }}
+              transition="all 0.2s"
+            />
+          </HStack>
+
+          {/* Mobile Menu Button */}
+          <Box flex="1" display={{ base: 'flex', md: 'none' }} justify="flex-end">
+            <IconButton
+              icon={<FiMenu size={22} />}
+              onClick={onOpen}
+              aria-label="Open menu"
+              variant="ghost"
+              size="md"
+              borderRadius="xl"
+              bg="whiteAlpha.50"
+              backdropFilter="blur(10px)"
+              border="1px solid"
+              borderColor="whiteAlpha.100"
+              color="gray.400"
+              _hover={{
+                color: 'white',
+                bg: 'whiteAlpha.100',
+              }}
+            />
+          </Box>
         </Flex>
-
-        {/* Social Links - Desktop */}
-        <HStack display={{ base: 'none', md: 'flex' }} spacing={3}>
-          <IconButton
-            as="a"
-            href={profile.contact.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            icon={<FiGithub size={20} />}
-            variant="ghost"
-            size="md"
-            borderRadius="xl"
-            bg="whiteAlpha.50"
-            backdropFilter="blur(10px)"
-            border="1px solid"
-            borderColor="whiteAlpha.100"
-            color="gray.400"
-            _hover={{
-              color: 'white',
-              bg: 'whiteAlpha.100',
-              borderColor: 'whiteAlpha.200',
-              transform: 'translateY(-2px)',
-            }}
-            transition="all 0.2s"
-          />
-          <IconButton
-            as="a"
-            href={profile.contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            icon={<FiLinkedin size={20} />}
-            variant="ghost"
-            size="md"
-            borderRadius="xl"
-            bg="whiteAlpha.50"
-            backdropFilter="blur(10px)"
-            border="1px solid"
-            borderColor="whiteAlpha.100"
-            color="gray.400"
-            _hover={{
-              color: 'white',
-              bg: 'whiteAlpha.100',
-              borderColor: 'whiteAlpha.200',
-              transform: 'translateY(-2px)',
-            }}
-            transition="all 0.2s"
-          />
-        </HStack>
-
-        {/* Mobile Menu Button */}
-        <IconButton
-          display={{ base: 'flex', md: 'none' }}
-          icon={<FiMenu size={22} />}
-          onClick={onOpen}
-          aria-label="Open menu"
-          variant="ghost"
-          size="md"
-          borderRadius="xl"
-          bg="whiteAlpha.50"
-          backdropFilter="blur(10px)"
-          border="1px solid"
-          borderColor="whiteAlpha.100"
-          color="gray.400"
-          _hover={{
-            color: 'white',
-            bg: 'whiteAlpha.100',
-          }}
-        />
-      </Flex>
+      </Box>
 
       {/* Mobile Drawer */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
