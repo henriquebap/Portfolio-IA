@@ -203,6 +203,16 @@ export const allProjects = {
       technologies: ['Python', 'FastAPI', 'MLflow', 'Docker', 'Streamlit'],
       repoUrl: 'https://github.com/henriquebap/wine-ml-app',
       icon: 'pipeline'
+    },
+    {
+      id: 'datathon-passos-magicos',
+      title: 'Datathon Passos Magicos',
+      description: 'XGBoost model predicting educational delay risk for an NGO. 92.59% accuracy, 97% AUC-ROC. FastAPI + Streamlit + Evidently AI drift monitoring, deployed on HuggingFace Spaces.',
+      technologies: ['XGBoost', 'FastAPI', 'Streamlit', 'Docker', 'Evidently AI'],
+      repoUrl: 'https://github.com/henriquebap/datathon-educacao-passos-magicos',
+      liveUrl: 'https://henriquebap-datathon-educacao-passos-magicos.hf.space',
+      highlight: 'PosTech Capstone',
+      icon: 'health'
     }
   ],
   dl: [
