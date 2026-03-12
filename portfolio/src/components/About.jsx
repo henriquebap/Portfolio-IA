@@ -22,8 +22,8 @@ const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const stats = [
-    { icon: FiCode, value: '15+', label: 'AI/ML Projects', color: 'purple.500' },
-    { icon: FiCpu, value: '3+', label: 'Years Experience', color: 'cyan.500' }
+    { icon: FiCode, value: '20+', label: 'AI/ML Projects', color: 'purple.500' },
+    { icon: FiCpu, value: '1+', label: 'Year Professional AI', color: 'cyan.500' }
   ];
 
   return (
@@ -88,8 +88,9 @@ const About = () => {
                 <CardBody p={{ base: 6, sm: 8 }}>
                   <VStack spacing={6} align="stretch">
                     <Text color="gray.200" fontSize={{ base: 'md', sm: 'lg' }} lineHeight="tall">
-                      AI Engineer passionate about building intelligent systems that solve real-world problems. 
-                      I specialize in end-to-end ML solutions, from research to production deployment.
+                      AI Engineer who builds and evaluates production AI systems across domains.
+                      I integrate LLM agents, voice AI, and computer vision into real products,
+                      and measure whether they actually work in production.
                     </Text>
                     
                     <Collapse in={isExpanded} animateOpacity>
@@ -147,10 +148,13 @@ const About = () => {
                     </Flex>
                     <VStack align="start" spacing={1}>
                       <Text color="gray.500" fontSize="xs" textTransform="uppercase" letterSpacing="wider">
-                        Currently Pursuing
+                        Education
                       </Text>
                       <Text color="white" fontWeight="medium" fontSize="sm">
                         {profile.education}
+                      </Text>
+                      <Text color="gray.400" fontSize="xs">
+                        {profile.educationBachelor}
                       </Text>
                     </VStack>
                   </HStack>
@@ -229,14 +233,14 @@ const About = () => {
             </Text>
             <Flex flexWrap="wrap" justify="center" gap={3}>
               {[
-                'End-to-End ML Pipelines',
-                'ASR/STT Optimization',
-                'Transformer Models',
+                'LLM Agents & Orchestration',
+                'AI Evaluation & QA',
+                'Voice AI (STT/ASR)',
+                'Data Curation & Fine-tuning',
                 'Computer Vision',
                 'RAG Systems',
-                'Agentic AI',
-                'MLOps & Deployment',
-                'Fine-tuning LLMs'
+                'Multi-Provider Architecture',
+                'Full-Stack AI Products'
               ].map((skill) => (
                 <Badge
                   key={skill}

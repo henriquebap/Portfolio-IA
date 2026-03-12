@@ -108,7 +108,15 @@ const Hero = () => {
             fontWeight="medium"
             color="gray.200"
           >
-            AI Engineer
+            {profile.title}
+          </Text>
+          <Text
+            fontSize={{ base: 'lg', sm: 'xl' }}
+            fontWeight="normal"
+            color="gray.400"
+            mt={-6}
+          >
+            {profile.subtitle}
           </Text>
 
           {/* Tagline */}

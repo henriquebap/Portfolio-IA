@@ -12,50 +12,38 @@ import {
   Icon,
   Flex,
 } from '@chakra-ui/react';
-import { FiCode, FiCpu, FiZap, FiPackage, FiDatabase, FiBarChart2 } from 'react-icons/fi';
+import { FiCpu, FiZap, FiPackage, FiBarChart2 } from 'react-icons/fi';
 import { skills } from '../data/projects';
 import { 
-  SiPython, SiJavascript, SiTypescript, SiPytorch, SiTensorflow, 
-  SiScikitlearn, SiKeras, SiDocker, SiFastapi, SiStreamlit,
-  SiOpenai, SiPandas, SiNumpy, SiPostgresql, SiSupabase
+  SiPython, SiTypescript, SiPytorch,
+  SiDocker, SiFastapi,
+  SiOpenai, SiPostgresql, SiSupabase
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 import { TbDatabase, TbBrain, TbChartBar } from 'react-icons/tb';
 
 const skillIcons = {
   'python': SiPython,
-  'javascript': SiJavascript,
   'typescript': SiTypescript,
   'database': TbDatabase,
   'pytorch': SiPytorch,
-  'tensorflow': SiTensorflow,
-  'scikitlearn': SiScikitlearn,
-  'keras': SiKeras,
   'huggingface': TbBrain,
   'openai': SiOpenai,
   'langchain': TbBrain,
-  'rag': TbBrain,
-  'ollama': TbBrain,
+  'brain': TbBrain,
   'docker': SiDocker,
-  'mlflow': TbChartBar,
   'fastapi': SiFastapi,
   'aws': FaAws,
-  'pandas': SiPandas,
-  'numpy': SiNumpy,
   'postgresql': SiPostgresql,
   'supabase': SiSupabase,
-  'matplotlib': TbChartBar,
-  'seaborn': TbChartBar,
-  'streamlit': SiStreamlit,
+  'chart': TbChartBar,
 };
 
 const categoryConfig = {
-  languages: { name: 'Languages', icon: FiCode, color: 'blue' },
-  mlFrameworks: { name: 'ML Frameworks', icon: FiCpu, color: 'purple' },
-  aiTools: { name: 'AI & LLM Tools', icon: FiZap, color: 'green' },
-  mlops: { name: 'MLOps & Deploy', icon: FiPackage, color: 'orange' },
-  data: { name: 'Data & Databases', icon: FiDatabase, color: 'cyan' },
-  visualization: { name: 'Visualization', icon: FiBarChart2, color: 'brand' }
+  llmAgents: { name: 'LLM & Agents', icon: FiZap, color: 'green' },
+  mlData: { name: 'ML & Data', icon: FiCpu, color: 'purple' },
+  infrastructure: { name: 'Infrastructure', icon: FiPackage, color: 'cyan' },
+  appliedDomains: { name: 'Applied Domains', icon: FiBarChart2, color: 'orange' }
 };
 
 const Skills = () => {
@@ -108,7 +96,7 @@ const Skills = () => {
           </VStack>
 
           {/* Skills Grid */}
-          <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={{ base: 5, sm: 6 }} w="full">
+          <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={{ base: 5, sm: 6 }} w="full">
             {Object.entries(skills).map(([category, skillList]) => {
               const config = categoryConfig[category];
               
@@ -219,7 +207,7 @@ const Skills = () => {
               Also experienced with
             </Text>
             <Flex flexWrap="wrap" justify="center" gap={2}>
-              {['Git', 'REST APIs', 'GraphQL', 'Jupyter', 'CI/CD', 'Nginx'].map((tool) => (
+              {['Git', 'CI/CD', 'REST APIs', 'Streamlit', 'Jupyter', 'MLflow'].map((tool) => (
                 <Badge
                   key={tool}
                   px={3}
