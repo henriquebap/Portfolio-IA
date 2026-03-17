@@ -9,7 +9,7 @@ import {
   IconButton,
   Badge,
 } from '@chakra-ui/react';
-import { FiArrowDown, FiGithub, FiLinkedin, FiMail, FiExternalLink } from 'react-icons/fi';
+import { FiArrowDown, FiGithub, FiLinkedin, FiMail, FiExternalLink, FiDownload } from 'react-icons/fi';
 import { profile } from '../data/projects';
 
 const Hero = () => {
@@ -148,6 +148,16 @@ const Hero = () => {
               leftIcon={<FiMail />}
             >
               Get in Touch
+            </Button>
+            <Button
+              as="a"
+              href="/cv-henrique-baptista.pdf"
+              download
+              variant="glass"
+              size="lg"
+              leftIcon={<FiDownload />}
+            >
+              Download CV
             </Button>
           </HStack>
 

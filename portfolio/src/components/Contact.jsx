@@ -13,7 +13,7 @@ import {
   Icon,
   Flex,
 } from '@chakra-ui/react';
-import { FiGithub, FiLinkedin, FiMail, FiSend, FiMapPin } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiSend, FiMapPin, FiDownload } from 'react-icons/fi';
 import { profile } from '../data/projects';
 
 const Contact = () => {
@@ -38,6 +38,14 @@ const Contact = () => {
       icon: FiMail,
       color: 'green',
       description: profile.contact.email
+    },
+    {
+      name: 'Download CV',
+      url: '/cv-henrique-baptista.pdf',
+      icon: FiDownload,
+      color: 'purple',
+      description: 'Latest resume (PDF)',
+      download: true
     }
   ];
 
@@ -147,14 +155,15 @@ const Contact = () => {
                 </HStack>
 
                 {/* Social Links Grid */}
-                <SimpleGrid columns={{ base: 1, sm: 3 }} spacing={{ base: 4, sm: 5 }} w="full">
+                <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={{ base: 4, sm: 5 }} w="full">
                   {socialLinks.map((link) => (
                     <Button
                       key={link.name}
                       as="a"
                       href={link.url}
-                      target={link.name !== 'Email' ? '_blank' : undefined}
-                      rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
+                      target={!link.download && link.name !== 'Email' ? '_blank' : undefined}
+                      rel={!link.download && link.name !== 'Email' ? 'noopener noreferrer' : undefined}
+                      download={link.download || undefined}
                       h="auto"
                       p={6}
                       flexDir="column"
