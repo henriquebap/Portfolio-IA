@@ -40,11 +40,11 @@ const Contact = () => {
       description: profile.contact.email
     },
     {
-      name: 'Download CV',
+      name: 'Resume',
       url: '/cv-henrique-baptista.pdf',
       icon: FiDownload,
       color: 'purple',
-      description: 'Latest resume (PDF)',
+      description: 'Download CV (PDF)',
       download: true
     }
   ];
@@ -83,7 +83,7 @@ const Contact = () => {
         />
       </Box>
       
-      <Container maxW="3xl" px={{ base: 6, md: 10, lg: 16 }} position="relative">
+      <Container maxW="4xl" px={{ base: 6, md: 10, lg: 16 }} position="relative">
         <VStack spacing={12}>
           {/* Section Header */}
           <VStack spacing={4} textAlign="center">
@@ -181,11 +181,11 @@ const Contact = () => {
                       transition="all 0.3s"
                     >
                       <Icon as={link.icon} w={7} h={7} color="gray.400" />
-                      <VStack spacing={1} w="full" overflow="hidden">
-                        <Heading as="h3" size="sm" color="white">
+                      <VStack spacing={1} w="full">
+                        <Heading as="h3" size="sm" color="white" textAlign="center">
                           {link.name}
                         </Heading>
-                        <Text fontSize="xs" color="gray.600" noOfLines={1} w="full" textAlign="center">
+                        <Text fontSize="xs" color="gray.600" textAlign="center" wordBreak="break-word">
                           {link.description}
                         </Text>
                       </VStack>
