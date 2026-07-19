@@ -6,7 +6,6 @@ import {
   Text,
   Button,
   HStack,
-  Badge,
   SimpleGrid,
   Card,
   CardBody,
@@ -57,80 +56,34 @@ const Contact = () => {
       position="relative"
       overflow="hidden"
     >
-      {/* Background accents */}
-      <Box position="absolute" inset={0} overflow="hidden" pointerEvents="none">
-        <Box
-          position="absolute"
-          w="500px"
-          h="500px"
-          bottom="-200px"
-          right="-200px"
-          borderRadius="full"
-          bgGradient="radial(circle, purple.500 0%, purple.700 100%)"
-          filter="blur(100px)"
-          opacity={0.1}
-        />
-        <Box
-          position="absolute"
-          w="400px"
-          h="400px"
-          bottom="-150px"
-          left="10%"
-          borderRadius="full"
-          bgGradient="radial(circle, cyan.500 0%, cyan.700 100%)"
-          filter="blur(100px)"
-          opacity={0.08}
-        />
-      </Box>
-      
-      <Container maxW="4xl" px={{ base: 6, md: 10, lg: 16 }} position="relative">
+      <Container maxW="6xl" px={{ base: 6, md: 10, lg: 16 }} position="relative">
         <VStack spacing={12}>
           {/* Section Header */}
           <VStack spacing={4} textAlign="center">
-            <Badge
-              px={4}
-              py={2}
-              borderRadius="full"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.100"
-              color="gray.400"
-              textTransform="uppercase"
-              letterSpacing="wider"
-              fontSize="xs"
-            >
-              Get in Touch
-            </Badge>
+            <Text className="section-index">05 / CONTACT</Text>
             <Heading
               as="h2"
               fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}
               fontWeight="bold"
               color="white"
+              letterSpacing="-0.045em"
             >
-              Let's Build Something{' '}
-              <Box
-                as="span"
-                bgGradient="linear(to-r, purple.500, cyan.500)"
-                bgClip="text"
-              >
-                Amazing
-              </Box>
+              Build something that
+              <Box as="span" display="block" color="brand.300">has to work.</Box>
             </Heading>
             <Text color="gray.400" maxW="lg">
-              I'm always open to discussing new projects, creative ideas, 
-              or opportunities to be part of your vision.
+              Open to AI Engineer opportunities and conversations about reliable,
+              production-grade AI systems.
             </Text>
           </VStack>
 
           {/* Contact Card */}
           <Card
             w="full"
-            bg="whiteAlpha.50"
-            backdropFilter="blur(20px) saturate(180%)"
+            bg="#07101d"
             border="1px solid"
             borderColor="whiteAlpha.100"
-            borderRadius="3xl"
+            borderRadius="4px"
             overflow="hidden"
           >
             <CardBody p={{ base: 6, sm: 8, md: 10 }}>
@@ -168,11 +121,10 @@ const Contact = () => {
                       p={6}
                       flexDir="column"
                       gap={4}
-                      bg="whiteAlpha.50"
-                      backdropFilter="blur(10px)"
+                      bg="transparent"
                       border="1px solid"
                       borderColor="whiteAlpha.100"
-                      borderRadius="xl"
+                      borderRadius="2px"
                       _hover={{
                         transform: 'translateY(-4px)',
                         borderColor: `${link.color}.500`,

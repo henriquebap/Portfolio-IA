@@ -15,6 +15,7 @@ import {
   Flex,
   Tag,
   Box,
+  SimpleGrid,
 } from '@chakra-ui/react';
 import { FiExternalLink, FiGithub, FiLock } from 'react-icons/fi';
 import { 
@@ -58,11 +59,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
     <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
       <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.600" />
       <ModalContent
-        bg="gray.900"
-        backdropFilter="blur(20px) saturate(180%)"
+        bg="#08111f"
         border="1px solid"
-        borderColor="whiteAlpha.100"
-        borderRadius="2xl"
+        borderColor="whiteAlpha.200"
+        borderRadius="4px"
         mx={4}
       >
         <ModalHeader
@@ -109,9 +109,20 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
             )}
 
             {/* Full Description */}
-            <Text color="gray.300" fontSize="sm" lineHeight="tall">
+            <Text color="gray.300" fontSize="md" lineHeight="1.8">
               {project.fullDescription || project.description}
             </Text>
+
+            {project.metrics && (
+              <SimpleGrid columns={{ base: 1, sm: 3 }} borderTop="1px solid" borderLeft="1px solid" borderColor="whiteAlpha.100">
+                {project.metrics.map((metric) => (
+                  <Box key={metric.label} p={4} borderRight="1px solid" borderBottom="1px solid" borderColor="whiteAlpha.100">
+                    <Heading as="p" size="md" mb={1}>{metric.value}</Heading>
+                    <Text className="mono-label">{metric.label}</Text>
+                  </Box>
+                ))}
+              </SimpleGrid>
+            )}
 
             {/* Highlights */}
             {project.highlights && (
@@ -127,11 +138,11 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                       py={1}
                       borderRadius="lg"
                       fontSize="xs"
-                      bg="purple.500"
+                      bg="brand.500"
                       bgOpacity={0.1}
-                      color="purple.400"
+                      color="brand.300"
                       border="1px solid"
-                      borderColor="purple.500"
+                      borderColor="brand.500"
                       borderOpacity={0.2}
                     >
                       {highlight}
@@ -153,12 +164,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                     <Tag
                       key={tech}
                       size="md"
-                      bg="cyan.900"
-                      bgOpacity={0.3}
-                      color="cyan.400"
+                      bg="whiteAlpha.50"
+                      color="gray.300"
                       border="1px solid"
-                      borderColor="cyan.500"
-                      borderOpacity={0.3}
+                      borderColor="whiteAlpha.100"
                     >
                       {TechIcon && <Icon as={TechIcon} mr={2} />}
                       {tech}

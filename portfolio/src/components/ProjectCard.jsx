@@ -1,356 +1,146 @@
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Box,
-  Heading,
-  Text,
-  HStack,
-  VStack,
-  Tag,
-  Button,
-  Icon,
   Badge,
-  Flex,
+  Box,
+  Button,
+  Grid,
+  Heading,
+  HStack,
+  Icon,
+  SimpleGrid,
+  Tag,
+  Text,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
-import ProjectModal from './ProjectModal';
-import { FiExternalLink, FiGithub, FiLock } from 'react-icons/fi';
-import { 
-  SiPython, SiPytorch, SiTensorflow, SiScikitlearn, SiDocker, 
-  SiFastapi, SiStreamlit, SiOpenai, SiPostgresql, SiSupabase,
-  SiNumpy, SiPandas, SiKeras
-} from 'react-icons/si';
-import { FaAws } from 'react-icons/fa';
-import { 
-  TbBrain, TbMicrophone, TbChartLine, TbDna, 
-  TbPlane, TbUsers, TbTrendingUp, TbWallet, TbFlask,
-  TbHeartbeat, TbBike, TbFish, TbBarbell, TbRobot, TbCar,
-  TbRecycle, TbSteeringWheel, TbUser
+import { FiArrowUpRight, FiGithub, FiLock } from 'react-icons/fi';
+import {
+  TbBike,
+  TbChartLine,
+  TbHeartbeat,
+  TbMicrophone,
+  TbSparkles,
 } from 'react-icons/tb';
-
-const techIcons = {
-  'Python': SiPython,
-  'PyTorch': SiPytorch,
-  'TensorFlow': SiTensorflow,
-  'Scikit-learn': SiScikitlearn,
-  'Docker': SiDocker,
-  'FastAPI': SiFastapi,
-  'Streamlit': SiStreamlit,
-  'OpenAI': SiOpenai,
-  'PostgreSQL': SiPostgresql,
-  'Supabase': SiSupabase,
-  'NumPy': SiNumpy,
-  'Pandas': SiPandas,
-  'Keras': SiKeras,
-  'AWS': FaAws,
-};
+import ProjectModal from './ProjectModal';
 
 const projectIcons = {
-  'transcription': TbMicrophone,
-  'pipeline': TbFlask,
-  'stock': TbChartLine,
-  'medical': TbHeartbeat,
-  'dna': TbDna,
-  'chart': TbChartLine,
-  'plane': TbPlane,
-  'users': TbUsers,
-  'trending': TbTrendingUp,
-  'wallet': TbWallet,
-  'health': TbHeartbeat,
-  'bike': TbBike,
-  'fish': TbFish,
-  'fitness': TbBarbell,
-  'robot': TbRobot,
-  'car': TbCar,
-  'recycle': TbRecycle,
-  'racing': TbSteeringWheel,
-  'coach': TbUser,
-  'default': TbBrain,
+  transcription: TbMicrophone,
+  medical: TbHeartbeat,
+  health: TbSparkles,
+  stock: TbChartLine,
+  bike: TbBike,
 };
 
-const ProjectCard = ({ project, featured = false }) => {
-  const IconComponent = projectIcons[project.icon] || projectIcons.default;
+const accentBackgrounds = {
+  amber: 'rgba(180, 83, 9, .16)',
+  blue: 'rgba(37, 99, 235, .16)',
+  cyan: 'rgba(8, 145, 178, .16)',
+  green: 'rgba(5, 150, 105, .16)',
+  purple: 'rgba(126, 34, 206, .16)',
+};
+
+const ProjectCard = ({ project }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const ProjectIcon = projectIcons[project.icon] || TbSparkles;
+  const accent = project.accent || 'blue';
 
-  if (featured) {
-    return (
-      <>
-      <Card
-        onClick={onOpen}
-        cursor="pointer"
-        bg="whiteAlpha.50"
-        backdropFilter="blur(20px) saturate(180%)"
-        border="1px solid"
-        borderColor="whiteAlpha.100"
-        borderRadius="2xl"
-        overflow="hidden"
-        transition="all 0.3s"
-        _hover={{
-          transform: 'translateY(-4px)',
-          borderColor: 'brand.500',
-          boxShadow: '0 8px 32px rgba(14, 165, 233, 0.15)',
-        }}
-      >
-        <CardHeader
-          position="relative"
-          h="180px"
-          bgGradient="linear(to-br, brand.900, cyan.900)"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Box
-            position="absolute"
-            inset={0}
-            bgImage="linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)"
-            bgSize="24px 24px"
-          />
-          
-          <Flex
-            w={20}
-            h={20}
-            borderRadius="2xl"
-            bg="whiteAlpha.100"
-            backdropFilter="blur(10px)"
-            border="1px solid"
-            borderColor="whiteAlpha.200"
-            align="center"
-            justify="center"
-            position="relative"
-            zIndex={1}
-          >
-            <Icon as={IconComponent} w={10} h={10} color="whiteAlpha.800" />
-          </Flex>
-          
-          {project.status && (
-            <Badge
-              position="absolute"
-              top={4}
-              right={4}
-              px={3}
-              py={1.5}
-              borderRadius="lg"
-              fontSize="xs"
-              fontWeight="medium"
-              bg="brand.500"
-              color="white"
-              opacity={0.9}
-            >
-              {project.status}
-            </Badge>
-          )}
-        </CardHeader>
-
-        <CardBody p={{ base: 5, sm: 6 }}>
-          <VStack align="stretch" spacing={4}>
-            <Heading
-              as="h3"
-              size="md"
-              color="white"
-              _groupHover={{ color: 'brand.400' }}
-              transition="color 0.2s"
-              noOfLines={1}
-            >
-              {project.title}
-            </Heading>
-
-            {project.role && (
-              <Badge
-                variant="glass"
-                color="cyan.400"
-                borderColor="cyan.500"
-                alignSelf="flex-start"
-              >
-                {project.role}
-              </Badge>
-            )}
-
-            <Text color="gray.400" fontSize="sm" noOfLines={2}>
-              {project.fullDescription || project.description}
-            </Text>
-
-            {project.highlights && (
-              <Flex flexWrap="wrap" gap={2}>
-                {project.highlights.slice(0, 3).map((highlight, idx) => (
-                  <Badge
-                    key={idx}
-                    variant="glass"
-                    color="purple.400"
-                    borderColor="purple.500"
-                    fontSize="xs"
-                  >
-                    {highlight}
-                  </Badge>
-                ))}
-              </Flex>
-            )}
-
-            <Flex flexWrap="wrap" gap={2}>
-              {project.technologies.slice(0, 4).map((tech) => {
-                const TechIcon = techIcons[tech];
-                return (
-                  <Tag
-                    key={tech}
-                    size="sm"
-                    bg="cyan.900"
-                    bgOpacity={0.3}
-                    color="cyan.400"
-                    border="1px solid"
-                    borderColor="cyan.500"
-                    borderOpacity={0.3}
-                  >
-                    {TechIcon && <Icon as={TechIcon} mr={1} />}
-                    {tech}
-                  </Tag>
-                );
-              })}
-            </Flex>
-          </VStack>
-        </CardBody>
-
-        <CardFooter pt={0} pb={6} px={{ base: 5, sm: 6 }} borderTop="1px solid" borderColor="whiteAlpha.100">
-          <HStack spacing={3}>
-            {project.liveUrl && (
-              <Button
-                as="a"
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-                size="sm"
-                leftIcon={<FiExternalLink />}
-                onClick={(e) => e.stopPropagation()}
-              >
-                Live Demo
-              </Button>
-            )}
-            {project.repoUrl && (
-              <Button
-                as="a"
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="glass"
-                size="sm"
-                leftIcon={<FiGithub />}
-                onClick={(e) => e.stopPropagation()}
-              >
-                Code
-              </Button>
-            )}
-            {!project.liveUrl && !project.repoUrl && (
-              <Button
-                variant="ghost"
-                size="sm"
-                leftIcon={<FiLock />}
-                color="gray.600"
-                cursor="default"
-                _hover={{}}
-              >
-                Private
-              </Button>
-            )}
-          </HStack>
-        </CardFooter>
-      </Card>
-      <ProjectModal isOpen={isOpen} onClose={onClose} project={project} />
-      </>
-    );
-  }
-
-  // Small Card for Grid
   return (
     <>
-    <Card
-      p={5}
-      h="full"
-      bg="whiteAlpha.50"
-      backdropFilter="blur(20px) saturate(180%)"
-      border="1px solid"
-      borderColor="whiteAlpha.100"
-      borderRadius="xl"
-      transition="all 0.3s"
-      cursor="pointer"
-      onClick={onOpen}
-      _hover={{
-        transform: 'translateY(-2px)',
-        borderColor: 'brand.500',
-        boxShadow: '0 4px 16px rgba(14, 165, 233, 0.1)',
-      }}
-    >
-      <VStack align="stretch" spacing={4} h="full">
-        <HStack spacing={4}>
-          <Flex
-            w={11}
-            h={11}
-            borderRadius="xl"
-            bg="whiteAlpha.50"
-            border="1px solid"
-            borderColor="whiteAlpha.100"
-            align="center"
-            justify="center"
-            flexShrink={0}
-          >
-            <Icon as={IconComponent} w={5} h={5} color="brand.400" />
-          </Flex>
-          <VStack align="start" spacing={1} flex={1} minW={0}>
-            <Heading
-              as="h3"
-              size="sm"
-              color="white"
-              _groupHover={{ color: 'brand.400' }}
-              transition="color 0.2s"
-              noOfLines={1}
-            >
-              {project.title}
-            </Heading>
-            {project.highlight && (
-              <Badge
-                fontSize="xs"
-                px={2}
-                py={0.5}
-                borderRadius="md"
-                bg="amber.500"
-                bgOpacity={0.1}
-                color="amber.400"
-                border="1px solid"
-                borderColor="amber.500"
-                borderOpacity={0.2}
-              >
-                {project.highlight}
-              </Badge>
-            )}
-          </VStack>
-        </HStack>
-
-        <Text color="gray.400" fontSize="sm" flex={1} noOfLines={2}>
-          {project.description}
-        </Text>
-
-        <Flex flexWrap="wrap" gap={1.5}>
-          {project.technologies.slice(0, 3).map((tech) => (
-            <Tag
-              key={tech}
-              size="sm"
-              bg="whiteAlpha.50"
+      <Box
+        as="article"
+        className="case-study"
+      >
+        <Grid
+          templateColumns={{ base: '1fr', xl: '86px minmax(0, 1.4fr) minmax(300px, .85fr)' }}
+          gap={{ base: 6, xl: 10 }}
+          alignItems="stretch"
+        >
+          <VStack align={{ base: 'start', xl: 'center' }} justify="space-between">
+            <Text className="case-index">{project.index}</Text>
+            <Box
+              display="grid"
+              placeItems="center"
+              w="48px"
+              h="48px"
               border="1px solid"
-              borderColor="whiteAlpha.100"
-              color="gray.500"
-              fontSize="xs"
+              borderColor={`${accent}.700`}
+              color={`${accent}.300`}
+              bg={accentBackgrounds[accent] || accentBackgrounds.blue}
             >
-              {tech}
-            </Tag>
-          ))}
-        </Flex>
+              <Icon as={ProjectIcon} boxSize={5} />
+            </Box>
+          </VStack>
 
-        <Text fontSize="xs" color="gray.500" pt={4} borderTop="1px solid" borderColor="whiteAlpha.50">
-          Click to view details
-        </Text>
-      </VStack>
-    </Card>
-    <ProjectModal isOpen={isOpen} onClose={onClose} project={project} />
+          <VStack align="stretch" spacing={5}>
+            <HStack spacing={3} flexWrap="wrap">
+              <Text className="mono-label" color={`${accent}.300`}>{project.eyebrow}</Text>
+              <Badge variant="quiet">{project.status}</Badge>
+            </HStack>
+            <Box>
+              <Heading as="h3" fontSize={{ base: '2xl', md: '3xl' }} letterSpacing="-0.04em" mb={3}>
+                {project.title}
+              </Heading>
+              <Text color="gray.500" fontSize="sm" mb={5}>{project.role}</Text>
+              <Text color="gray.300" fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.75" maxW="680px">
+                {project.shortDescription}
+              </Text>
+            </Box>
+            <HStack spacing={2} flexWrap="wrap">
+              {project.technologies.slice(0, 5).map((technology) => (
+                <Tag key={technology} variant="technical">{technology}</Tag>
+              ))}
+            </HStack>
+          </VStack>
+
+          <VStack align="stretch" justify="space-between" spacing={7}>
+            <SimpleGrid columns={3} borderTop="1px solid" borderLeft="1px solid" borderColor="whiteAlpha.100">
+              {project.metrics?.map((metric) => (
+                <Box key={metric.label} p={4} borderRight="1px solid" borderBottom="1px solid" borderColor="whiteAlpha.100">
+                  <Heading as="p" size="sm" color="white" mb={2}>{metric.value}</Heading>
+                  <Text color="gray.600" fontSize="10px" lineHeight="1.4">{metric.label}</Text>
+                </Box>
+              ))}
+            </SimpleGrid>
+
+            <HStack spacing={3} flexWrap="wrap">
+              <Button onClick={onOpen} variant="textLink" rightIcon={<FiArrowUpRight />}>
+                Read system notes
+              </Button>
+              {project.liveUrl && (
+                <Button
+                  as="a"
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="iconLink"
+                  aria-label={`Open ${project.title} live`}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <FiArrowUpRight />
+                </Button>
+              )}
+              {project.repoUrl && (
+                <Button
+                  as="a"
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="iconLink"
+                  aria-label={`Open ${project.title} repository`}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <FiGithub />
+                </Button>
+              )}
+              {!project.liveUrl && !project.repoUrl && (
+                <Box color="gray.700" aria-label="Private system">
+                  <FiLock />
+                </Box>
+              )}
+            </HStack>
+          </VStack>
+        </Grid>
+      </Box>
+      <ProjectModal isOpen={isOpen} onClose={onClose} project={project} />
     </>
   );
 };

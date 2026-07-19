@@ -1,159 +1,79 @@
 import {
-  Box,
-  Container,
-  VStack,
-  Heading,
-  Text,
-  Button,
-  HStack,
-  IconButton,
   Badge,
+  Box,
+  Button,
+  Container,
+  Grid,
+  Heading,
+  HStack,
+  Icon,
+  SimpleGrid,
+  Text,
+  VStack,
 } from '@chakra-ui/react';
-import { FiArrowDown, FiGithub, FiLinkedin, FiMail, FiExternalLink, FiDownload } from 'react-icons/fi';
-import { profile } from '../data/projects';
+import {
+  FiArrowDownRight,
+  FiDownload,
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+} from 'react-icons/fi';
+import { profile, proofPoints } from '../data/projects';
 
-const Hero = () => {
-  return (
-    <Box
-      as="section"
-      position="relative"
-      minH="100vh"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      overflow="hidden"
-      bg="#030712"
-    >
-      {/* Simple Background Orbs */}
-      <Box position="absolute" inset={0} overflow="hidden" pointerEvents="none">
-        <Box
-          position="absolute"
-          w="500px"
-          h="500px"
-          top="-200px"
-          left="-200px"
-          borderRadius="full"
-          bgGradient="radial(circle, brand.500 0%, brand.700 100%)"
-          filter="blur(100px)"
-          opacity={0.15}
-        />
-        <Box
-          position="absolute"
-          w="400px"
-          h="400px"
-          top="50%"
-          right="-150px"
-          borderRadius="full"
-          bgGradient="radial(circle, cyan.500 0%, cyan.700 100%)"
-          filter="blur(100px)"
-          opacity={0.15}
-        />
-        <Box
-          position="absolute"
-          w="350px"
-          h="350px"
-          bottom="-100px"
-          left="25%"
-          borderRadius="full"
-          bgGradient="radial(circle, purple.500 0%, purple.700 100%)"
-          filter="blur(100px)"
-          opacity={0.15}
-        />
-      </Box>
+const Hero = () => (
+  <Box
+    as="section"
+    id="top"
+    minH="100svh"
+    display="flex"
+    alignItems="center"
+    position="relative"
+    overflow="hidden"
+    borderBottom="1px solid"
+    borderColor="whiteAlpha.100"
+  >
+    <Box className="hero-grid" position="absolute" inset={0} pointerEvents="none" />
+    <Box className="hero-glow" position="absolute" pointerEvents="none" />
 
-      <Container maxW="4xl" px={6} py={20} position="relative">
-        <VStack spacing={10} textAlign="center">
-          {/* Status Badge */}
-          <Badge
-            display="inline-flex"
-            alignItems="center"
-            gap={2}
-            px={4}
-            py={2}
-            fontSize="sm"
-            fontWeight="500"
-            bg="whiteAlpha.50"
-            backdropFilter="blur(10px)"
-            border="1px solid"
-            borderColor="brand.500"
-            borderRadius="full"
-            color="brand.400"
-          >
-            <Box w={2} h={2} bg="brand.400" borderRadius="full" animation="pulse 2s ease-in-out infinite" />
-            Available for new opportunities
-          </Badge>
+    <Container maxW="7xl" px={{ base: 6, md: 10, lg: 16 }} py={{ base: 28, lg: 32 }} position="relative">
+      <Grid templateColumns={{ base: '1fr', lg: 'minmax(0, 1.25fr) minmax(340px, .75fr)' }} gap={{ base: 14, lg: 20 }} alignItems="center">
+        <VStack align="stretch" spacing={8}>
+          <HStack spacing={3} flexWrap="wrap">
+            <Badge variant="signal">AVAILABLE FOR OPPORTUNITIES</Badge>
+            <Text className="mono-label">SÃO PAULO · REMOTE</Text>
+          </HStack>
 
-          {/* Name */}
-          <Heading
-            as="h1"
-            fontSize={{ base: '5xl', sm: '6xl', md: '7xl', lg: '8xl' }}
-            fontWeight="bold"
-            letterSpacing="tight"
-            lineHeight="1.1"
-          >
-            <Box as="span" color="white">{profile.name.split(' ')[0]}</Box>
-            <br />
-            <Box
-              as="span"
-              bgGradient="linear(to-r, brand.500, cyan.500)"
-              bgClip="text"
+          <Box>
+            <Text className="mono-label" mb={5}>
+              HENRIQUE BAPTISTA / {profile.title.toUpperCase()}
+            </Text>
+            <Heading
+              as="h1"
+              fontSize={{ base: '4xl', sm: '5xl', md: '6xl', lg: '7xl' }}
+              lineHeight={{ base: 1.04, md: 0.98 }}
+              letterSpacing="-0.055em"
+              maxW="900px"
             >
-              {profile.name.split(' ')[1]}
-            </Box>
-          </Heading>
+              Reliable AI,
+              <Box as="span" display="block" color="brand.300">
+                built for the real world.
+              </Box>
+            </Heading>
+          </Box>
 
-          {/* Title */}
-          <Text
-            fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
-            fontWeight="medium"
-            color="gray.200"
-          >
-            {profile.title}
-          </Text>
-          <Text
-            fontSize={{ base: 'lg', sm: 'xl' }}
-            fontWeight="normal"
-            color="gray.400"
-            mt={-6}
-          >
-            {profile.subtitle}
-          </Text>
-
-          {/* Tagline */}
-          <Text
-            fontSize={{ base: 'lg', sm: 'xl' }}
-            color="gray.400"
-            maxW="2xl"
-            lineHeight="relaxed"
-          >
+          <Text fontSize={{ base: 'lg', md: 'xl' }} lineHeight="1.8" color="gray.300" maxW="720px">
             {profile.tagline}
           </Text>
 
-          {/* CTA Buttons */}
-          <HStack spacing={6} flexWrap="wrap" justify="center">
-            <Button
-              as="a"
-              href="#featured"
-              variant="primary"
-              size="lg"
-              leftIcon={<FiExternalLink />}
-            >
-              View My Work
-            </Button>
-            <Button
-              as="a"
-              href="#contact"
-              variant="glass"
-              size="lg"
-              leftIcon={<FiMail />}
-            >
-              Get in Touch
+          <HStack spacing={4} flexWrap="wrap">
+            <Button as="a" href="#work" variant="primary" size="lg" rightIcon={<FiArrowDownRight />}>
+              Explore selected work
             </Button>
             <Button
               as="a"
               href="/cv-henrique-baptista.pdf"
               download
-              variant="glass"
+              variant="outlineSignal"
               size="lg"
               leftIcon={<FiDownload />}
             >
@@ -161,111 +81,89 @@ const Hero = () => {
             </Button>
           </HStack>
 
-          {/* Social Links */}
-          <HStack spacing={4} pt={8}>
-            <IconButton
-              as="a"
-              href={profile.contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              icon={<FiGithub size={24} />}
-              variant="ghost"
-              size="lg"
-              w={14}
-              h={14}
-              borderRadius="xl"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.100"
-              color="gray.400"
-              _hover={{
-                color: 'white',
-                borderColor: 'brand.500',
-                bg: 'brand.500',
-                bgOpacity: 0.1,
-                transform: 'translateY(-2px)',
-              }}
-              transition="all 0.2s"
-            />
-            <IconButton
-              as="a"
-              href={profile.contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              icon={<FiLinkedin size={24} />}
-              variant="ghost"
-              size="lg"
-              w={14}
-              h={14}
-              borderRadius="xl"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.100"
-              color="gray.400"
-              _hover={{
-                color: 'white',
-                borderColor: 'brand.500',
-                bg: 'brand.500',
-                bgOpacity: 0.1,
-                transform: 'translateY(-2px)',
-              }}
-              transition="all 0.2s"
-            />
-            <IconButton
-              as="a"
-              href={`mailto:${profile.contact.email}`}
-              aria-label="Email"
-              icon={<FiMail size={24} />}
-              variant="ghost"
-              size="lg"
-              w={14}
-              h={14}
-              borderRadius="xl"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.100"
-              color="gray.400"
-              _hover={{
-                color: 'white',
-                borderColor: 'brand.500',
-                bg: 'brand.500',
-                bgOpacity: 0.1,
-                transform: 'translateY(-2px)',
-              }}
-              transition="all 0.2s"
-            />
+          <HStack spacing={5} pt={2} flexWrap="wrap">
+            {[
+              { label: 'GitHub', href: profile.contact.github, icon: FiGithub },
+              { label: 'LinkedIn', href: profile.contact.linkedin, icon: FiLinkedin },
+              { label: 'Email', href: `mailto:${profile.contact.email}`, icon: FiMail },
+            ].map((link) => (
+              <Box
+                as="a"
+                key={link.label}
+                href={link.href}
+                target={link.label === 'Email' ? undefined : '_blank'}
+                rel={link.label === 'Email' ? undefined : 'noopener noreferrer'}
+                display="inline-flex"
+                alignItems="center"
+                gap={2}
+                color="gray.400"
+                fontSize="sm"
+                _hover={{ color: 'white' }}
+                transition="color .2s ease"
+              >
+                <Icon as={link.icon} />
+                {link.label}
+              </Box>
+            ))}
           </HStack>
         </VStack>
-      </Container>
 
-      {/* Scroll Indicator */}
-      <Box
-        as="a"
-        href="#about"
-        position="absolute"
-        bottom={6}
-        left="50%"
-        transform="translateX(-50%)"
-        display="flex"
-        flexDir="column"
-        alignItems="center"
-        color="gray.600"
-        _hover={{ color: 'gray.400' }}
-        transition="color 0.2s"
-        animation="bounce 2s ease-in-out infinite"
-      >
-        <Text fontSize="xs" fontWeight="medium" textTransform="uppercase" letterSpacing="wider" mb={2}>
-          Scroll
-        </Text>
-        <FiArrowDown size={16} />
-      </Box>
+        <Box className="signal-panel">
+          <HStack justify="space-between" mb={8}>
+            <Text className="mono-label" color="brand.300">
+              PRODUCTION SIGNALS
+            </Text>
+            <HStack spacing={2}>
+              <Box w="7px" h="7px" borderRadius="full" bg="green.300" boxShadow="0 0 14px rgba(110, 231, 183, .8)" />
+              <Text className="mono-label">ONLINE</Text>
+            </HStack>
+          </HStack>
+
+          <SimpleGrid columns={2} spacing={0} borderTop="1px solid" borderLeft="1px solid" borderColor="whiteAlpha.100">
+            {proofPoints.map((point) => (
+              <Box key={point.label} p={{ base: 5, md: 6 }} borderRight="1px solid" borderBottom="1px solid" borderColor="whiteAlpha.100">
+                <Heading size="lg" color="white" mb={2} letterSpacing="-0.04em">
+                  {point.value}
+                </Heading>
+                <Text color="gray.500" fontSize="xs" lineHeight="1.6">
+                  {point.label}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+
+          <VStack align="stretch" spacing={0} mt={8}>
+            {[
+              ['QUALITY', 'Evals · failure analysis · QA'],
+              ['SYSTEMS', 'Python · APIs · data pipelines'],
+              ['DELIVERY', 'Docker · cloud · user-facing product'],
+            ].map(([label, value]) => (
+              <Grid key={label} templateColumns="90px 1fr" py={4} borderBottom="1px solid" borderColor="whiteAlpha.100">
+                <Text className="mono-label" color="gray.600">{label}</Text>
+                <Text color="gray.300" fontSize="sm">{value}</Text>
+              </Grid>
+            ))}
+          </VStack>
+        </Box>
+      </Grid>
+    </Container>
+
+    <Box
+      as="a"
+      href="#about"
+      aria-label="Scroll to About section"
+      position="absolute"
+      bottom={7}
+      left={{ base: 6, md: 10, lg: 16 }}
+      display={{ base: 'none', md: 'inline-flex' }}
+      alignItems="center"
+      gap={2}
+      className="mono-label"
+      _hover={{ color: 'brand.300' }}
+    >
+      01 / ABOUT <FiArrowDownRight aria-hidden="true" />
     </Box>
-  );
-};
+  </Box>
+);
 
 export default Hero;

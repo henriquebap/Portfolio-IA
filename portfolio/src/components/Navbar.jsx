@@ -30,8 +30,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#featured' },
-    { name: 'Skills', href: '#skills' },
+    { name: 'Work', href: '#work' },
+    { name: 'Archive', href: '#projects' },
+    { name: 'Capabilities', href: '#skills' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -44,8 +45,8 @@ const Navbar = () => {
       right={0}
       zIndex={50}
       py={scrolled ? 3 : 5}
-      backdropFilter={scrolled ? 'blur(20px) saturate(180%)' : 'none'}
-      bg={scrolled ? 'whiteAlpha.50' : 'transparent'}
+      backdropFilter={scrolled ? 'blur(18px)' : 'none'}
+      bg={scrolled ? 'rgba(3, 9, 18, .88)' : 'transparent'}
       borderBottom={scrolled ? '1px solid' : 'none'}
       borderColor="whiteAlpha.100"
       transition="all 0.3s"
@@ -57,7 +58,7 @@ const Navbar = () => {
         px={{ base: 6, md: 12, lg: 20, xl: 24 }}
         position="relative"
       >
-        {/* Desktop Navigation - Centered Absolutely (rendered first to be behind) */}
+        {/* Desktop Navigation - centered; above the bar so links stay clickable */}
         <Flex
           display={{ base: 'none', md: 'flex' }}
           gap={2}
@@ -65,7 +66,8 @@ const Navbar = () => {
           left="50%"
           top="50%"
           transform="translate(-50%, -50%)"
-          zIndex={1}
+          zIndex={3}
+          pointerEvents="auto"
         >
           {navLinks.map((link) => (
             <Button
@@ -74,21 +76,17 @@ const Navbar = () => {
               href={link.href}
               variant="ghost"
               size="sm"
-              px={5}
+              px={3}
               py={2.5}
-              fontSize="sm"
-              fontWeight="medium"
+              fontSize="xs"
+              fontWeight="600"
+              letterSpacing=".05em"
+              textTransform="uppercase"
               color="gray.400"
-              borderRadius="xl"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.100"
+              borderRadius="2px"
               _hover={{
                 color: 'white',
-                bg: 'whiteAlpha.100',
-                borderColor: 'whiteAlpha.200',
-                transform: 'translateY(-1px)',
+                bg: 'whiteAlpha.50',
               }}
               transition="all 0.2s"
             >
@@ -97,11 +95,13 @@ const Navbar = () => {
           ))}
         </Flex>
 
+        {/* Logo / socials row — pass clicks through empty space to nav links */}
         <Flex
           align="center"
           justify="space-between"
           position="relative"
           zIndex={2}
+          pointerEvents="none"
         >
           {/* Logo */}
           <Button
@@ -111,23 +111,21 @@ const Navbar = () => {
             fontSize="2xl"
             fontWeight="bold"
             display="flex"
+            pointerEvents="auto"
             _hover={{ transform: 'scale(1.05)' }}
             transition="transform 0.2s"
           >
-            <Box
-              bgGradient="linear(to-r, brand.500, cyan.500)"
-              bgClip="text"
-            >
+            <Box color="brand.300">
               HB
             </Box>
-            <Box color="whiteAlpha.800">.</Box>
+            <Box color="white">/</Box>
           </Button>
 
           {/* Spacer for centered navigation */}
           <Box display={{ base: 'none', md: 'block' }} />
 
           {/* Social Links - Desktop */}
-          <HStack display={{ base: 'none', md: 'flex' }} spacing={3}>
+          <HStack display={{ base: 'none', md: 'flex' }} spacing={3} pointerEvents="auto">
             <IconButton
               as="a"
               href={profile.contact.github}
@@ -190,6 +188,7 @@ const Navbar = () => {
             border="1px solid"
             borderColor="whiteAlpha.100"
             color="gray.400"
+            pointerEvents="auto"
             _hover={{
               color: 'white',
               bg: 'whiteAlpha.100',

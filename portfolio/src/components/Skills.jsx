@@ -1,240 +1,58 @@
 import {
   Box,
   Container,
-  VStack,
+  Grid,
   Heading,
-  Text,
-  SimpleGrid,
-  Card,
-  CardBody,
   HStack,
-  Badge,
-  Icon,
-  Flex,
+  Tag,
+  Text,
+  VStack,
 } from '@chakra-ui/react';
-import { FiCpu, FiZap, FiPackage, FiBarChart2 } from 'react-icons/fi';
-import { skills } from '../data/projects';
-import { 
-  SiPython, SiTypescript, SiPytorch,
-  SiDocker, SiFastapi,
-  SiOpenai, SiPostgresql, SiSupabase
-} from 'react-icons/si';
-import { FaAws } from 'react-icons/fa';
-import { TbDatabase, TbBrain, TbChartBar } from 'react-icons/tb';
+import { capabilities } from '../data/projects';
 
-const skillIcons = {
-  'python': SiPython,
-  'typescript': SiTypescript,
-  'database': TbDatabase,
-  'pytorch': SiPytorch,
-  'huggingface': TbBrain,
-  'openai': SiOpenai,
-  'langchain': TbBrain,
-  'brain': TbBrain,
-  'docker': SiDocker,
-  'fastapi': SiFastapi,
-  'aws': FaAws,
-  'postgresql': SiPostgresql,
-  'supabase': SiSupabase,
-  'chart': TbChartBar,
-};
+const Skills = () => (
+  <Box as="section" id="skills" py={{ base: 20, md: 28 }} borderBottom="1px solid" borderColor="whiteAlpha.100">
+    <Container maxW="7xl" px={{ base: 6, md: 10, lg: 16 }}>
+      <Grid templateColumns={{ base: '1fr', xl: 'minmax(380px, .75fr) minmax(0, 1.25fr)' }} gap={{ base: 12, xl: 20 }}>
+        <Box>
+          <Text className="section-index">04 / CAPABILITIES</Text>
+          <Heading as="h2" className="section-heading" mt={5}>
+            Built around
+            <Box as="span" display="block" color="brand.300">the production loop.</Box>
+          </Heading>
+        </Box>
 
-const categoryConfig = {
-  llmAgents: { name: 'LLM & Agents', icon: FiZap, color: 'green' },
-  mlData: { name: 'ML & Data', icon: FiCpu, color: 'purple' },
-  infrastructure: { name: 'Infrastructure', icon: FiPackage, color: 'cyan' },
-  appliedDomains: { name: 'Applied Domains', icon: FiBarChart2, color: 'orange' }
-};
-
-const Skills = () => {
-  return (
-    <Box
-      as="section"
-      id="skills"
-      py={{ base: 20, md: 28 }}
-      position="relative"
-      overflow="hidden"
-    >
-      <Container maxW="6xl" px={{ base: 6, md: 10, lg: 16 }}>
-        <VStack spacing={16}>
-          {/* Section Header */}
-          <VStack spacing={4} textAlign="center">
-            <Badge
-              px={4}
-              py={2}
-              borderRadius="full"
-              bg="whiteAlpha.50"
-              backdropFilter="blur(10px)"
-              border="1px solid"
+        <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} borderTop="1px solid" borderLeft="1px solid" borderColor="whiteAlpha.100">
+          {capabilities.map((capability, index) => (
+            <VStack
+              key={capability.title}
+              align="stretch"
+              spacing={6}
+              p={{ base: 6, md: 8 }}
+              borderRight="1px solid"
+              borderBottom="1px solid"
               borderColor="whiteAlpha.100"
-              color="gray.400"
-              textTransform="uppercase"
-              letterSpacing="wider"
-              fontSize="xs"
+              minH="285px"
             >
-              Tech Stack
-            </Badge>
-            <Heading
-              as="h2"
-              fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}
-              fontWeight="bold"
-              color="white"
-            >
-              Skills &{' '}
-              <Box
-                as="span"
-                bgGradient="linear(to-r, brand.500, cyan.500)"
-                bgClip="text"
-              >
-                Technologies
+              <HStack justify="space-between">
+                <Text className="mono-label">0{index + 1}</Text>
+                <Text className="mono-label" color="brand.300">{capability.title.toUpperCase()}</Text>
+              </HStack>
+              <Box>
+                <Heading as="h3" size="md" mb={3}>{capability.title}</Heading>
+                <Text color="gray.500" fontSize="sm" lineHeight="1.7">{capability.description}</Text>
               </Box>
-            </Heading>
-            <Text color="gray.400" maxW="2xl">
-              A comprehensive toolkit built over years of hands-on experience 
-              with ML systems, from research to production.
-            </Text>
-          </VStack>
-
-          {/* Skills Grid */}
-          <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={{ base: 5, sm: 6 }} w="full">
-            {Object.entries(skills).map(([category, skillList]) => {
-              const config = categoryConfig[category];
-              
-              return (
-                <Card
-                  key={category}
-                  bg="whiteAlpha.50"
-                  backdropFilter="blur(20px) saturate(180%)"
-                  border="1px solid"
-                  borderColor="whiteAlpha.100"
-                  borderRadius="2xl"
-                  transition="all 0.3s"
-                  _hover={{
-                    transform: 'translateY(-2px)',
-                    borderColor: 'brand.500',
-                    boxShadow: '0 4px 16px rgba(14, 165, 233, 0.1)',
-                  }}
-                >
-                  <CardBody p={{ base: 5, sm: 6 }}>
-                    <VStack align="stretch" spacing={6}>
-                      {/* Category Header */}
-                      <HStack spacing={3} pb={4} borderBottom="1px solid" borderColor="whiteAlpha.100">
-                        <Flex
-                          w={11}
-                          h={11}
-                          borderRadius="xl"
-                          bgGradient={`linear(to-br, ${config.color}.500, ${config.color}.700)`}
-                          align="center"
-                          justify="center"
-                        >
-                          <Icon as={config.icon} w={5} h={5} color="white" />
-                        </Flex>
-                        <Heading as="h3" size="sm" color="white">
-                          {config.name}
-                        </Heading>
-                      </HStack>
-
-                      {/* Skills List */}
-                      <VStack spacing={3} align="stretch">
-                        {skillList.map((skill) => {
-                          const IconComponent = skillIcons[skill.icon] || TbBrain;
-                          
-                          return (
-                            <Flex
-                              key={skill.name}
-                              align="center"
-                              gap={3}
-                              p={2}
-                              borderRadius="lg"
-                              transition="all 0.2s"
-                              _hover={{
-                                bg: 'whiteAlpha.50',
-                                transform: 'translateX(4px)',
-                              }}
-                            >
-                              <Flex
-                                w={9}
-                                h={9}
-                                borderRadius="lg"
-                                bg="whiteAlpha.50"
-                                border="1px solid"
-                                borderColor="whiteAlpha.100"
-                                align="center"
-                                justify="center"
-                                flexShrink={0}
-                              >
-                                <Icon
-                                  as={IconComponent}
-                                  w={4}
-                                  h={4}
-                                  color="gray.400"
-                                />
-                              </Flex>
-                              <Text flex={1} fontSize="sm" color="gray.300">
-                                {skill.name}
-                              </Text>
-                              <Badge
-                                fontSize="xs"
-                                px={2.5}
-                                py={1}
-                                borderRadius="md"
-                                fontWeight="semibold"
-                                bg={
-                                  skill.level === 'Expert' 
-                                    ? 'brand.500'
-                                    : skill.level === 'Advanced'
-                                    ? 'cyan.500'
-                                    : 'gray.600'
-                                }
-                                color="white"
-                              >
-                                {skill.level}
-                              </Badge>
-                            </Flex>
-                          );
-                        })}
-                      </VStack>
-                    </VStack>
-                  </CardBody>
-                </Card>
-              );
-            })}
-          </SimpleGrid>
-
-          {/* Additional Tools */}
-          <VStack spacing={4}>
-            <Text color="gray.600" fontSize="sm">
-              Also experienced with
-            </Text>
-            <Flex flexWrap="wrap" justify="center" gap={2}>
-              {['Git', 'CI/CD', 'REST APIs', 'Streamlit', 'Jupyter', 'MLflow'].map((tool) => (
-                <Badge
-                  key={tool}
-                  px={3}
-                  py={1.5}
-                  borderRadius="lg"
-                  bg="whiteAlpha.50"
-                  backdropFilter="blur(10px)"
-                  border="1px solid"
-                  borderColor="whiteAlpha.100"
-                  fontSize="sm"
-                  color="gray.500"
-                  _hover={{
-                    color: 'gray.300',
-                    borderColor: 'whiteAlpha.200',
-                  }}
-                  transition="all 0.2s"
-                  cursor="default"
-                >
-                  {tool}
-                </Badge>
-              ))}
-            </Flex>
-          </VStack>
-        </VStack>
-      </Container>
-    </Box>
-  );
-};
+              <HStack spacing={2} flexWrap="wrap" mt="auto">
+                {capability.items.map((item) => (
+                  <Tag key={item} variant="technical">{item}</Tag>
+                ))}
+              </HStack>
+            </VStack>
+          ))}
+        </Grid>
+      </Grid>
+    </Container>
+  </Box>
+);
 
 export default Skills;

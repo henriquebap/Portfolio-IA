@@ -15,276 +15,306 @@
 ## Table of Contents
 
 - [About Me](#about-me)
-- [Machine Learning Projects](#machine-learning-projects)
-    - [Genetic Syndrome Classification with Embeddings](#genetic-syndrome-classification-with-embeddings)    
-    - [Avocado Price Analysis and Forecasting](#avocado-price-analysis-and-forecasting)
-    - [Exploratory Analysis of Airline Flights](#exploratory-analysis-of-airline-flights)
-    - [Customer Churn Prediction](#customer-churn-prediction)
-    - [GDP vs. ACBR Linear Regression](#gdp-vs-acbr-linear-regression)
+- [Featured Projects](#featured-projects)
+    - [Wordin - AI Transcription Platform](#wordin---ai-transcription-platform)
+    - [Medical ASR & STT Engineering](#medical-asr--stt-engineering)
+    - [Stock Price Prediction with LSTM](#stock-price-prediction-with-lstm)
     - [Financial APP - Intelligent Personal Finance](#financial-app---intelligent-personal-finance)
-    - [Wine Quality Prediction & ML Pipeline](#wine-quality-prediction--ml-pipeline)
-- [Deep Learning Projects](#deep-learning-projects)
-    - [Medical ASR Benchmark System](#medical-asr-benchmark-system)
-    - [Stock Price Prediction System with LSTM](#stock-price-prediction-system-with-lstm)
-    - [Diabetes Prediction in Pima Indians](#diabetes-prediction-in-pima-indians)
+    - [Wine Quality ML Pipeline](#wine-quality-ml-pipeline)
     - [Bike Detection with Detectron2](#bike-detection-with-detectron2)
-    - [Marine Animal Detection with YOLOv5](#marine-animal-detection-with-yolov5)
-    - [GYMBUDDY - AI Fitness Assistant](#gymbuddy---ai-fitness-assistant)
-    - [DQN - CartPole with OpenAI Gym](#dqn---cartpole-with-openai-gym)
-    - [Q-Learning - Mountain Car with OpenAI Gym](#q-learning---mountain-car-with-openai-gym)
-    - [Marine Garbage Detection with YOLOv9](#marine-garbage-detection-with-yolov9)
- 
-- [Generative AI & LLMs Projects](#generative-ai--llms-projects)
-   - [Wordin - AI Transcription Platform](#wordin---ai-transcription-platform)
-   - [Perfect Delta - AI Racing Strategist](#perfect-delta---ai-racing-strategist)
-   - [Arnold - Personal Gym Fit](#arnold---personal-gym-fit)
-  
+- [Additional Projects](#additional-projects)
+    - [Machine Learning](#machine-learning)
+    - [Deep Learning & Computer Vision](#deep-learning--computer-vision)
+    - [Generative AI & LLMs](#generative-ai--llms)
 - [Contact](#-contact)
 
 ---
 
 ## About Me
 
-Machine Learning Engineer with hands-on experience building end-to-end ML solutions, audio pipelines, ASR/STT optimization, and VAD tuning. Skilled in developing and benchmarking transformer-based models using PyTorch and Hugging Face, with growing expertise in fine-tuning and RAG techniques. Experienced in agentic AI solutions with GPT APIs, multi-step orchestration strategies. Proven ability to deliver scalable pipelines, from data ingestion and ETL/ELT workflows to deployment. Background includes computer vision, predictive modeling, and unstructured data processing. Currently pursuing a Postgraduate in Machine Learning Engineering. Recognized with 1st place in the Global Solution and Top-10 finalist in the Porto Seguro FIAP Challenge. Passionate about continuously learning, experimenting, and applying AI/ML technologies to solve real-world problems.
+ML / AI Engineer building reliable production AI systems across healthcare and SaaS. My work spans LLM quality evaluation, Voice AI/ASR benchmarking, data curation, Python APIs, monitoring, and user-facing products. At VOA Health, I build quality and data workflows for medical AI; independently, I designed and shipped WordinAI, a multi-provider transcription SaaS. I completed FIAP's Postgraduate Program in Machine Learning Engineering in March 2026 and was a Top-10 finalist in the Porto Seguro FIAP Challenge.
 
 ---
 
+## Featured Projects
 
-## Machine Learning Projects
-
-### Genetic Syndrome Classification with Embeddings
-
-Developed a machine learning pipeline to classify genetic syndromes based on 320-dimensional image embeddings. The project involved data preprocessing, exploratory analysis, t-SNE visualization, K-Nearest Neighbors classification, and performance evaluation using multiple metrics.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-  ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
-  ![Matplotlib](https://img.shields.io/badge/Matplotlib-013243?style=flat&logo=matplotlib&logoColor=white)
-- **Repository:** [GitHub - Genetic Syndrome Classification](https://github.com/henriquebap/Genetic_Syndrome_Classification_w_Embeddings_KNN)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Genetic_Syndrome_Classification_w_Embeddings_KNN)
-
-
-### Avocado Price Analysis and Forecasting
-
-Conducted exploratory data analysis and forecasting models for avocado prices using EDA techniques. Developed predictive models to assist in price forecasting, helping companies optimize stock and sales strategies.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
-  ![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-- **Repository:** [GitHub - Avocado Prices EDA & Model Training](https://github.com/henriquebap/Avocado-Prices-EDA-Model-Traning/tree/main)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Avocado-Prices-EDA-Model-Traning/tree/main)
-
-
-### Exploratory Analysis of Airline Flights
-
-Extensive exploratory analysis of airline flight data to predict fare prices. Processed and analyzed large flight datasets to identify insights on fare fluctuations, aiding in market forecasting.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
-  ![Seaborn](https://img.shields.io/badge/Seaborn-013243?style=flat&logo=python&logoColor=white)
-- **Repository:** [GitHub - EDA & Airline Fare Model Training](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
-
-
-### Customer Churn Prediction
-
-Implemented algorithms such as KNN, SVC, RandomForestClassifier, and Logistic Regression to predict customer churn. Built robust models to help companies retain clients by predicting churn risks.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-  ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
-- **Repository:** [GitHub - Classification Exercise](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
-
-
-### GDP vs. ACBR Linear Regression
-
-Analyzed economic indicators using Linear Regression. Developed models to forecast economic trends, contributing to data-driven decision-making.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-  ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
-- **Repository:** [GitHub - GDP vs. ACBR Linear Regression](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
-
-
-### Financial APP - Intelligent Personal Finance
-
-A full-stack personal finance application designed for automation and intelligent insights. Features a modern architecture with Next.js and NestJS, prepared for AI integration (RAG + Auto-categorization). Focuses on privacy, and data-driven financial planning.
-
-- ![Role](https://img.shields.io/badge/Role-ML%20Engineer-blue?style=flat-square)
-- **Technologies Used:**
-  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
-  ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
-  ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=flat&logo=chartdotjs&logoColor=white)
-- **Status:** Personal Project / Private Codebase
-
----
-
-### Wine Quality Prediction & ML Pipeline
-
-A complete end-to-end Machine Learning solution for wine quality prediction, implementing a robust pipeline from data ingestion to real-time inference. Features automated quality assessment, synthetic data generation, and a comprehensive monitoring dashboard.
-
-- ![Role](https://img.shields.io/badge/Role-Machine%20Learning%20Engineer-blue?style=flat-square)
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-  ![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-  ![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=flat&logo=mlflow&logoColor=white)
-  ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-  ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
-- **Repository:** [GitHub - Wine ML App](https://github.com/henriquebap/wine-ml-app)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/wine-ml-app)
-
-
----
-
-## Deep Learning Projects
-
-### Medical ASR Benchmark System
-
-A production-grade evaluation system for Automatic Speech Recognition (ASR) in the Brazilian medical domain. Developed a collaborative curation workflow with consensus algorithms to benchmark 9 commercial providers and create high-quality datasets for fine-tuning.
-
-- ![Role](https://img.shields.io/badge/Role-AI%20Engineer%20%2F%20Researcher-blue?style=flat-square)
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
-  ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat&logo=huggingface&logoColor=black)
-  ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
-- **Status:** Professional Project / Private Codebase
-
-### Stock Price Prediction System with LSTM
-
-An end-to-end machine learning engineering project to predict stock prices using Long Short-Term Memory (LSTM) networks. Features a complete pipeline from data ingestion to production deployment, including a REST API, Docker containerization, and automated CI/CD.
-
-- ![Role](https://img.shields.io/badge/Role-Machine%20Learning%20Engineer-blue?style=flat-square)
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
-  ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-  ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-- **Status:**  Post Graduation Academic Project / Private Codebase
-
-
-### Diabetes Prediction in Pima Indians
-
-Built a neural network model using Keras to predict diabetes occurrence in the Pima Indian population. This project involved constructing and training a deep neural network to support early diagnosis.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Keras](https://img.shields.io/badge/Keras-D00000?style=flat&logo=keras&logoColor=white)
-  ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)
-- **Repository:** [GitHub - Pima Indians Diabetes Prediction](https://github.com/henriquebap/Machine_Learning_HB/tree/main/Keras)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/tree/main/Keras)
-
-### Porto Seguro Challenge - Bike Detection with Detectron2
-
-Implemented an object detection system to identify bikes using Detectron2 and the COCO dataset. The model was deployed on AWS for cloud-based training and monitoring, aiming to streamline insurance processes with real-time detection.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Detectron2](https://img.shields.io/badge/Detectron2-blue?style=flat&logo=facebook&logoColor=white)
-  ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white)
-- **Repository:** [GitHub - Bike Detection Project](https://github.com/henriquebap/R-CNN-OD-Sprint)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/R-CNN-OD-Sprint)
-
-### Marine Animal Detection with YOLOv5
-
-Developed an object detection model using YOLOv5 to identify marine animals, such as sharks, fish, and rays. This project contributes to marine research by supporting species monitoring and conservation efforts.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![YOLOv5](https://img.shields.io/badge/YOLOv5-00FFFF?style=flat&logo=yolo&logoColor=black)
-- **Repository:** [GitHub - Shark Detection with YOLOv5](https://github.com/henriquebap/YoloV5-Shark-Detection)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/YoloV5-Shark-Detection)
-
-### GYMBUDDY - AI Fitness Assistant
-
-Created an innovative fitness assistant using Keras and the GPT-3 API. This project integrates AI-based conversational agents to provide personalized fitness guidance to users.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Keras](https://img.shields.io/badge/Keras-D00000?style=flat&logo=keras&logoColor=white)
-  ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
-- **Repository:** [GitHub - GYMBUDDY AI](https://github.com/henriquebap/GYMBUDDY-IA)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/GYMBUDDY-IA)
-
-### DQN - CartPole with OpenAI Gym
-
-Implemented a Deep Q-Learning model to solve the CartPole balancing problem in OpenAI Gym. This project explores reinforcement learning strategies for continuous control challenges.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)
-  ![OpenAI Gym](https://img.shields.io/badge/OpenAI%20Gym-000000?style=flat&logo=openai&logoColor=white)
-- **Repository:** [GitHub - CartPole DQN](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Deep%20Q-Learning/CartPole-DQN.ipynb)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Deep%20Q-Learning/CartPole-DQN.ipynb)
- 
-### Q-Learning - Mountain Car with OpenAI Gym
-
-Developed a Q-Learning model to solve the Mountain Car problem in OpenAI Gym. This project addresses reinforcement learning techniques for solving complex optimization challenges.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![OpenAI Gym](https://img.shields.io/badge/OpenAI%20Gym-000000?style=flat&logo=openai&logoColor=white)
-- **Repository:** [GitHub - Mountain Car Q-Learning](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Mountain-Car-Gym-Q-Learning.ipynb)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Mountain-Car-Gym-Q-Learning.ipynb)
-
-### Marine Garbage Detection with YOLOv9
-
-Developed a marine garbage detection model using YOLOv9. The model was optimized for real-time detection on edge devices, contributing to environmental protection efforts.
-
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![YOLOv9](https://img.shields.io/badge/YOLOv9-00FFFF?style=flat&logo=yolo&logoColor=black)
-- **Repository:** [GitHub - Sea Garbage Detection with YOLOv9](https://github.com/henriquebap/Blue-Clean-YoloV9/tree/main)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Blue-Clean-YoloV9/tree/main)
-
----
-## Generative AI & LLMs Projects
+Highlighted projects demonstrating end-to-end ML engineering, production deployment, and technical depth.
 
 ### Wordin - AI Transcription Platform
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Visit%20Site-2ea44f?style=for-the-badge&logo=google-chrome&logoColor=white)](https://wordinai.com)
 
-A SaaS platform that uses generative ASR & AI to transform audio from sermons, lectures, and classes into structured educational materials. The system automates transcription, analysis, and content generation, reducing manual work by 150x and costs by 99%.
+A production SaaS platform that transforms audio from sermons, lectures, and classes into structured materials using multi-provider ASR, LangGraph agents, and semantic retrieval.
 
-- ![Role](https://img.shields.io/badge/Role-AI%20Engineer%20(Creator)-blue?style=flat-square)
-- **Technologies Used:**
-  ![Groq](https://img.shields.io/badge/Groq-000000?style=flat&logo=ai&logoColor=white)
-  ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
-  ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
-- **Status:**  Commercial Project / Live at [wordinai.com](https://wordinai.com)
+**Architecture**: Audio Input → Multi-provider ASR → LangGraph Agent + Semantic Retrieval → Supabase → Multi-format Export
 
-### Perfect Delta - AI Racing Strategist
+**Repository Evidence**:
+- **Agent workflow**: 5 LangGraph nodes with planning, tool execution, and model routing
+- **Tests**: 12 test files covering transcription, billing, rate limiting, validation, and agent state
+- **Reliability**: Circuit breakers for OpenAI, Groq, and Stripe
+- **Operations**: Sentry/PostHog instrumentation and 340 recorded deployment events
 
-An intelligent analysis platform for regularity racing that combines real-time data processing with generative AI. It provides instant strategic insights, scenario simulations, and advanced comparative analysis for race teams, reducing decision time by 92%.
+**Tech Stack**:
+- **AI/ML**: Groq Whisper Large V3 Turbo, OpenAI GPT-4o-mini, Transformers.js, FFmpeg.wasm
+- **Backend**: Next.js 14 (App Router), TypeScript 5.4, Next.js API Routes
+- **Database**: Supabase (PostgreSQL, Auth, Storage with RLS)
+- **Frontend**: React 18, Tailwind CSS 3.4, Framer Motion 11.2, Lucide React
+- **Infrastructure**: Vercel (serverless), Railway/Render (full support)
 
-- ![Role](https://img.shields.io/badge/Role-AI%20Engineer%20(Creator)-blue?style=flat-square)
-- **Technologies Used:**
-  ![Anthropic](https://img.shields.io/badge/Anthropic-Cluade%203.5-d97757?style=flat&logo=anthropic&logoColor=white)
-  ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
-- **Status:**  Commercial Project / Private Codebase
+**Engineering Highlights**:
+- **Agent runtime**: LangGraph state machine with planning, tool calling, model tiers, and conditional routing
+- **Semantic search**: Chunked transcript embeddings with OpenAI and Supabase-backed retrieval
+- **Intelligent fallback system**: Groq (fast/cheap) → OpenAI (high accuracy) automatic switching
+- **Reliability & observability**: Circuit breakers, Vitest coverage, Sentry, and PostHog instrumentation
+- **Audio chunking**: 90-second chunks with FFmpeg.wasm for files up to 200MB
+- **5 document types**: Full Notes, Devotional Plans, Inspirational Quotes, Reverse Engineering, Book Content
+- **Client-side processing**: 100% browser-based transcription option with Transformers.js WASM
+- **Multi-tenant architecture**: Row Level Security (RLS) with 4 permission levels
+- **Provider optimization**: Routing and fallback designed around latency, cost, and availability
 
+**Status**: ✅ Live in Production | [wordinai.com](https://wordinai.com)
 
-### Arnold Personal Gym Fit – AI Fitness Coach
+---
 
-Developing an AI personal trainer based on a local fine-tuned LLM. The goal is to create a highly personalized fitness assistant capable of helping individuals who don't know how to train effectively for specific goals or who don't have access to a personal trainer.
-Arnold will also support fitness professionals by assisting in the creation of customized workout plans for their clients across various fitness levels and disciplines.
+### Medical ASR & STT Engineering
 
-- **Technologies Used:**
-  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-  ![Ollama](https://img.shields.io/badge/Ollama-000000?style=flat&logo=ollama&logoColor=white)
-  ![Mistral](https://img.shields.io/badge/Mistral%20AI-F5A623?style=flat&logo=mistral&logoColor=white)
+Production-grade Speech-to-Text engineering system for Brazilian medical domain, featuring comprehensive ASR provider benchmarking, dataset curation workflows, and model fine-tuning pipelines.
 
-- **Repository:** [GitHub - Gym Fit Assistant](https://github.com/henriquebap/Arnold)
-- [![repo](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/henriquebap/Arnold)
+**Architecture**: Audio Files (AWS S3) ↔ HuggingFace Datasets ↔ Argilla Curation UI → Multi-Provider ASR Benchmarking → WER/CER Evaluation → Fine-tuned Models (PyTorch)
+
+**Key Data & Metrics**:
+- **Benchmarked 9 ASR providers**: RunPod FastWhisper, OpenAI Whisper, Mistral Voxtral, Gemini 2.5 Flash/Pro, Qwen3 ASR, ElevenLabs, Kroko, HF Endpoints, NVIDIA NeMo Parakeet
+- **Dataset**: 217 medication error variations cataloged across top 10 medications
+- **Error examples**: Fluoxetina (68 variations), Quetiapina (37), Sinvastatina (34)
+- **Evaluation**: WER/CER metrics with robust Portuguese normalization
+
+**Tech Stack**:
+- **ML/AI**: PyTorch, Whisper (OpenAI), Hugging Face Transformers, FastAPI
+- **Data Pipeline**: HuggingFace Datasets, Argilla (collaborative curation), AWS S3 (audio storage)
+- **Workflow**: Modular 8-component system (config, state, audio_utils, s3_client, argilla_client, hf_client, orchestrator, CLI)
+- **Infrastructure**: Docker containers, Python async workflows
+
+**Engineering Highlights**:
+- **Consensus algorithms**: Multi-annotator agreement for high-quality ground truth
+- **VAD optimization**: Voice Activity Detection parameter tuning for medical audio
+- **Automated workflow**: HuggingFace → Argilla → Export → Upload with duplicate detection
+- **Modular architecture**: 8 independent, testable modules with clear separation of concerns
+- **Production metrics**: Robust WER/CER calculation with domain-specific normalization (numbers, units, accents)
+- **Dataset management**: Automatic chunking, padding logic (180ms), metadata tracking
+
+**Status**: 🔒 Professional Project | Private Codebase
+
+---
+
+### Stock Price Prediction with LSTM
+
+[![Live API](https://img.shields.io/badge/Live_API-Railway-purple?style=for-the-badge&logo=railway&logoColor=white)](https://previsaoacoes-back-production.up.railway.app/docs)
+[![Frontend](https://img.shields.io/badge/Dashboard-Live-blue?style=for-the-badge&logo=streamlit&logoColor=white)](https://stock-pred.up.railway.app)
+[![HuggingFace](https://img.shields.io/badge/Models-HF_Hub-yellow?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/henriquebap/stock-predictor-lstm)
+
+Collaborative academic ML system exploring end-to-end stock forecasting, model serving, and monitoring. Henrique authored 39 of the repository's 43 commits.
+
+**Architecture**: Yahoo Finance (yfinance) → Feature Engineering (16 features) → PyTorch LSTM → FastAPI REST API → PostgreSQL (Railway) → HuggingFace Hub (model storage) → Streamlit Dashboard
+
+**Key Metrics**:
+- **Verified AAPL Evaluation**: MAPE 18.44%, R² -11.73, directional accuracy 40.68%
+- **Interpretation**: Monitoring exposed weak generalization and the need for model/data redesign
+- **Models Available**: 11 total (1 BASE + 10 stock-specific: AAPL, GOOGL, MSFT, AMZN, META, NVDA, TSLA, JPM, V)
+
+**Tech Stack**:
+- **ML/AI**: PyTorch, scikit-learn (StandardScaler), yfinance (data collection)
+- **Backend**: FastAPI 0.104+, Python 3.10+, WebSocket (real-time updates)
+- **Frontend**: Streamlit, Plotly (interactive charts)
+- **Database**: PostgreSQL (Railway Cloud) - predictions storage, model metrics, training logs
+- **Model Hub**: HuggingFace Hub (`henriquebap/stock-predictor-lstm`) - 30 files total
+- **Monitoring**: Prometheus metrics, ML Health scoring (0-100), drift detection, auto alerts
+- **Infrastructure**: Railway deployment configuration and GitHub Actions workflows; current CI requires repair
+
+**Model Architectures**:
+- **LSTMPredictor (Original)**: 2 LSTM layers, unidirectional, dropout 0.2, hidden size 50
+- **ImprovedLSTM (Enhanced)**: 3 LSTM bidirectional layers, attention mechanism, dropout 0.3, hidden size 64, layer normalization, residual connections
+
+**Engineering Highlights**:
+- **16 engineered features**: Moving averages (7/30/90 days), volatility (7/30 days), momentum, volume features, price change percentages
+- **60-day sequences**: Historical window for temporal pattern learning
+- **Smart model loading**: 3-level fallback (specific model → BASE model → auto-detect architecture)
+- **Advanced monitoring**: Infrastructure metrics (CPU, RAM, disk, request rate), ML Health (feature drift Z-score, prediction bias, data quality 0-100), Prometheus time-series
+- **CI workflow**: Ruff, formatting, mypy, pytest, and Docker checks are configured but not currently green
+- **Model service**: Intelligent caching, lazy loading, warm start with BASE model, HuggingFace Hub integration
+- **4 monitoring tabs**: Overview (uptime, requests, errors), Models (metrics per model), ML Health (drift alerts), Prometheus (raw metrics)
+
+**Status**: Academic experiment; model quality and CI need improvement | [GitHub](https://github.com/henriquebap/previsao_acoes)
+
+---
+
+### Financial APP - Intelligent Personal Finance
+
+Full-stack personal finance application with modern architecture designed for AI integration, featuring automated categorization, intelligent insights, and data-driven financial planning.
+
+**Architecture**: Next.js (Frontend) → Express REST API → PostgreSQL (Railway) → Planned: RAG + LLM Auto-categorization
+
+**Key Features**:
+- **Auth**: JWT + bcrypt secure authentication
+- **Database**: Row Level Security (RLS) for multi-tenant data isolation
+- **Deployment**: Railway Cloud with separate backend/frontend services
+- **Architecture**: Monorepo structure (`backend/` + `frontend/` directories)
+- **Planned AI**: RAG-based financial insights + automatic transaction categorization with LLMs
+
+**Tech Stack**:
+- **Frontend**: Next.js, React, Chart.js (data visualization)
+- **Backend**: Express.js, Node.js
+- **Database**: PostgreSQL (Railway managed database)
+- **Infrastructure**: Railway (Docker deployment, auto-injected DATABASE_URL)
+- **Security**: JWT tokens, bcrypt password hashing, environment variable management
+
+**Engineering Highlights**:
+- **Microservices architecture**: Independent backend and frontend deployments
+- **Database design**: User isolation via RLS policies, normalized schema
+- **Environment configuration**: Centralized config management, Railway integration
+- **Future-ready**: Architecture prepared for AI/ML feature integration
+- **Privacy-focused**: Local data processing, secure authentication
+
+**Status**: 🚧 In Development | Private Codebase
+
+---
+
+### Wine Quality ML Pipeline
+
+Applied regression project for wine-quality prediction using scikit-learn, with a Gradio interface and model artifacts published on Hugging Face Hub.
+
+**Architecture**: Data Ingestion → Preprocessing → Scikit-learn Regression → Evaluation → Gradio Interface → Hugging Face Hub
+
+**Verified Metrics**:
+- **RMSE**: 0.7041
+- **MAE**: 0.5420
+- **R²**: 0.4236
+
+**Tech Stack**:
+- **ML/AI**: Python, scikit-learn, Pandas, NumPy
+- **Interface**: Gradio
+- **Model storage**: Hugging Face Hub
+
+**Status**: Complete applied-ML experiment; not an MLOps/API deployment | [GitHub Repository](https://github.com/henriquebap/wine-ml-app)
+
+---
+
+### Bike Detection with Detectron2
+
+Computer vision system for automated bike detection using Detectron2, deployed on AWS cloud infrastructure. Achieved Top-10 Finalist position in Porto Seguro FIAP Challenge.
+
+**Architecture**: COCO Dataset → Detectron2 (Mask R-CNN) → PyTorch Training → AWS Deployment → Real-time Detection API
+
+**Key Achievement**:
+- **Competition Result**: Top-10 Finalist at Porto Seguro FIAP Challenge
+- **Application**: Insurance process automation with real-time bike detection
+- **Deployment**: Cloud-based training and monitoring on AWS
+
+**Tech Stack**:
+- **ML/AI**: Python, Detectron2, PyTorch, COCO dataset
+- **Infrastructure**: AWS (EC2 for training, S3 for data storage, model deployment)
+- **Computer Vision**: Mask R-CNN architecture, transfer learning
+
+**Engineering Highlights**:
+- **Transfer learning**: Fine-tuned Detectron2 pre-trained models on bike detection task
+- **Cloud deployment**: AWS infrastructure for scalable training and inference
+- **Production monitoring**: Real-time detection performance tracking
+- **Insurance automation**: Streamlined claim processing with automated bike identification
+
+**Status**: ✅ Competition Project | Top-10 Finalist | [GitHub Repository](https://github.com/henriquebap/R-CNN-OD-Sprint)
+
+---
+
+## Additional Projects
+
+Additional machine learning, deep learning, and AI projects demonstrating versatility across domains.
+
+### Machine Learning
+
+#### Genetic Syndrome Classification with Embeddings
+Machine learning pipeline for genetic syndrome classification using 320-dimensional image embeddings with t-SNE visualization and KNN classification.
+
+- **Tech**: Python, Scikit-learn, NumPy, Matplotlib
+- **Repo**: [GitHub](https://github.com/henriquebap/Genetic_Syndrome_Classification_w_Embeddings_KNN)
+
+#### Avocado Price Analysis and Forecasting
+Exploratory data analysis and forecasting models for avocado price prediction to optimize stock and sales strategies.
+
+- **Tech**: Python, Pandas, Scikit-learn
+- **Repo**: [GitHub](https://github.com/henriquebap/Avocado-Prices-EDA-Model-Traning)
+
+#### Exploratory Analysis of Airline Flights
+Extensive EDA of airline flight data for fare price prediction and market trend analysis.
+
+- **Tech**: Python, Pandas, Seaborn
+- **Repo**: [GitHub](https://github.com/henriquebap/Machine_Learning_HB/tree/main/EDA%20-%20AIrline%20Fare%20%2B%20Model%20Training)
+
+#### Customer Churn Prediction
+Churn prediction using KNN, SVC, RandomForest, and Logistic Regression to help retain clients.
+
+- **Tech**: Python, Scikit-learn, Pandas
+- **Repo**: [GitHub](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/ExercicioClassificacaoAula.ipynb)
+
+#### GDP vs. ACBR Linear Regression
+Economic indicator analysis using Linear Regression for trend forecasting.
+
+- **Tech**: Python, Scikit-learn, Pandas
+- **Repo**: [GitHub](https://github.com/henriquebap/Machine_Learning_HB/blob/main/chekpoint2/PIBxACBR_LinearRegression.ipynb)
+
+---
+
+### Deep Learning & Computer Vision
+
+#### Diabetes Prediction in Pima Indians
+Neural network model using Keras to predict diabetes occurrence in Pima Indian population for early diagnosis support.
+
+- **Tech**: Python, Keras, TensorFlow
+- **Repo**: [GitHub](https://github.com/henriquebap/Machine_Learning_HB/tree/main/Keras)
+
+#### Marine Animal Detection with YOLOv5
+Object detection model using YOLOv5 to identify sharks, fish, and rays for marine species monitoring and conservation.
+
+- **Tech**: Python, YOLOv5
+- **Repo**: [GitHub](https://github.com/henriquebap/YoloV5-Shark-Detection)
+
+#### Marine Garbage Detection with YOLOv9
+Marine garbage detection model optimized for real-time detection on edge devices, contributing to environmental protection.
+
+- **Tech**: Python, YOLOv9
+- **Repo**: [GitHub](https://github.com/henriquebap/Blue-Clean-YoloV9)
+
+#### GYMBUDDY - AI Fitness Assistant
+Fitness assistant integrating Keras and GPT-3 API for personalized fitness guidance through conversational AI.
+
+- **Tech**: Python, Keras, OpenAI GPT-3
+- **Repo**: [GitHub](https://github.com/henriquebap/GYMBUDDY-IA)
+
+#### DQN - CartPole with OpenAI Gym
+Deep Q-Learning model solving the CartPole balancing problem using reinforcement learning strategies.
+
+- **Tech**: Python, TensorFlow, OpenAI Gym
+- **Repo**: [GitHub](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Deep%20Q-Learning/CartPole-DQN.ipynb)
+
+#### Q-Learning - Mountain Car with OpenAI Gym
+Q-Learning model solving the Mountain Car problem with reinforcement learning optimization techniques.
+
+- **Tech**: Python, OpenAI Gym
+- **Repo**: [GitHub](https://github.com/henriquebap/Machine_Learning_HB/blob/main/Mountain-Car-Gym-Q-Learning.ipynb)
+
+---
+
+### Generative AI & LLMs
+
+#### Perfect Delta - AI Racing Strategist
+Intelligent analysis platform for regularity racing combining session, lap, pit, and track context with Anthropic/OpenAI integrations.
+
+- **Tech**: Anthropic Claude 3.5, FastAPI, PostgreSQL
+- **Status**: Commercial Project | Private Codebase
+
+#### Arnold - AI Fitness Coach
+AI personal trainer based on fine-tuned local LLM for personalized workout planning and fitness coaching.
+
+- **Tech**: Python, Ollama, Mistral AI
+- **Repo**: [GitHub](https://github.com/henriquebap/Arnold)
 
 ---
 
