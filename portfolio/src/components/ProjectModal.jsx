@@ -1,223 +1,168 @@
 import {
+  Badge,
+  Box,
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  List,
+  ListItem,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
   ModalBody,
   ModalCloseButton,
-  VStack,
-  Heading,
-  Text,
-  HStack,
-  Badge,
-  Button,
-  Icon,
-  Flex,
-  Tag,
-  Box,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   SimpleGrid,
+  Tag,
+  Text,
+  VStack,
 } from '@chakra-ui/react';
-import { FiExternalLink, FiGithub, FiLock } from 'react-icons/fi';
-import { 
-  SiPython, SiPytorch, SiTensorflow, SiScikitlearn, SiDocker, 
-  SiFastapi, SiStreamlit, SiOpenai, SiPostgresql, SiSupabase,
-  SiNumpy, SiPandas, SiKeras
-} from 'react-icons/si';
-import { FaAws } from 'react-icons/fa';
-
-const techIcons = {
-  'Python': SiPython,
-  'PyTorch': SiPytorch,
-  'TensorFlow': SiTensorflow,
-  'Scikit-learn': SiScikitlearn,
-  'Docker': SiDocker,
-  'FastAPI': SiFastapi,
-  'Streamlit': SiStreamlit,
-  'OpenAI': SiOpenai,
-  'PostgreSQL': SiPostgresql,
-  'Supabase': SiSupabase,
-  'NumPy': SiNumpy,
-  'Pandas': SiPandas,
-  'Keras': SiKeras,
-  'AWS': FaAws,
-  'Groq': SiOpenai,
-  'Anthropic Claude': SiOpenai,
-  'Detectron2': SiPytorch,
-  'YOLOv5': SiPytorch,
-  'YOLOv9': SiPytorch,
-  'Whisper': SiOpenai,
-  'Hugging Face': SiPytorch,
-  'Ollama': SiOpenai,
-  'Mistral': SiOpenai,
-  'CI/CD': SiDocker,
-};
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import ProjectFlow from './ProjectFlow';
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
   if (!project) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
-      <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.600" />
-      <ModalContent
-        bg="#08111f"
-        border="1px solid"
-        borderColor="whiteAlpha.200"
-        borderRadius="4px"
-        mx={4}
-      >
-        <ModalHeader
-          borderBottom="1px solid"
-          borderColor="whiteAlpha.100"
-          pb={4}
-        >
-          <VStack align="start" spacing={2}>
-            <Heading as="h3" size="lg" color="white">
+    <Modal isOpen={isOpen} onClose={onClose} size={{ base: 'full', md: '2xl' }} scrollBehavior="inside">
+      <ModalOverlay bg="blackAlpha.400" />
+      <ModalContent borderRadius={{ base: 0, md: '8px' }} mx={{ base: 0, md: 4 }}>
+        <ModalHeader borderBottom="1px solid" borderColor="gray.200" pb={4}>
+          <VStack align="start" spacing={1}>
+            <Heading as="h3" fontSize="xl" fontWeight={700}>
               {project.title}
             </Heading>
-            {project.role && (
-              <Badge
-                variant="glass"
-                color="cyan.400"
-                borderColor="cyan.500"
-                fontSize="xs"
-              >
-                {project.role}
-              </Badge>
-            )}
+            <Text fontSize="sm" color="gray.500" fontWeight={400}>
+              {project.role} · {project.status}
+            </Text>
           </VStack>
         </ModalHeader>
-        <ModalCloseButton color="gray.400" />
-        
+        <ModalCloseButton />
+
         <ModalBody py={6}>
-          <VStack spacing={6} align="stretch">
-            {/* Status */}
-            {project.status && (
-              <HStack>
-                <Badge
-                  px={3}
-                  py={1}
-                  borderRadius="lg"
-                  fontSize="xs"
-                  fontWeight="medium"
-                  bg="brand.500"
-                  color="white"
-                  opacity={0.9}
-                >
-                  {project.status}
-                </Badge>
-              </HStack>
+          <VStack spacing={7} align="stretch">
+            {project.narrative ? (
+              <VStack align="stretch" spacing={5}>
+                {[
+                  ['The problem', project.narrative.problem],
+                  ['The approach', project.narrative.approach],
+                  ['The reasoning', project.narrative.reasoning],
+                  ['The outcome', project.narrative.outcome],
+                ].map(([label, text]) => (
+                  <Box key={label}>
+                    <Heading as="h4" fontSize="sm" fontWeight={600} color="gray.900" mb={1.5}>
+                      {label}
+                    </Heading>
+                    <Text color="gray.600" fontSize="sm" lineHeight="1.75">
+                      {text}
+                    </Text>
+                  </Box>
+                ))}
+              </VStack>
+            ) : (
+              <Text color="gray.600" fontSize="sm" lineHeight="1.75">
+                {project.fullDescription || project.description}
+              </Text>
             )}
 
-            {/* Full Description */}
-            <Text color="gray.300" fontSize="md" lineHeight="1.8">
-              {project.fullDescription || project.description}
-            </Text>
+            {project.flow && (
+              <ProjectFlow nodes={project.flow.nodes} loop={project.flow.loop} />
+            )}
 
             {project.metrics && (
-              <SimpleGrid columns={{ base: 1, sm: 3 }} borderTop="1px solid" borderLeft="1px solid" borderColor="whiteAlpha.100">
+              <SimpleGrid columns={3} spacing={4}>
                 {project.metrics.map((metric) => (
-                  <Box key={metric.label} p={4} borderRight="1px solid" borderBottom="1px solid" borderColor="whiteAlpha.100">
-                    <Heading as="p" size="md" mb={1}>{metric.value}</Heading>
-                    <Text className="mono-label">{metric.label}</Text>
+                  <Box key={metric.label}>
+                    <Text fontWeight={700} fontSize="lg">{metric.value}</Text>
+                    <Text color="gray.500" fontSize="xs">{metric.label}</Text>
                   </Box>
                 ))}
               </SimpleGrid>
             )}
 
-            {/* Highlights */}
             {project.highlights && (
-              <VStack align="stretch" spacing={3}>
-                <Text fontSize="sm" fontWeight="semibold" color="gray.400">
-                  Key Highlights
-                </Text>
-                <Flex flexWrap="wrap" gap={2}>
-                  {project.highlights.map((highlight, idx) => (
-                    <Badge
-                      key={idx}
-                      px={3}
-                      py={1}
-                      borderRadius="lg"
-                      fontSize="xs"
-                      bg="brand.500"
-                      bgOpacity={0.1}
-                      color="brand.300"
-                      border="1px solid"
-                      borderColor="brand.500"
-                      borderOpacity={0.2}
-                    >
+              <Box>
+                <Heading as="h4" fontSize="sm" fontWeight={600} mb={2}>
+                  Highlights
+                </Heading>
+                <List spacing={1.5}>
+                  {project.highlights.map((highlight) => (
+                    <ListItem key={highlight} fontSize="sm" color="gray.600" display="flex" gap={2}>
+                      <Text as="span" color="gray.400">·</Text>
                       {highlight}
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            )}
+
+            {project.skillsShown && (
+              <Box>
+                <Heading as="h4" fontSize="sm" fontWeight={600} mb={2}>
+                  Skills demonstrated
+                </Heading>
+                <Flex flexWrap="wrap" gap={2}>
+                  {project.skillsShown.map((skill) => (
+                    <Badge
+                      key={skill}
+                      px={2.5}
+                      py={1}
+                      borderRadius="4px"
+                      fontSize="xs"
+                      fontWeight={500}
+                      textTransform="none"
+                      bg="accent.50"
+                      color="accent.700"
+                    >
+                      {skill}
                     </Badge>
                   ))}
                 </Flex>
-              </VStack>
+              </Box>
             )}
 
-            {/* Technologies */}
-            <VStack align="stretch" spacing={3}>
-              <Text fontSize="sm" fontWeight="semibold" color="gray.400">
+            <Box>
+              <Heading as="h4" fontSize="sm" fontWeight={600} mb={2}>
                 Technologies
-              </Text>
+              </Heading>
               <Flex flexWrap="wrap" gap={2}>
-                {project.technologies.map((tech) => {
-                  const TechIcon = techIcons[tech];
-                  return (
-                    <Tag
-                      key={tech}
-                      size="md"
-                      bg="whiteAlpha.50"
-                      color="gray.300"
-                      border="1px solid"
-                      borderColor="whiteAlpha.100"
-                    >
-                      {TechIcon && <Icon as={TechIcon} mr={2} />}
-                      {tech}
-                    </Tag>
-                  );
-                })}
+                {project.technologies.map((tech) => (
+                  <Tag key={tech} variant="technical" size="sm">{tech}</Tag>
+                ))}
               </Flex>
-            </VStack>
+            </Box>
 
-            {/* Links */}
-            <HStack spacing={3} pt={4}>
-              {project.liveUrl && (
-                <Button
-                  as="a"
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="md"
-                  leftIcon={<FiExternalLink />}
-                >
-                  Live Demo
-                </Button>
-              )}
-              {project.repoUrl && (
-                <Button
-                  as="a"
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="glass"
-                  size="md"
-                  leftIcon={<FiGithub />}
-                >
-                  View Code
-                </Button>
-              )}
-              {!project.liveUrl && !project.repoUrl && (
-                <Button
-                  variant="ghost"
-                  size="md"
-                  leftIcon={<FiLock />}
-                  color="gray.600"
-                  cursor="default"
-                  _hover={{}}
-                >
-                  Private Project
-                </Button>
-              )}
-            </HStack>
+            {(project.liveUrl || project.repoUrl) && (
+              <HStack spacing={3} pt={1} pb={2}>
+                {project.liveUrl && (
+                  <Button
+                    as="a"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="primary"
+                    size="sm"
+                    leftIcon={<FiExternalLink />}
+                  >
+                    Live demo
+                  </Button>
+                )}
+                {project.repoUrl && (
+                  <Button
+                    as="a"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="subtle"
+                    size="sm"
+                    leftIcon={<FiGithub />}
+                  >
+                    View code
+                  </Button>
+                )}
+              </HStack>
+            )}
           </VStack>
         </ModalBody>
       </ModalContent>
@@ -226,4 +171,3 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 };
 
 export default ProjectModal;
-
