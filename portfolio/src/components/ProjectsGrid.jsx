@@ -1,11 +1,47 @@
 import { Box, Container, Heading, HStack, Icon, Link, Tag, Text, VStack } from '@chakra-ui/react';
 import { FiArrowUpRight } from 'react-icons/fi';
-import { productEngineering, projectArchive } from '../data/projects';
+import { agentWork, productEngineering, projectArchive } from '../data/projects';
 
 const ProjectsGrid = () => (
   <Box as="section" id="projects" py={{ base: 12, md: 16 }} borderTop="1px solid" borderColor="gray.200">
     <Container maxW="3xl" px={{ base: 5, md: 6 }}>
       <VStack align="stretch" spacing={10}>
+        <Box>
+          <Text className="eyebrow" mb={3}>Working with agents now</Text>
+          <Text color="gray.600" lineHeight="1.75" mb={6}>
+            Agents are the thread through my current work. Three places where I'm applying them today:
+          </Text>
+          <VStack align="stretch" spacing={4}>
+            {agentWork.map((project) => (
+              <Box
+                key={project.id}
+                as={project.liveUrl ? 'a' : 'div'}
+                {...(project.liveUrl
+                  ? { href: project.liveUrl, target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+                border="1px solid"
+                borderColor="gray.200"
+                borderRadius="8px"
+                p={5}
+                display="block"
+                transition="border-color 0.15s ease"
+                _hover={project.liveUrl ? { borderColor: 'gray.400' } : {}}
+              >
+                <HStack justify="space-between" mb={1}>
+                  <HStack spacing={3} flexWrap="wrap">
+                    <Heading as="h3" fontSize="sm" fontWeight={600}>{project.title}</Heading>
+                    <Text fontSize="xs" fontWeight={500} color="accent.600">{project.focus}</Text>
+                  </HStack>
+                  {project.liveUrl && <Icon as={FiArrowUpRight} color="gray.400" />}
+                </HStack>
+                <Text color="gray.600" fontSize="sm" lineHeight="1.6">
+                  {project.description}
+                </Text>
+              </Box>
+            ))}
+          </VStack>
+        </Box>
+
         <Box>
           <Text className="eyebrow" mb={3}>Archive</Text>
           <Text color="gray.600" lineHeight="1.75">

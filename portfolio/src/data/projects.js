@@ -29,19 +29,20 @@ export const caseStudies = [
     eyebrow: 'Professional work · HealthTech',
     role: 'ML / AI Engineer',
     status: 'Private system',
-    shortDescription: 'Evaluation, data curation, and failure-analysis pipelines for Brazilian clinical audio.',
-    fullDescription: 'Quality systems for medical AI: automated LLM document evaluation, ASR benchmarking across nine providers, and data curation with dual-annotator consensus. The pipeline connects Hugging Face, Argilla, and AWS S3 in modular, containerized stages.',
+    shortDescription: 'From ASR and VAD tuning to fine-tuning data curation and LLM/agent evaluation for clinical audio.',
+    fullDescription: 'A progression through the whole voice AI stack for medical audio: ASR model work and usability improvements, VAD integration for better context, provider benchmarking and product validation, dataset curation for fine-tuning, and evaluation of LLM and agent generation.',
     narrative: {
       problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and in a healthcare product the ones you miss are the ones that hurt.',
-      approach: 'I ran the same set of clinical recordings through 9 ASR providers and built a pipeline to score them: WER and CER analysis, dual-annotator labeling in Argilla, and an LLM-as-Judge layer on top. That turned a vague sense of "sounds about right" into numbers the team could act on.',
+      approach: 'I started deep in the ASR models themselves, improving how usable their output was in practice. Then I brought VAD into the pipeline so the system captured more context from each recording. With that base, I benchmarked 9 providers and validated ASR quality for the product: WER and CER analysis, dual-annotator labeling in Argilla, and an LLM-as-Judge layer on top.',
       reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus with an LLM judge and deterministic checks. Each one catches failures the others let through.',
-      outcome: 'The process cataloged 217 distinct failure variants across the 9 providers and produced a curated, versioned dataset that model and product decisions now rely on.'
+      outcome: 'The benchmark cataloged 217 failure variants across 9 providers. From there I owned the dataset curation and preparation flow for a fine-tuning project, then moved to evaluating LLM and agent generation with LLM-as-Judge and deeper evaluation techniques. That work kept surfacing concrete product and usability improvements.'
     },
     highlights: [
-      'LLM-as-Judge combined with deterministic QA checks',
-      'WER/CER analysis for medical terminology and noisy audio',
-      'Dual-annotator consensus with reviewer adjudication',
-      'Modular Hugging Face, Argilla, and AWS S3 workflow'
+      'ASR model work and VAD integration for more usable context',
+      'Benchmark and product validation across 9 ASR providers',
+      'Full dataset curation and preparation flow for fine-tuning',
+      'LLM and agent generation evaluation with LLM-as-Judge',
+      'Dual-annotator consensus with reviewer adjudication'
     ],
     metrics: [
       { value: '9', label: 'ASR providers' },
@@ -49,15 +50,15 @@ export const caseStudies = [
       { value: '8', label: 'pipeline modules' }
     ],
     technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'AWS S3', 'Docker'],
-    skillsShown: ['Evaluation design', 'Statistical & error analysis', 'Data pipeline engineering', 'Cross-functional QA process'],
+    skillsShown: ['Evaluation design', 'Fine-tuning data curation', 'Statistical & error analysis', 'Agent evaluation', 'Data pipeline engineering'],
     flow: {
       nodes: [
-        { label: 'Clinical audio input', detail: 'Brazilian Portuguese, noisy and accented' },
-        { label: 'Multi-provider ASR', detail: '9 providers benchmarked in parallel' },
-        { label: 'WER / CER analysis', detail: 'Medical terminology scoring' },
-        { label: 'Dual-annotator consensus', detail: 'Argilla labeling and adjudication' },
-        { label: 'LLM-as-Judge', detail: 'Automated and deterministic QA checks' },
-        { label: 'Curated dataset', detail: 'Versioned via Hugging Face and S3' }
+        { label: 'ASR model deep-dive', detail: 'Model usability improvements' },
+        { label: 'VAD integration', detail: 'Voice activity detection for more context' },
+        { label: 'Benchmark & validation', detail: '9 providers, WER/CER, product fit' },
+        { label: 'Fine-tuning dataset', detail: 'Full curation and preparation flow' },
+        { label: 'LLM & agent evaluation', detail: 'LLM-as-Judge and deeper techniques' },
+        { label: 'Product improvements', detail: 'Usability findings fed back in' }
       ]
     },
     icon: 'medical',
@@ -70,11 +71,11 @@ export const caseStudies = [
     eyebrow: 'Independent product · Live SaaS',
     role: 'Product & AI Engineer',
     status: 'Live product',
-    shortDescription: 'Agentic transcription and document generation platform, built and operated end to end.',
-    fullDescription: 'A SaaS platform that turns long-form audio into structured documents. It combines a LangGraph state machine, model and tool routing, semantic transcript search, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
+    shortDescription: 'Transcription and document generation platform running on a deep agent, built and operated end to end.',
+    fullDescription: 'A SaaS platform that turns long-form audio into structured documents. At its core is a deep agent built on LangGraph, surrounded by model and tool routing, semantic transcript search, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
     narrative: {
       problem: 'Long recordings are easy to make and painful to use. People recording sermons, lectures, and meetings wanted structured documents they could search and share, not a wall of raw transcript.',
-      approach: 'I built a LangGraph agent that plans its work, routes between tools and model tiers, and generates structured documents from transcripts. Around it I built the actual product: auth, subscriptions, semantic search, and export.',
+      approach: 'I built a deep agent on LangGraph that plans its work, routes between tools and model tiers, and generates structured documents from transcripts. Around it I built the actual product: auth, subscriptions, semantic search, and export.',
       reasoning: 'External APIs fail, so every provider integration sits behind a circuit breaker with a fallback. Transcription, LLM calls, billing, all of them. The product stays up when a dependency degrades. I also route lighter tasks to Groq because it is cheaper, which keeps unit economics sane as usage grows.',
       outcome: 'A live SaaS product I operate end to end, from architecture to billing to being the one who gets paged. Sentry and PostHog keep quality and usage visible instead of assumed.'
     },
@@ -95,7 +96,7 @@ export const caseStudies = [
       nodes: [
         { label: 'Audio upload', detail: 'User-facing product entry point' },
         { label: 'Multi-provider transcription', detail: 'Whisper and Groq, behind circuit breakers' },
-        { label: 'LangGraph agent', detail: 'Planning, tool routing, model tiers' },
+        { label: 'Deep agent (LangGraph)', detail: 'Planning, tool routing, model tiers' },
         { label: 'Semantic chunking', detail: 'OpenAI embeddings for search' },
         { label: 'Document generation', detail: 'Notes, devotionals, structured output' },
         { label: 'Delivery & observability', detail: 'Export, Sentry, PostHog' }
@@ -236,14 +237,37 @@ export const projectArchive = [
   }
 ];
 
+export const agentWork = [
+  {
+    id: 'agent-wordin',
+    title: 'WordinAI',
+    focus: 'Deep agent',
+    description: 'A deep agent on LangGraph at the core of a live SaaS: it plans, routes between tools and model tiers, and turns long audio into structured documents.',
+    liveUrl: 'https://wordinai.com'
+  },
+  {
+    id: 'agent-wilmec',
+    title: 'Wilmec',
+    focus: 'Chatbot & inventory agent',
+    description: 'A chatbot and agent that automate inventory workflows, so stock questions and routine flows get handled without a human in the middle.'
+  },
+  {
+    id: 'agent-vinibap',
+    title: 'Vinícius Baptista portfolio',
+    focus: 'MCP document automation',
+    description: 'An MCP plugin that automates document creation for the site, generating and updating content through the agent instead of by hand.',
+    liveUrl: 'https://vinibap.com'
+  }
+];
+
 export const productEngineering = [
   {
     id: 'vinibap',
     title: 'Vinícius Baptista',
     label: 'Narrative portfolio',
-    description: 'A multi-page storytelling and support funnel with an admin console, Supabase RLS, and Docker/Nginx deployment.',
+    description: 'A multi-page storytelling and support funnel with an admin console, Supabase RLS, and Docker/Nginx deployment. Now growing an MCP plugin that automates document creation.',
     liveUrl: 'https://vinibap.com',
-    technologies: ['HTML / CSS / JS', 'Supabase', 'Docker / Nginx']
+    technologies: ['HTML / CSS / JS', 'Supabase', 'Docker / Nginx', 'MCP']
   },
   {
     id: 'mission-philippines',
