@@ -4,11 +4,20 @@ import {
   Grid,
   Heading,
   HStack,
+  Icon,
   Tag,
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { capabilities } from '../data/projects';
+import { FiCompass, FiMessageSquare, FiRefreshCw, FiTarget } from 'react-icons/fi';
+import { capabilities, softSkills } from '../data/projects';
+
+const softSkillIcons = {
+  ownership: FiTarget,
+  systems: FiCompass,
+  communication: FiMessageSquare,
+  adaptability: FiRefreshCw,
+};
 
 const Skills = () => (
   <Box as="section" id="skills" py={{ base: 20, md: 28 }} borderBottom="1px solid" borderColor="whiteAlpha.100">
@@ -49,6 +58,50 @@ const Skills = () => (
               </HStack>
             </VStack>
           ))}
+        </Grid>
+      </Grid>
+
+      <Grid
+        templateColumns={{ base: '1fr', xl: 'minmax(380px, .75fr) minmax(0, 1.25fr)' }}
+        gap={{ base: 12, xl: 20 }}
+        mt={{ base: 16, md: 20 }}
+      >
+        <Box>
+          <Text className="mono-label" color="brand.300" mb={3}>
+            HOW I WORK
+          </Text>
+          <Text color="gray.500" fontSize="sm" lineHeight="1.75" maxW="360px">
+            The behaviors behind the tool list — how these capabilities actually get applied on a project.
+          </Text>
+        </Box>
+
+        <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={5}>
+          {softSkills.map((skill) => {
+            const SkillIcon = softSkillIcons[skill.icon];
+            return (
+              <HStack key={skill.title} align="start" spacing={4} className="credential-card">
+                {SkillIcon && (
+                  <Box
+                    display="grid"
+                    placeItems="center"
+                    w="40px"
+                    h="40px"
+                    flexShrink={0}
+                    border="1px solid"
+                    borderColor="brand.700"
+                    color="brand.300"
+                    bg="rgba(103, 232, 249, .06)"
+                  >
+                    <Icon as={SkillIcon} boxSize={4} />
+                  </Box>
+                )}
+                <Box>
+                  <Heading as="h3" size="sm" mb={2}>{skill.title}</Heading>
+                  <Text color="gray.500" fontSize="sm" lineHeight="1.7">{skill.text}</Text>
+                </Box>
+              </HStack>
+            );
+          })}
         </Grid>
       </Grid>
     </Container>

@@ -18,12 +18,13 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import { FiExternalLink, FiGithub, FiLock } from 'react-icons/fi';
-import { 
-  SiPython, SiPytorch, SiTensorflow, SiScikitlearn, SiDocker, 
+import {
+  SiPython, SiPytorch, SiTensorflow, SiScikitlearn, SiDocker,
   SiFastapi, SiStreamlit, SiOpenai, SiPostgresql, SiSupabase,
   SiNumpy, SiPandas, SiKeras
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
+import ProjectFlow from './ProjectFlow';
 
 const techIcons = {
   'Python': SiPython,
@@ -56,7 +57,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
   if (!project) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
+    <Modal isOpen={isOpen} onClose={onClose} size={project.flow ? '4xl' : '2xl'} isCentered scrollBehavior="inside">
       <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.600" />
       <ModalContent
         bg="#08111f"
@@ -108,10 +109,36 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               </HStack>
             )}
 
-            {/* Full Description */}
-            <Text color="gray.300" fontSize="md" lineHeight="1.8">
-              {project.fullDescription || project.description}
-            </Text>
+            {/* Narrative: problem -> approach -> reasoning -> outcome */}
+            {project.narrative ? (
+              <VStack align="stretch" spacing={5}>
+                {[
+                  ['THE PROBLEM', project.narrative.problem],
+                  ['THE APPROACH', project.narrative.approach],
+                  ['THE REASONING', project.narrative.reasoning],
+                  ['THE OUTCOME', project.narrative.outcome],
+                ].map(([label, text]) => (
+                  <Box key={label}>
+                    <Text className="mono-label" color="brand.300" mb={2}>
+                      {label}
+                    </Text>
+                    <Text color="gray.300" fontSize="md" lineHeight="1.75">
+                      {text}
+                    </Text>
+                  </Box>
+                ))}
+              </VStack>
+            ) : (
+              <Text color="gray.300" fontSize="md" lineHeight="1.8">
+                {project.fullDescription || project.description}
+              </Text>
+            )}
+
+            {project.flow && (
+              <Box pt={2}>
+                <ProjectFlow nodes={project.flow.nodes} loop={project.flow.loop} accent={project.accent} />
+              </Box>
+            )}
 
             {project.metrics && (
               <SimpleGrid columns={{ base: 1, sm: 3 }} borderTop="1px solid" borderLeft="1px solid" borderColor="whiteAlpha.100">
@@ -147,6 +174,29 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                     >
                       {highlight}
                     </Badge>
+                  ))}
+                </Flex>
+              </VStack>
+            )}
+
+            {/* Skills demonstrated */}
+            {project.skillsShown && (
+              <VStack align="stretch" spacing={3}>
+                <Text fontSize="sm" fontWeight="semibold" color="gray.400">
+                  Skills Demonstrated
+                </Text>
+                <Flex flexWrap="wrap" gap={2}>
+                  {project.skillsShown.map((skill) => (
+                    <Tag
+                      key={skill}
+                      size="md"
+                      bg="transparent"
+                      color="gray.300"
+                      border="1px solid"
+                      borderColor="whiteAlpha.200"
+                    >
+                      {skill}
+                    </Tag>
                   ))}
                 </Flex>
               </VStack>
