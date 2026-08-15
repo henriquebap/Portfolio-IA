@@ -1,9 +1,11 @@
 import { Box, Container, Heading, HStack, SimpleGrid, Tag, Text, VStack } from '@chakra-ui/react';
 import { capabilities, softSkills } from '../data/projects';
+import Reveal from './Reveal';
 
 const Skills = () => (
   <Box as="section" id="skills" py={{ base: 12, md: 16 }} borderTop="1px solid" borderColor="gray.200">
     <Container maxW="3xl" px={{ base: 5, md: 6 }}>
+      <Reveal>
       <VStack align="stretch" spacing={10}>
         <Box>
           <Text className="eyebrow" mb={3}>Skills</Text>
@@ -48,6 +50,7 @@ const Skills = () => (
           </SimpleGrid>
         </Box>
       </VStack>
+      </Reveal>
     </Container>
   </Box>
 );

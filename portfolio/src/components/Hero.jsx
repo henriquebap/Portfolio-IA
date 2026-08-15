@@ -54,6 +54,7 @@ const Hero = () => (
               display="inline-flex"
               alignItems="center"
               gap={2}
+              minH="44px"
               fontSize="sm"
               color="gray.600"
               _hover={{ color: 'accent.600', textDecoration: 'none' }}

@@ -1,10 +1,12 @@
 import { Box, Button, Container, Heading, HStack, Icon, Link, Text, VStack } from '@chakra-ui/react';
 import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { profile } from '../data/projects';
+import Reveal from './Reveal';
 
 const Contact = () => (
   <Box as="section" id="contact" py={{ base: 12, md: 16 }} borderTop="1px solid" borderColor="gray.200">
     <Container maxW="3xl" px={{ base: 5, md: 6 }}>
+      <Reveal>
       <VStack align="stretch" spacing={6}>
         <Text className="eyebrow">Contact</Text>
 
@@ -52,6 +54,7 @@ const Contact = () => (
               display="inline-flex"
               alignItems="center"
               gap={2}
+              minH="44px"
               fontSize="sm"
               color="gray.600"
               _hover={{ color: 'accent.600', textDecoration: 'none' }}
@@ -68,6 +71,7 @@ const Contact = () => (
           </Text>
         </Box>
       </VStack>
+      </Reveal>
     </Container>
   </Box>
 );

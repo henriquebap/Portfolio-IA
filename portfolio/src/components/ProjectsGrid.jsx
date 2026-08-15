@@ -1,10 +1,12 @@
 import { Box, Container, Heading, HStack, Icon, Link, Tag, Text, VStack } from '@chakra-ui/react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { agentWork, productEngineering, projectArchive } from '../data/projects';
+import Reveal from './Reveal';
 
 const ProjectsGrid = () => (
   <Box as="section" id="projects" py={{ base: 12, md: 16 }} borderTop="1px solid" borderColor="gray.200">
     <Container maxW="3xl" px={{ base: 5, md: 6 }}>
+      <Reveal>
       <VStack align="stretch" spacing={10}>
         <Box>
           <Text className="eyebrow" mb={3}>Working with agents now</Text>
@@ -119,6 +121,7 @@ const ProjectsGrid = () => (
           </VStack>
         </Box>
       </VStack>
+      </Reveal>
     </Container>
   </Box>
 );

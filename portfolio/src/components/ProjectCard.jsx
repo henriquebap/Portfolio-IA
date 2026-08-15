@@ -7,15 +7,12 @@ import {
   Link,
   Tag,
   Text,
-  useDisclosure,
   VStack,
 } from '@chakra-ui/react';
 import { FiArrowUpRight, FiGithub } from 'react-icons/fi';
 import ProjectModal from './ProjectModal';
 
-const ProjectCard = ({ project }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+const ProjectCard = ({ project, isOpen, onOpen, onClose }) => {
   return (
     <>
       <Box

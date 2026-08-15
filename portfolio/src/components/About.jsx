@@ -1,5 +1,6 @@
 import { Box, Container, Heading, Text, VStack } from '@chakra-ui/react';
 import { profile } from '../data/projects';
+import Reveal from './Reveal';
 
 const principles = [
   {
@@ -19,6 +20,7 @@ const principles = [
 const About = () => (
   <Box as="section" id="about" py={{ base: 12, md: 16 }} borderTop="1px solid" borderColor="gray.200">
     <Container maxW="3xl" px={{ base: 5, md: 6 }}>
+      <Reveal>
       <VStack align="stretch" spacing={8}>
         <Text className="eyebrow">About</Text>
 
@@ -53,6 +55,7 @@ const About = () => (
           </VStack>
         </Box>
       </VStack>
+      </Reveal>
     </Container>
   </Box>
 );
