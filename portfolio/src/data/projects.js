@@ -4,7 +4,7 @@ export const profile = {
   subtitle: 'Production AI Systems · Evaluation · Voice AI',
   tagline: 'I build AI systems that survive real-world use—from evaluation and data pipelines to APIs, deployment, and product.',
   about: `I work across the production AI lifecycle: defining quality, curating representative data, evaluating model behavior, building backend services, and shipping user-facing systems. My strongest experience sits at the intersection of LLM quality, Voice AI, and product engineering.`,
-  aboutExtended: `At VOA Health, I build evaluation and data workflows for medical AI. Independently, I designed and shipped WordinAI, a multi-provider transcription SaaS. Across both, the pattern is the same: make quality measurable, design for failure, and own the path from prototype to production.`,
+  aboutExtended: `I build evaluation and data workflows for medical AI. Independently, I designed and shipped WordinAI, a multi-provider transcription SaaS. Across both, the pattern is the same: make quality measurable, design for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',

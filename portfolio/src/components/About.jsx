@@ -78,10 +78,10 @@ const About = () => (
             <Box className="credential-card">
               <HStack spacing={3} mb={4}>
                 <Icon as={FiCpu} color="brand.300" />
-                <Text className="mono-label">CURRENT ROLE</Text>
+                <Text className="mono-label">EXPERIENCE</Text>
               </HStack>
-              <Heading as="h3" size="sm" mb={2}>ML / AI Engineer · VOA Health</Heading>
-              <Text color="gray.500" fontSize="sm">Production medical AI systems · Feb 2025—present</Text>
+              <Heading as="h3" size="sm" mb={2}>ML / AI Engineer</Heading>
+              <Text color="gray.500" fontSize="sm">Production medical AI systems · Feb 2025—Jul 2026</Text>
             </Box>
             <Box className="credential-card">
               <HStack spacing={3} mb={4}>
