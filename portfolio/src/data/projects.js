@@ -2,16 +2,16 @@ export const profile = {
   name: 'Henrique Baptista',
   title: 'ML / AI Engineer',
   subtitle: 'Production AI Systems · Evaluation · Voice AI',
-  tagline: 'I build AI systems that survive real-world use—from evaluation and data pipelines to APIs, deployment, and product.',
-  about: `I work across the production AI lifecycle: defining quality, curating representative data, evaluating model behavior, building backend services, and shipping user-facing systems. My strongest experience sits at the intersection of LLM quality, Voice AI, and product engineering.`,
-  aboutExtended: `In my most recent role, I built evaluation and data workflows for medical AI. Independently, I designed and shipped WordinAI, a multi-provider transcription SaaS. Across both, the pattern is the same: make quality measurable, design for failure, and own the path from prototype to production.`,
+  tagline: 'I build AI systems that hold up in production. My work covers evaluation, data pipelines, APIs, deployment, and the product around them.',
+  about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, voice AI, and product engineering meet.`,
+  aboutExtended: `In my most recent role I built evaluation and data workflows for medical AI. On my own, I designed and shipped WordinAI, a transcription SaaS that runs on multiple providers. The pattern is the same in both: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',
     email: 'henrique.obap@gmail.com'
   },
-  education: 'Postgraduate Program in Machine Learning Engineering, FIAP — completed Mar 2026',
-  educationBachelor: 'Bachelor in Systems Analysis & Development, FIAP — completed Dec 2024'
+  education: 'Postgraduate Program in Machine Learning Engineering, FIAP (completed Mar 2026)',
+  educationBachelor: 'Bachelor in Systems Analysis & Development, FIAP (completed Dec 2024)'
 };
 
 export const proofPoints = [
@@ -30,18 +30,18 @@ export const caseStudies = [
     role: 'ML / AI Engineer',
     status: 'Private system',
     shortDescription: 'Evaluation, data curation, and failure-analysis pipelines for Brazilian clinical audio.',
-    fullDescription: 'Built production-focused quality systems for medical AI: automated LLM document evaluation, multi-provider ASR benchmarking, and data curation workflows with dual-annotator consensus. The work connects Hugging Face, Argilla, and AWS S3 through a modular, containerized pipeline.',
+    fullDescription: 'Quality systems for medical AI: automated LLM document evaluation, ASR benchmarking across nine providers, and data curation with dual-annotator consensus. The pipeline connects Hugging Face, Argilla, and AWS S3 in modular, containerized stages.',
     narrative: {
-      problem: 'Clinical audio is unforgiving: heavy accents, overlapping speech, and dense medical terminology make transcription errors easy to miss and expensive to leave uncaught in a healthcare product.',
-      approach: 'I benchmarked 9 ASR providers against the same clinical audio set, then built a modular pipeline — WER/CER scoring, dual-annotator labeling in Argilla, and an LLM-as-Judge layer — to turn "sounds roughly right" into a measurable, auditable quality signal.',
-      reasoning: 'A single annotator or a single automated score is not trustworthy for medical terminology, so I paired human consensus (dual-annotator + adjudication) with an LLM-as-Judge and deterministic checks — each catching failure modes the other misses.',
-      outcome: '217 distinct medical ASR failure variants cataloged across 9 providers, feeding a curated, versioned dataset that downstream model and product decisions can rely on.'
+      problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and in a healthcare product the ones you miss are the ones that hurt.',
+      approach: 'I ran the same set of clinical recordings through 9 ASR providers and built a pipeline to score them: WER and CER analysis, dual-annotator labeling in Argilla, and an LLM-as-Judge layer on top. That turned a vague sense of "sounds about right" into numbers the team could act on.',
+      reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus with an LLM judge and deterministic checks. Each one catches failures the others let through.',
+      outcome: 'The process cataloged 217 distinct failure variants across the 9 providers and produced a curated, versioned dataset that model and product decisions now rely on.'
     },
     highlights: [
       'LLM-as-Judge combined with deterministic QA checks',
       'WER/CER analysis for medical terminology and noisy audio',
       'Dual-annotator consensus with reviewer adjudication',
-      'Modular Hugging Face ↔ Argilla ↔ AWS S3 workflow'
+      'Modular Hugging Face, Argilla, and AWS S3 workflow'
     ],
     metrics: [
       { value: '9', label: 'ASR providers' },
@@ -52,12 +52,12 @@ export const caseStudies = [
     skillsShown: ['Evaluation design', 'Statistical & error analysis', 'Data pipeline engineering', 'Cross-functional QA process'],
     flow: {
       nodes: [
-        { label: 'Clinical audio input', detail: 'Brazilian Portuguese, noisy & accented' },
+        { label: 'Clinical audio input', detail: 'Brazilian Portuguese, noisy and accented' },
         { label: 'Multi-provider ASR', detail: '9 providers benchmarked in parallel' },
         { label: 'WER / CER analysis', detail: 'Medical terminology scoring' },
-        { label: 'Dual-annotator consensus', detail: 'Argilla labeling + adjudication' },
-        { label: 'LLM-as-Judge', detail: 'Automated + deterministic QA checks' },
-        { label: 'Curated dataset', detail: 'Versioned via HF ↔ S3' }
+        { label: 'Dual-annotator consensus', detail: 'Argilla labeling and adjudication' },
+        { label: 'LLM-as-Judge', detail: 'Automated and deterministic QA checks' },
+        { label: 'Curated dataset', detail: 'Versioned via Hugging Face and S3' }
       ]
     },
     icon: 'medical',
@@ -70,13 +70,13 @@ export const caseStudies = [
     eyebrow: 'Independent product · Live SaaS',
     role: 'Product & AI Engineer',
     status: 'Live product',
-    shortDescription: 'Agentic transcription and document generation platform built and operated end to end.',
-    fullDescription: 'Designed and shipped a SaaS platform that transforms long-form audio into structured materials. The system combines a LangGraph state machine, model and tool routing, semantic transcript search, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
+    shortDescription: 'Agentic transcription and document generation platform, built and operated end to end.',
+    fullDescription: 'A SaaS platform that turns long-form audio into structured documents. It combines a LangGraph state machine, model and tool routing, semantic transcript search, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
     narrative: {
-      problem: 'Long-form audio (sermons, lectures, meetings) is easy to record and hard to turn into something usable — people needed structured, searchable documents, not a raw transcript dump.',
-      approach: 'I designed a LangGraph agent that plans, routes between tools and model tiers, and generates structured documents from transcripts, wrapped in a full product: auth, subscriptions, semantic search, and export.',
-      reasoning: 'External APIs fail in production, so every provider integration (transcription, LLM, billing) sits behind a circuit breaker with fallback — the product stays available even when one dependency degrades, and I chose Groq as a cheaper fallback tier to keep unit economics sane at scale.',
-      outcome: 'A live SaaS product operated end to end — from architecture to billing to on-call — instrumented with Sentry and PostHog so quality and usage are visible, not assumed.'
+      problem: 'Long recordings are easy to make and painful to use. People recording sermons, lectures, and meetings wanted structured documents they could search and share, not a wall of raw transcript.',
+      approach: 'I built a LangGraph agent that plans its work, routes between tools and model tiers, and generates structured documents from transcripts. Around it I built the actual product: auth, subscriptions, semantic search, and export.',
+      reasoning: 'External APIs fail, so every provider integration sits behind a circuit breaker with a fallback. Transcription, LLM calls, billing, all of them. The product stays up when a dependency degrades. I also route lighter tasks to Groq because it is cheaper, which keeps unit economics sane as usage grows.',
+      outcome: 'A live SaaS product I operate end to end, from architecture to billing to being the one who gets paged. Sentry and PostHog keep quality and usage visible instead of assumed.'
     },
     highlights: [
       'LangGraph workflow with typed state, planning, tools, and model tiers',
@@ -94,11 +94,11 @@ export const caseStudies = [
     flow: {
       nodes: [
         { label: 'Audio upload', detail: 'User-facing product entry point' },
-        { label: 'Multi-provider transcription', detail: 'Whisper / Groq · circuit breakers' },
+        { label: 'Multi-provider transcription', detail: 'Whisper and Groq, behind circuit breakers' },
         { label: 'LangGraph agent', detail: 'Planning, tool routing, model tiers' },
         { label: 'Semantic chunking', detail: 'OpenAI embeddings for search' },
         { label: 'Document generation', detail: 'Notes, devotionals, structured output' },
-        { label: 'Delivery & observability', detail: 'Export · Sentry · PostHog' }
+        { label: 'Delivery & observability', detail: 'Export, Sentry, PostHog' }
       ]
     },
     liveUrl: 'https://wordinai.com',
@@ -113,12 +113,12 @@ export const caseStudies = [
     role: 'ML Engineer',
     status: 'Complete',
     shortDescription: 'End-to-end ML system for identifying educational delay risk at an NGO.',
-    fullDescription: 'Built a production-oriented classification workflow for Passos Mágicos, from feature engineering and XGBoost training to a FastAPI service, Streamlit dashboard, containerized deployment, and Evidently AI drift monitoring.',
+    fullDescription: 'A production-oriented classification workflow for Passos Mágicos, covering feature engineering, XGBoost training, a FastAPI service, a Streamlit dashboard, containerized deployment, and Evidently AI drift monitoring.',
     narrative: {
-      problem: 'Passos Mágicos, an education-focused NGO, needed to spot students at risk of falling behind early enough for staff to actually intervene — not after a full school term had already been lost.',
-      approach: 'I engineered features from the NGO\'s student records, trained and validated an XGBoost classifier, then wrapped it in a FastAPI service and a Streamlit dashboard so non-technical staff could act on the predictions directly.',
-      reasoning: 'A model without monitoring degrades silently, so I added Evidently AI to track data and prediction drift after deployment — treating the model as a maintained system with a feedback loop, not a one-off notebook result.',
-      outcome: '92.59% accuracy and 0.97 ROC-AUC on held-out data, deployed as a working, containerized decision-support tool rather than a static report.'
+      problem: 'Passos Mágicos is an NGO focused on education. They needed to spot students at risk of falling behind while there was still time to help, not after a school term was already lost.',
+      approach: 'I engineered features from their student records, trained and validated an XGBoost classifier, and wrapped it in a FastAPI service with a Streamlit dashboard, so staff without a technical background could act on the predictions directly.',
+      reasoning: 'A model without monitoring degrades silently. I added Evidently AI to track data and prediction drift after deployment, treating the model as a system that needs maintenance rather than a notebook result that gets presented once.',
+      outcome: '92.59% accuracy and 0.97 ROC-AUC on held-out data, shipped as a working containerized tool the NGO can use for decisions, not a static report.'
     },
     highlights: [
       'Risk classification designed for actionable intervention',
@@ -138,8 +138,8 @@ export const caseStudies = [
         { label: 'Student records', detail: 'Raw NGO data' },
         { label: 'Feature engineering', detail: 'Signals tied to delay risk' },
         { label: 'XGBoost training', detail: 'Classification model' },
-        { label: 'Evaluation', detail: 'Accuracy · ROC-AUC · F1' },
-        { label: 'FastAPI + Streamlit', detail: 'Inference service & dashboard' },
+        { label: 'Evaluation', detail: 'Accuracy, ROC-AUC, F1' },
+        { label: 'FastAPI + Streamlit', detail: 'Inference service and dashboard' },
         { label: 'Evidently AI monitoring', detail: 'Drift detection in production' }
       ],
       loop: { from: 5, to: 2, label: 'drift triggers retrain' }
@@ -157,18 +157,18 @@ export const caseStudies = [
     role: 'ML / Computer Vision Engineer',
     status: 'Top-10 finalist',
     shortDescription: 'Detectron2 pipeline for automating bicycle claim verification.',
-    fullDescription: 'Created a computer vision pipeline for insurance claim verification using Detectron2 and Mask R-CNN. The project covered custom COCO dataset creation, labeling, augmentation, transfer learning, cloud training, and deployment.',
+    fullDescription: 'A computer vision pipeline for insurance claim verification using Detectron2 and Mask R-CNN. The project covered custom COCO dataset creation, labeling, augmentation, transfer learning, cloud training, and deployment.',
     narrative: {
-      problem: 'Porto Seguro\'s challenge: verifying bicycle insurance claims manually from photos doesn\'t scale, and no off-the-shelf model was trained for this narrow object class.',
-      approach: 'With no existing labeled data, I built a custom COCO dataset from scratch, then fine-tuned a Mask R-CNN model via transfer learning on Detectron2, training on AWS EC2 with data staged through S3.',
-      reasoning: 'Training a detector from zero was not realistic on the data and time available, so transfer learning let the team reach usable accuracy with a small, purpose-built dataset instead of requiring a massive labeled corpus.',
-      outcome: 'A working detection pipeline that placed the team among the challenge\'s top 10, validating the transfer-learning approach against teams with larger datasets.'
+      problem: 'Porto Seguro set the challenge: verifying bicycle insurance claims from photos by hand does not scale, and no off-the-shelf model was trained for this narrow object class.',
+      approach: 'There was no labeled data, so I built a custom COCO dataset from scratch, then fine-tuned a Mask R-CNN model with Detectron2. Training ran on AWS EC2 with data staged through S3.',
+      reasoning: 'Training a detector from zero was not realistic with the data and time available. Transfer learning got us to usable accuracy with a small, purpose-built dataset instead of a massive labeled corpus we did not have.',
+      outcome: 'A working detection pipeline that put the team in the top 10 of the challenge, against teams working with larger datasets.'
     },
     highlights: [
       'Custom COCO dataset created from scratch',
       'Transfer learning with Mask R-CNN',
       'AWS EC2 training and S3 data workflow',
-      'Selected among the challenge’s top ten teams'
+      'Selected among the challenge top ten teams'
     ],
     metrics: [
       { value: 'R-CNN', label: 'architecture' },
@@ -183,7 +183,7 @@ export const caseStudies = [
         { label: 'Custom COCO labeling', detail: 'Dataset built from scratch' },
         { label: 'Augmentation', detail: 'Expand limited training data' },
         { label: 'Transfer learning', detail: 'Mask R-CNN on Detectron2' },
-        { label: 'Cloud training', detail: 'AWS EC2 · S3 data workflow' },
+        { label: 'Cloud training', detail: 'AWS EC2 and S3 data workflow' },
         { label: 'Evaluation & result', detail: 'Top-10 challenge placement' }
       ]
     },
@@ -205,7 +205,7 @@ export const projectArchive = [
   {
     id: 'stock-lstm',
     title: 'Experimental Stock Forecasting',
-    description: 'Collaborative PyTorch/FastAPI system whose monitoring exposed weak generalization and areas for model redesign.',
+    description: 'Collaborative PyTorch and FastAPI system whose monitoring exposed weak generalization and areas for model redesign.',
     technologies: ['PyTorch', 'FastAPI', 'Prometheus'],
     repoUrl: 'https://github.com/henriquebap/previsao_acoes',
     category: 'ML Systems'
@@ -282,21 +282,21 @@ export const softSkills = [
   {
     icon: 'ownership',
     title: 'Ownership',
-    text: 'Carries systems past the "it works on my machine" line — from first design decision to the on-call reality of a live product.'
+    text: 'I carry systems past the point where they work on my machine, from the first design decision to operating them live.'
   },
   {
     icon: 'systems',
     title: 'Systems thinking',
-    text: 'Treats models as one layer of many. Data, APIs, fallbacks, and UX are designed together, not bolted on after the model works.'
+    text: 'A model is one layer of many. I design the data, APIs, fallbacks, and UX together instead of bolting them on after the model works.'
   },
   {
     icon: 'communication',
     title: 'Clear communication',
-    text: 'Writes decisions down as system notes and evaluation criteria — quality claims are checkable, not just asserted.'
+    text: 'I write decisions down as system notes and evaluation criteria, so quality claims can be checked instead of taken on faith.'
   },
   {
     icon: 'adaptability',
     title: 'Cross-domain adaptability',
-    text: 'Applied the same engineering discipline across healthcare, insurance, education, and independent product work.'
+    text: 'The same engineering discipline, applied in healthcare, insurance, education, and my own products.'
   }
 ];

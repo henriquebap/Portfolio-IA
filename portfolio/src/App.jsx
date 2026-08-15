@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <Box minH="100vh" bg="#030912">
+    <Box minH="100vh" bg="white">
       <Navbar />
       <Box as="main">
         <Hero />

@@ -1,43 +1,35 @@
-import { Box, Text, VStack } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import { FiArrowDown } from 'react-icons/fi';
 
-const accentHex = {
-  cyan: '#22d3ee',
-  blue: '#3b82f6',
-  green: '#10b981',
-  purple: '#a855f7',
-  amber: '#f59e0b',
-};
-
+const ACCENT = '#2563eb';
+const BORDER = '#d4d4d8';
 const NODE_W = 176;
 const NODE_H = 92;
 const GAP = 40;
 const STEP = NODE_W + GAP;
 
-const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
-  const color = accentHex[accent] || accentHex.cyan;
+const ProjectFlow = ({ nodes, loop }) => {
   const width = nodes.length * STEP - GAP;
   const height = loop ? 190 : 150;
-  const arrowId = `flow-arrow-${accent}`;
 
   return (
     <Box>
-      <Text className="mono-label" color="brand.300" mb={4}>
-        SYSTEM FLOW
-      </Text>
+      <Heading as="h4" fontSize="sm" fontWeight={600} mb={3}>
+        How the system flows
+      </Heading>
 
       {/* Desktop / tablet: horizontal SVG diagram */}
       <Box display={{ base: 'none', md: 'block' }} overflowX="auto">
         <svg
           viewBox={`0 0 ${width} ${height}`}
           width="100%"
-          style={{ minWidth: `${Math.min(width, 720)}px`, display: 'block' }}
+          style={{ minWidth: `${Math.min(width, 640)}px`, display: 'block' }}
           role="img"
           aria-label="Project system flow diagram"
         >
           <defs>
             <marker
-              id={arrowId}
+              id="flow-arrow"
               viewBox="0 0 10 10"
               refX="8"
               refY="5"
@@ -45,7 +37,7 @@ const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
               markerHeight="7"
               orient="auto-start-reverse"
             >
-              <path d="M0,0 L10,5 L0,10 Z" fill={color} opacity="0.85" />
+              <path d="M0,0 L10,5 L0,10 Z" fill={ACCENT} opacity="0.7" />
             </marker>
           </defs>
 
@@ -61,10 +53,10 @@ const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
                     y1={y + NODE_H / 2}
                     x2={x + NODE_W + GAP - 6}
                     y2={y + NODE_H / 2}
-                    stroke={color}
-                    strokeOpacity="0.55"
+                    stroke={ACCENT}
+                    strokeOpacity="0.5"
                     strokeWidth="1.5"
-                    markerEnd={`url(#${arrowId})`}
+                    markerEnd="url(#flow-arrow)"
                   />
                 )}
                 <rect
@@ -72,41 +64,37 @@ const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
                   y={y}
                   width={NODE_W}
                   height={NODE_H}
-                  rx="2"
-                  fill="rgba(7, 16, 29, 0.9)"
-                  stroke={color}
-                  strokeOpacity="0.45"
+                  rx="6"
+                  fill="#fafafa"
+                  stroke={BORDER}
                   strokeWidth="1"
                 />
                 <foreignObject x={x + 14} y={y + 10} width={NODE_W - 28} height={NODE_H - 20}>
-                  <div style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+                  <div style={{ fontFamily: "'Inter', sans-serif" }}>
                     <div
                       style={{
-                        color,
-                        fontSize: '9px',
-                        letterSpacing: '0.08em',
-                        opacity: 0.9,
-                        marginBottom: '6px',
+                        color: ACCENT,
+                        fontSize: '10px',
+                        fontWeight: 600,
+                        marginBottom: '5px',
                       }}
                     >
-                      0{i + 1}
+                      {i + 1}
                     </div>
                     <div
                       style={{
-                        color: '#e5e7eb',
-                        fontFamily: "'Sora', sans-serif",
-                        fontSize: '13px',
+                        color: '#18181b',
+                        fontSize: '12.5px',
                         fontWeight: 600,
                         lineHeight: 1.3,
-                        marginBottom: '4px',
+                        marginBottom: '3px',
                       }}
                     >
                       {node.label}
                     </div>
                     <div
                       style={{
-                        color: '#64748b',
-                        fontFamily: "'Sora', sans-serif",
+                        color: '#71717a',
                         fontSize: '11px',
                         lineHeight: 1.4,
                       }}
@@ -127,26 +115,25 @@ const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
                       ${loop.to * STEP + NODE_W / 2} 168,
                       ${loop.to * STEP + NODE_W / 2} 132`}
                 fill="none"
-                stroke={color}
-                strokeOpacity="0.4"
+                stroke={ACCENT}
+                strokeOpacity="0.45"
                 strokeWidth="1.25"
                 strokeDasharray="3 3"
-                markerEnd={`url(#${arrowId})`}
+                markerEnd="url(#flow-arrow)"
               />
               <foreignObject
                 x={Math.min(loop.from, loop.to) * STEP}
-                y={162}
+                y={164}
                 width={Math.abs(loop.from - loop.to) * STEP + NODE_W}
                 height={20}
               >
                 <div
                   style={{
                     textAlign: 'center',
-                    color: '#64748b',
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: '9px',
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
+                    color: '#71717a',
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '10px',
+                    fontWeight: 500,
                   }}
                 >
                   {loop.label}
@@ -161,17 +148,11 @@ const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
       <VStack align="stretch" spacing={0} display={{ base: 'flex', md: 'none' }}>
         {nodes.map((node, i) => (
           <Box key={node.label}>
-            <Box
-              border="1px solid"
-              borderColor={`${accent}.700`}
-              borderRadius="2px"
-              bg="rgba(7, 16, 29, 0.9)"
-              p={4}
-            >
-              <Text className="mono-label" color={`${accent}.300`} mb={2}>
-                0{i + 1}
+            <Box border="1px solid" borderColor="gray.200" borderRadius="6px" bg="gray.50" p={4}>
+              <Text fontSize="xs" fontWeight={600} color="accent.600" mb={1}>
+                {i + 1}
               </Text>
-              <Text fontWeight="600" fontSize="sm" color="gray.200" mb={1}>
+              <Text fontWeight={600} fontSize="sm" mb={0.5}>
                 {node.label}
               </Text>
               <Text fontSize="xs" color="gray.500" lineHeight="1.5">
@@ -179,12 +160,17 @@ const ProjectFlow = ({ nodes, loop, accent = 'cyan' }) => {
               </Text>
             </Box>
             {i < nodes.length - 1 && (
-              <Box display="flex" justifyContent="center" py={2} color="gray.600">
-                <FiArrowDown />
+              <Box display="flex" justifyContent="center" py={1.5} color="gray.400">
+                <FiArrowDown size={14} />
               </Box>
             )}
           </Box>
         ))}
+        {loop && (
+          <Text fontSize="xs" color="gray.500" textAlign="center" pt={3}>
+            ↺ {loop.label}
+          </Text>
+        )}
       </VStack>
     </Box>
   );
