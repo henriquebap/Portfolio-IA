@@ -2,9 +2,9 @@ export const profile = {
   name: 'Henrique Baptista',
   title: 'AI Engineer',
   subtitle: 'Agents · LLM Systems · Evaluation',
-  tagline: 'I build agents and LLM systems that hold up in production, and the evaluation systems that prove they work.',
-  about: `I build LLM systems for production: agents that plan and use tools, the pipelines that feed them, and the evaluation layers that decide what ships. Most of my experience sits where agents, LLM quality, and voice AI meet, in settings where being wrong has a cost.`,
-  aboutExtended: `In my most recent role I worked on medical AI supporting SOAR, the first AI clinical trial for medical documentation in Latin America. On my own, I built and operate WordinAI, a live SaaS running on a deep agent. I also contribute to open source agent tooling, including langchain-ai/deepagents. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
+  tagline: 'Agents that plan and use tools, the systems around them, and the evaluation layers that decide what ships.',
+  about: `I work on LLM systems for production: agents that plan and use tools, the data pipelines that feed them, and the evaluation layers that decide what ships. My experience combines agents, LLM engineering, and voice AI.`,
+  aboutExtended: `In my most recent role I worked across the voice AI and evaluation stack of a clinical documentation product. On my own, I built and operate WordinAI, a live SaaS running on a deep agent. I also contribute to open source agent tooling, including langchain-ai/deepagents. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',
@@ -20,22 +20,22 @@ export const caseStudies = [
     id: 'medical-asr',
     index: '01',
     title: 'Medical AI Evaluation & ASR',
-    eyebrow: 'Professional work · First AI clinical docs trial in LatAm',
+    eyebrow: 'Professional work · HealthTech',
     role: 'AI Engineer',
     status: 'Private system',
-    shortDescription: 'The evaluation and data systems behind a clinical AI product: ASR, VAD, fine-tuning data, and LLM/agent evaluation.',
-    fullDescription: 'A progression through the whole voice AI stack for medical audio: ASR model work and usability improvements, VAD integration for better context, provider benchmarking and product validation, dataset curation for fine-tuning, and evaluation of LLM and agent generation.',
+    shortDescription: 'The evaluation and data systems behind a clinical AI product: ASR, VAD, dataset engineering, and LLM/agent evaluation.',
+    fullDescription: 'A progression through the whole voice AI stack for medical audio: ASR model work and usability improvements, VAD integration for better context, provider benchmarking and product validation, leading a dataset project for a planned fine-tuning effort, and evaluation of LLM and agent generation.',
     narrative: {
-      problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and this product supported SOAR, the first AI clinical trial for medical documentation in Latin America. Errors that reach a clinical document have real consequences.',
-      approach: 'I started deep in the ASR models themselves, improving how usable their output was in practice. Then I brought VAD into the pipeline so the system captured more context from each recording. With that base, I benchmarked 9 providers and validated ASR quality for the product: WER and CER analysis, dual-annotator labeling in Argilla, and an LLM-as-Judge layer on top.',
-      reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus with an LLM judge and deterministic checks. Each one catches failures the others let through.',
-      outcome: 'The benchmark cataloged 217 failure variants across 9 providers. From there I owned the dataset curation and preparation flow for a fine-tuning project, then moved to evaluating LLM and agent generation with LLM-as-Judge and deeper evaluation techniques. That work kept surfacing concrete product and usability improvements.'
+      problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and in a clinical documentation product they cannot go uncaught.',
+      approach: 'I started deep in the ASR models themselves, improving how usable their output was in practice. Then I brought VAD into the pipeline so the system captured more context from each recording. With that base, I benchmarked 9 providers and validated ASR quality for the product with WER and CER analysis and dual-annotator labeling in Argilla.',
+      reasoning: 'For ASR data, one annotator alone is not reliable on medical terminology, so labels went through dual-annotator consensus with reviewer adjudication. Later, for document generation, one automated score was not enough either: I paired LLM-as-Judge with deterministic checks, and each catches failures the other misses.',
+      outcome: 'The benchmark cataloged 217 failure variants across 9 providers. I then led a dataset project intended for fine-tuning: planning, collection, and data preparation, organized across AWS S3, Hugging Face, and Argilla. My final focus was evaluating LLM and agent document generation, and that work kept turning into concrete product and usability improvements.'
     },
     highlights: [
       'ASR model work and VAD integration for more usable context',
       'Benchmark and product validation across 9 ASR providers',
-      'Full dataset curation and preparation flow for fine-tuning',
-      'LLM and agent generation evaluation with LLM-as-Judge',
+      'Led dataset planning, collection, and preparation for a fine-tuning initiative',
+      'LLM and agent generation evaluation with LLM-as-Judge and deterministic checks',
       'Dual-annotator consensus with reviewer adjudication'
     ],
     metrics: [
@@ -44,14 +44,14 @@ export const caseStudies = [
       { value: 'E2E', label: 'from ASR to agent evaluation' }
     ],
     technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'AWS S3', 'Docker'],
-    skillsShown: ['Evaluation design', 'Fine-tuning data curation', 'Statistical & error analysis', 'Agent evaluation', 'Data pipeline engineering'],
+    skillsShown: ['Evaluation design', 'Dataset planning & curation', 'Statistical & error analysis', 'Agent evaluation', 'Data pipeline engineering'],
     flow: {
       nodes: [
         { label: 'ASR model deep-dive', detail: 'Model usability improvements' },
         { label: 'VAD integration', detail: 'Voice activity detection for more context' },
         { label: 'Benchmark & validation', detail: '9 providers, WER/CER, product fit' },
-        { label: 'Fine-tuning dataset', detail: 'Full curation and preparation flow' },
-        { label: 'LLM & agent evaluation', detail: 'LLM-as-Judge and deeper techniques' },
+        { label: 'Dataset project lead', detail: 'Planning, collection, preparation' },
+        { label: 'LLM & agent evaluation', detail: 'LLM-as-Judge and deterministic checks' },
         { label: 'Product improvements', detail: 'Usability findings fed back in' }
       ]
     },
