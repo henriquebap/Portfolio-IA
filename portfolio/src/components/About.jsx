@@ -49,7 +49,7 @@ const About = () => (
             Experience & education
           </Heading>
           <VStack align="stretch" spacing={2} fontSize="sm" color="gray.600">
-            <Text>ML / AI Engineer, production medical AI systems (Feb 2025 to Jul 2026)</Text>
+            <Text>AI Engineer, production medical AI systems (Feb 2025 to Jul 2026)</Text>
             <Text>{profile.education}</Text>
             <Text>{profile.educationBachelor}</Text>
           </VStack>

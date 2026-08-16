@@ -1,10 +1,10 @@
 export const profile = {
   name: 'Henrique Baptista',
-  title: 'ML / AI Engineer',
-  subtitle: 'Production AI Systems · Evaluation · Voice AI',
-  tagline: 'I build AI systems that hold up in production. My work covers evaluation, data pipelines, APIs, deployment, and the product around them.',
-  about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, voice AI, and product engineering meet.`,
-  aboutExtended: `In my most recent role I built evaluation and data workflows for medical AI. On my own, I designed and shipped WordinAI, a transcription SaaS that runs on multiple providers. The pattern is the same in both: make quality measurable, plan for failure, and own the path from prototype to production.`,
+  title: 'AI Engineer',
+  subtitle: 'Agents · LLM Systems · Evaluation',
+  tagline: 'I build agents and LLM systems that hold up in production, and the evaluation systems that prove they work.',
+  about: `I build LLM systems for production: agents that plan and use tools, the pipelines that feed them, and the evaluation layers that decide what ships. Most of my experience sits where agents, LLM quality, and voice AI meet, in settings where being wrong has a cost.`,
+  aboutExtended: `In my most recent role I worked on medical AI supporting SOAR, the first AI clinical trial for medical documentation in Latin America. On my own, I built and operate WordinAI, a live SaaS running on a deep agent. I also contribute to open source agent tooling, including langchain-ai/deepagents. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',
@@ -14,25 +14,19 @@ export const profile = {
   educationBachelor: 'Bachelor in Systems Analysis & Development, FIAP (completed Dec 2024)'
 };
 
-export const proofPoints = [
-  { value: '9', label: 'ASR providers benchmarked' },
-  { value: '217', label: 'medical ASR failure variants' },
-  { value: '5', label: 'LangGraph workflow nodes' },
-  { value: '2', label: 'end-to-end products shipped' }
-];
 
 export const caseStudies = [
   {
     id: 'medical-asr',
     index: '01',
     title: 'Medical AI Evaluation & ASR',
-    eyebrow: 'Professional work · HealthTech',
-    role: 'ML / AI Engineer',
+    eyebrow: 'Professional work · First AI clinical docs trial in LatAm',
+    role: 'AI Engineer',
     status: 'Private system',
-    shortDescription: 'From ASR and VAD tuning to fine-tuning data curation and LLM/agent evaluation for clinical audio.',
+    shortDescription: 'The evaluation and data systems behind a clinical AI product: ASR, VAD, fine-tuning data, and LLM/agent evaluation.',
     fullDescription: 'A progression through the whole voice AI stack for medical audio: ASR model work and usability improvements, VAD integration for better context, provider benchmarking and product validation, dataset curation for fine-tuning, and evaluation of LLM and agent generation.',
     narrative: {
-      problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and in a healthcare product the ones you miss are the ones that hurt.',
+      problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and this product supported SOAR, the first AI clinical trial for medical documentation in Latin America. Errors that reach a clinical document have real consequences.',
       approach: 'I started deep in the ASR models themselves, improving how usable their output was in practice. Then I brought VAD into the pipeline so the system captured more context from each recording. With that base, I benchmarked 9 providers and validated ASR quality for the product: WER and CER analysis, dual-annotator labeling in Argilla, and an LLM-as-Judge layer on top.',
       reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus with an LLM judge and deterministic checks. Each one catches failures the others let through.',
       outcome: 'The benchmark cataloged 217 failure variants across 9 providers. From there I owned the dataset curation and preparation flow for a fine-tuning project, then moved to evaluating LLM and agent generation with LLM-as-Judge and deeper evaluation techniques. That work kept surfacing concrete product and usability improvements.'
@@ -45,9 +39,9 @@ export const caseStudies = [
       'Dual-annotator consensus with reviewer adjudication'
     ],
     metrics: [
-      { value: '9', label: 'ASR providers' },
-      { value: '217', label: 'error variants' },
-      { value: '8', label: 'pipeline modules' }
+      { value: 'SOAR', label: 'first AI clinical docs trial in LatAm' },
+      { value: '217', label: 'failure modes cataloged' },
+      { value: 'E2E', label: 'from ASR to agent evaluation' }
     ],
     technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'AWS S3', 'Docker'],
     skillsShown: ['Evaluation design', 'Fine-tuning data curation', 'Statistical & error analysis', 'Agent evaluation', 'Data pipeline engineering'],
@@ -69,7 +63,7 @@ export const caseStudies = [
     index: '02',
     title: 'WordinAI',
     eyebrow: 'Independent product · Live SaaS',
-    role: 'Product & AI Engineer',
+    role: 'AI Engineer · Founder',
     status: 'Live product',
     shortDescription: 'Transcription and document generation platform running on a deep agent, built and operated end to end.',
     fullDescription: 'A SaaS platform that turns long-form audio into structured documents. At its core is a deep agent built on LangGraph, surrounded by model and tool routing, semantic transcript search, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
@@ -77,7 +71,7 @@ export const caseStudies = [
       problem: 'Long recordings are easy to make and painful to use. People recording sermons, lectures, and meetings wanted structured documents they could search and share, not a wall of raw transcript.',
       approach: 'I built a deep agent on LangGraph that plans its work, routes between tools and model tiers, and generates structured documents from transcripts. Around it I built the actual product: auth, subscriptions, semantic search, and export.',
       reasoning: 'External APIs fail, so every provider integration sits behind a circuit breaker with a fallback. Transcription, LLM calls, billing, all of them. The product stays up when a dependency degrades. I also route lighter tasks to Groq because it is cheaper, which keeps unit economics sane as usage grows.',
-      outcome: 'A live SaaS product I operate end to end, from architecture to billing to being the one who gets paged. Sentry and PostHog keep quality and usage visible instead of assumed.'
+      outcome: 'A live SaaS product I operate end to end, from architecture to billing to being the one who gets paged. It turns an hour of audio into structured documents in about 3 minutes, roughly 150x faster than the manual workflow, at 8 to 12% WER across 90+ languages. Sentry and PostHog keep quality and usage visible instead of assumed.'
     },
     highlights: [
       'LangGraph workflow with typed state, planning, tools, and model tiers',
@@ -86,9 +80,9 @@ export const caseStudies = [
       'Vitest coverage plus Sentry and PostHog instrumentation'
     ],
     metrics: [
-      { value: '5', label: 'graph nodes' },
-      { value: '12', label: 'test files' },
-      { value: '3', label: 'circuit breakers' }
+      { value: '150x', label: 'faster than manual workflow' },
+      { value: '8-12%', label: 'WER in production' },
+      { value: '90+', label: 'languages supported' }
     ],
     technologies: ['Next.js', 'TypeScript', 'LangGraph', 'Whisper', 'Supabase', 'Sentry'],
     skillsShown: ['System architecture', 'Agentic workflow design', 'Full-stack product engineering', 'Reliability engineering'],
@@ -257,6 +251,13 @@ export const agentWork = [
     focus: 'MCP document automation',
     description: 'An MCP plugin that automates document creation for the site, generating and updating content through the agent instead of by hand.',
     liveUrl: 'https://vinibap.com'
+  },
+  {
+    id: 'agent-oss',
+    title: 'Open source',
+    focus: 'langchain-ai/deepagents',
+    description: 'Contributor to deepagents, LangChain\'s structured runtime for multi-step agents with planning, memory, and context isolation. Also contributed to agents-towards-production.',
+    liveUrl: 'https://github.com/langchain-ai/deepagents'
   }
 ];
 
@@ -281,24 +282,24 @@ export const productEngineering = [
 
 export const capabilities = [
   {
+    title: 'Agents',
+    description: 'Design agents that plan, use tools, and recover from failure.',
+    items: ['LangGraph', 'deepagents', 'MCP', 'Tool routing', 'Multi-agent orchestration']
+  },
+  {
     title: 'Evaluate',
-    description: 'Make model quality observable and testable.',
+    description: 'Build the evaluation layers that decide what ships.',
     items: ['LLM-as-Judge', 'Evaluation datasets', 'WER / CER', 'Failure analysis', 'Production QA']
   },
   {
     title: 'Build',
-    description: 'Turn AI workflows into maintainable products.',
-    items: ['Python', 'FastAPI', 'PyTorch', 'LangChain / LangGraph', 'Hugging Face']
+    description: 'Turn AI workflows into maintainable systems.',
+    items: ['Python', 'FastAPI', 'PyTorch', 'TypeScript / Next.js', 'Hugging Face']
   },
   {
     title: 'Operate',
     description: 'Design for failures, cost, latency, and change.',
-    items: ['Docker', 'AWS S3', 'PostgreSQL', 'CI/CD', 'Prometheus / Evidently']
-  },
-  {
-    title: 'Ship',
-    description: 'Own the path from system design to user experience.',
-    items: ['TypeScript', 'Next.js', 'Supabase', 'REST APIs', 'Product engineering']
+    items: ['Docker', 'AWS', 'PostgreSQL / Supabase', 'CI/CD', 'Sentry / Evidently']
   }
 ];
 
