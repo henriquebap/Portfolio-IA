@@ -37,9 +37,8 @@ const FeaturedProjects = () => {
             <Box>
               <Text className="eyebrow" mb={3}>Selected work</Text>
               <Text color="gray.600" lineHeight="1.75">
-                Four projects picked for depth: production evaluation, product ownership, model
-                deployment, and applied ML. Each one focuses on the engineering decisions behind
-                the result, not the tool list.
+                Four projects, told the same way: the problem, the decisions behind the solution,
+                and what shipped.
               </Text>
             </Box>
           </Reveal>

@@ -1,10 +1,10 @@
 export const profile = {
   name: 'Henrique Baptista',
-  title: 'ML / AI Engineer',
+  title: 'AI Engineer',
   subtitle: 'Production AI Systems · Evaluation · Voice AI',
-  tagline: 'I build AI systems that hold up in production. My work covers evaluation, data pipelines, APIs, deployment, and the product around them.',
-  about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, voice AI, and product engineering meet.`,
-  aboutExtended: `In my most recent role I built evaluation and data workflows for medical AI. On my own, I designed and shipped WordinAI, a transcription SaaS that runs on multiple providers. The pattern is the same in both: make quality measurable, plan for failure, and own the path from prototype to production.`,
+  tagline: 'I build AI systems that hold up in production. My work covers agents, evaluation, data pipelines, deployment, and the product around them.',
+  about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, agents, voice AI, and product engineering meet.`,
+  aboutExtended: `In my most recent role I built the evaluation stack for medical AI — ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. On my own, I design and operate agent products: a multi-agent SaaS, an MCP server, and AI inside a real auto shop. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',
@@ -16,9 +16,9 @@ export const profile = {
 
 export const proofPoints = [
   { value: '9', label: 'ASR providers benchmarked' },
-  { value: '217', label: 'medical ASR failure variants' },
-  { value: '5', label: 'LangGraph workflow nodes' },
-  { value: '2', label: 'end-to-end products shipped' }
+  { value: '10k+', label: 'clinical audio samples evaluated' },
+  { value: '-78%', label: 'medication transcription errors' },
+  { value: '4', label: 'live products operated end to end' }
 ];
 
 export const caseStudies = [
@@ -29,36 +29,36 @@ export const caseStudies = [
     eyebrow: 'Professional work · HealthTech',
     role: 'ML / AI Engineer',
     status: 'Private system',
-    shortDescription: 'From ASR and VAD tuning to fine-tuning data curation and LLM/agent evaluation for clinical audio.',
-    fullDescription: 'A progression through the whole voice AI stack for medical audio: ASR model work and usability improvements, VAD integration for better context, provider benchmarking and product validation, dataset curation for fine-tuning, and evaluation of LLM and agent generation.',
+    shortDescription: 'From ASR benchmarking and data curation to LLM-as-Judge evaluators running in production for clinical audio.',
+    fullDescription: 'The full evaluation stack for medical voice AI: ASR benchmarking with domain metrics, human annotation with consensus, a medication-error post-processor, and LLM-as-Judge evaluators in production — calibrated against human judgment.',
     narrative: {
       problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and in a healthcare product the ones you miss are the ones that hurt.',
-      approach: 'I started deep in the ASR models themselves, improving how usable their output was in practice. Then I brought VAD into the pipeline so the system captured more context from each recording. With that base, I benchmarked 9 providers and validated ASR quality for the product: WER and CER analysis, dual-annotator labeling in Argilla, and an LLM-as-Judge layer on top.',
-      reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus with an LLM judge and deterministic checks. Each one catches failures the others let through.',
-      outcome: 'The benchmark cataloged 217 failure variants across 9 providers. From there I owned the dataset curation and preparation flow for a fine-tuning project, then moved to evaluating LLM and agent generation with LLM-as-Judge and deeper evaluation techniques. That work kept surfacing concrete product and usability improvements.'
+      approach: 'I benchmarked 9 ASR providers on 10k+ clinical audio samples with WER/CER plus a domain metric I created for medication errors, ran dual-annotator labeling in Argilla with automatic consensus, and built a lexical-phonetic post-processor from a taxonomy of 217 real medication transcription errors. Then I moved up the stack: LLM-as-Judge evaluators for generated clinical documents, running in production on LangSmith.',
+      reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus, deterministic checks, and an LLM judge — and calibrated the judge against human annotation with statistical agreement gates before trusting its verdicts.',
+      outcome: 'Medication transcription errors dropped 78% and WER dropped 21% with the domain prompt plus post-processor — validated statistically, including the honest finding that the gain concentrates where medications actually occur. The judge pipeline went from 8% uncertain verdicts to 0% across iterations, and its findings kept turning into concrete product fixes.'
     },
     highlights: [
-      'ASR model work and VAD integration for more usable context',
-      'Benchmark and product validation across 9 ASR providers',
-      'Full dataset curation and preparation flow for fine-tuning',
-      'LLM and agent generation evaluation with LLM-as-Judge',
-      'Dual-annotator consensus with reviewer adjudication'
+      'Benchmark of 9 ASR providers across 10k+ clinical audio samples',
+      'Medication-error taxonomy (217 variants) driving a post-processor: -78% medication errors',
+      'Dual-annotator consensus pipeline with adjudication, live dashboard, and 24/7 webhook sync',
+      'LLM-as-Judge evaluators in production, calibrated against human annotation',
+      'End-to-end latency observability for the realtime transcription pipeline'
     ],
     metrics: [
       { value: '9', label: 'ASR providers' },
-      { value: '217', label: 'error variants' },
-      { value: '8', label: 'pipeline modules' }
+      { value: '-78%', label: 'medication errors' },
+      { value: '10k+', label: 'samples evaluated' }
     ],
-    technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'AWS S3', 'Docker'],
-    skillsShown: ['Evaluation design', 'Fine-tuning data curation', 'Statistical & error analysis', 'Agent evaluation', 'Data pipeline engineering'],
+    technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'LangSmith', 'AWS S3', 'Docker'],
+    skillsShown: ['Evaluation design', 'LLM-as-Judge in production', 'Fine-tuning data curation', 'Statistical validation', 'Data pipeline engineering'],
     flow: {
       nodes: [
-        { label: 'ASR model deep-dive', detail: 'Model usability improvements' },
-        { label: 'VAD integration', detail: 'Voice activity detection for more context' },
-        { label: 'Benchmark & validation', detail: '9 providers, WER/CER, product fit' },
-        { label: 'Fine-tuning dataset', detail: 'Full curation and preparation flow' },
-        { label: 'LLM & agent evaluation', detail: 'LLM-as-Judge and deeper techniques' },
-        { label: 'Product improvements', detail: 'Usability findings fed back in' }
+        { label: 'ASR benchmark', detail: '9 providers, 10k+ samples, WER/CER + domain metric' },
+        { label: 'Human annotation', detail: 'Dual-annotator consensus in Argilla' },
+        { label: 'Error taxonomy', detail: '217 medication variants cataloged' },
+        { label: 'Post-processor', detail: 'Lexical-phonetic correction: -78% med errors' },
+        { label: 'Fine-tuning dataset', detail: 'Curated audio-text pairs on HF Hub' },
+        { label: 'LLM-as-Judge in production', detail: 'Calibrated against human annotation' }
       ]
     },
     icon: 'medical',
@@ -72,33 +72,34 @@ export const caseStudies = [
     role: 'Product & AI Engineer',
     status: 'Live product',
     shortDescription: 'Transcription and document generation platform running on a deep agent, built and operated end to end.',
-    fullDescription: 'A SaaS platform that turns long-form audio into structured documents. At its core is a deep agent built on LangGraph, surrounded by model and tool routing, semantic transcript search, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
+    fullDescription: 'A SaaS platform that turns long-form audio into structured documents. At its core is a multi-agent system built on LangGraph and deepagents, surrounded by hybrid retrieval, multi-provider transcription, authentication, subscriptions, observability, and export workflows.',
     narrative: {
       problem: 'Long recordings are easy to make and painful to use. People recording sermons, lectures, and meetings wanted structured documents they could search and share, not a wall of raw transcript.',
-      approach: 'I built a deep agent on LangGraph that plans its work, routes between tools and model tiers, and generates structured documents from transcripts. Around it I built the actual product: auth, subscriptions, semantic search, and export.',
-      reasoning: 'External APIs fail, so every provider integration sits behind a circuit breaker with a fallback. Transcription, LLM calls, billing, all of them. The product stays up when a dependency degrades. I also route lighter tasks to Groq because it is cheaper, which keeps unit economics sane as usage grows.',
-      outcome: 'A live SaaS product I operate end to end, from architecture to billing to being the one who gets paged. Sentry and PostHog keep quality and usage visible instead of assumed.'
+      approach: 'I built a deep agent on LangGraph with specialized subagents — a context analyst, a source verifier that must attach a source reference to every claim, and an action strategist — backed by a tool belt for retrieval, ingestion, and document generation. Around it I built the actual product: auth, subscriptions, hybrid search, and export.',
+      reasoning: 'Two failure modes matter most in this product: hallucinated content and hostile input. The source-verifier subagent exists so no claim ships without a reference, and untrusted tool content is isolated from instructions to resist prompt injection. External APIs fail too, so every provider sits behind a circuit breaker with fallback — transcription, LLM calls, billing.',
+      outcome: 'A live SaaS I operate end to end, from architecture to billing to being the one who gets paged. 70+ test files including agent contract evals and security suites, with Sentry and PostHog keeping quality visible instead of assumed. Users can also run transcription fully in-browser with Whisper WASM — a privacy option that costs nothing to serve.'
     },
     highlights: [
-      'LangGraph workflow with typed state, planning, tools, and model tiers',
-      'Semantic transcript search with chunked OpenAI embeddings',
-      'Circuit breakers for OpenAI, Groq, and Stripe integrations',
-      'Vitest coverage plus Sentry and PostHog instrumentation'
+      'Multi-agent LangGraph system: context analyst, source verifier, action strategist',
+      'Hybrid retrieval — vector plus full-text search with graceful fallback',
+      'Untrusted-content isolation against prompt injection, plus agent contract evals',
+      'Circuit breakers for OpenAI, Groq, and Stripe; Sentry and PostHog observability',
+      'In-browser Whisper WASM transcription as a zero-cost privacy option'
     ],
     metrics: [
-      { value: '5', label: 'graph nodes' },
-      { value: '12', label: 'test files' },
-      { value: '3', label: 'circuit breakers' }
+      { value: '3', label: 'specialized subagents' },
+      { value: '70+', label: 'test files' },
+      { value: '2', label: 'STT paths (API / local)' }
     ],
-    technologies: ['Next.js', 'TypeScript', 'LangGraph', 'Whisper', 'Supabase', 'Sentry'],
-    skillsShown: ['System architecture', 'Agentic workflow design', 'Full-stack product engineering', 'Reliability engineering'],
+    technologies: ['Next.js', 'TypeScript', 'LangGraph', 'deepagents', 'Whisper', 'Supabase', 'Sentry'],
+    skillsShown: ['Multi-agent system design', 'RAG & hybrid retrieval', 'AI security (prompt injection)', 'Full-stack product engineering', 'Reliability engineering'],
     flow: {
       nodes: [
-        { label: 'Audio upload', detail: 'User-facing product entry point' },
+        { label: 'Audio upload', detail: 'Cloud STT or in-browser Whisper WASM' },
         { label: 'Multi-provider transcription', detail: 'Whisper and Groq, behind circuit breakers' },
-        { label: 'Deep agent (LangGraph)', detail: 'Planning, tool routing, model tiers' },
-        { label: 'Semantic chunking', detail: 'OpenAI embeddings for search' },
-        { label: 'Document generation', detail: 'Notes, devotionals, structured output' },
+        { label: 'Deep agent (LangGraph)', detail: 'Subagents: analyst, verifier, strategist' },
+        { label: 'Hybrid retrieval', detail: 'Vector + full-text over user knowledge' },
+        { label: 'Document generation', detail: 'Verified, source-referenced output' },
         { label: 'Delivery & observability', detail: 'Export, Sentry, PostHog' }
       ]
     },
@@ -196,6 +197,27 @@ export const caseStudies = [
 
 export const projectArchive = [
   {
+    id: 'ml-pos-rag',
+    title: 'Postgrad RAG Assistant',
+    description: 'RAG over my entire ML postgrad material with page-level source citations — and measured economics: ~$0.06 to index, under $0.001 per query.',
+    technologies: ['Python', 'ChromaDB', 'FastAPI', 'OpenRouter'],
+    category: 'RAG'
+  },
+  {
+    id: 'race-strategy-agent',
+    title: 'Race Strategy Copilot',
+    description: 'Real-time endurance-racing strategist: Claude with extended thinking and the full rulebook held in prompt cache, advising the driver mid-race on top of a deterministic pace engine.',
+    technologies: ['Python', 'Anthropic API', 'Streamlit'],
+    category: 'LLM Systems'
+  },
+  {
+    id: 'local-voice-tutor',
+    title: 'Local Voice Tutor',
+    description: 'Language tutor running fully offline on Apple Silicon: Whisper large-v3 for ASR, Mistral 7B for feedback, Coqui TTS for speech — no API calls at all.',
+    technologies: ['Whisper', 'llama.cpp', 'Coqui TTS'],
+    category: 'Voice AI'
+  },
+  {
     id: 'wine-ml-pipeline',
     title: 'Wine Quality Regression',
     description: 'Applied regression experiment with scikit-learn, a Gradio interface, and model artifacts on Hugging Face Hub.',
@@ -241,22 +263,27 @@ export const agentWork = [
   {
     id: 'agent-wordin',
     title: 'WordinAI',
-    focus: 'Deep agent',
-    description: 'A deep agent on LangGraph at the core of a live SaaS: it plans, routes between tools and model tiers, and turns long audio into structured documents.',
+    focus: 'Multi-agent system',
+    description: 'A deep agent on LangGraph with specialized subagents — including a source verifier that must reference evidence for every claim — at the core of a live SaaS.',
     liveUrl: 'https://wordinai.com'
   },
   {
     id: 'agent-wilmec',
     title: 'Wilmec',
-    focus: 'Chatbot & inventory agent',
-    description: 'A chatbot and agent that automate inventory workflows, so stock questions and routine flows get handled without a human in the middle.'
+    focus: 'AI in a real shop',
+    description: 'Agents inside an auto-shop system used daily by a real business: mechanics dictate service items by voice (Whisper structures them into work orders), AI-assisted diagnosis, and a knowledge base that reuses past cases. Guardrail: AI assists, never decides alone.'
   },
   {
-    id: 'agent-vinibap',
-    title: 'Vinícius Baptista portfolio',
-    focus: 'MCP document automation',
-    description: 'An MCP plugin that automates document creation for the site, generating and updating content through the agent instead of by hand.',
-    liveUrl: 'https://vinibap.com'
+    id: 'agent-webskill',
+    title: 'WebSkill',
+    focus: 'MCP server',
+    description: 'An MCP server that installs whole websites as queryable skills for any LLM: crawl, chunk, embed into ChromaDB — with content-hash diffing so refreshes only re-embed what changed. 56 tests.'
+  },
+  {
+    id: 'agent-food-service',
+    title: 'Food Service Agent',
+    focus: 'Voice agent',
+    description: 'A LangGraph agent with intent routing that finds restaurants, remembers preferences in vector memory — and places the reservation itself over a real phone call (Twilio + TTS + Whisper).'
   }
 ];
 
@@ -283,17 +310,17 @@ export const capabilities = [
   {
     title: 'Evaluate',
     description: 'Make model quality observable and testable.',
-    items: ['LLM-as-Judge', 'Evaluation datasets', 'WER / CER', 'Failure analysis', 'Production QA']
+    items: ['LLM-as-Judge', 'LangSmith', 'Evaluation datasets', 'WER / CER', 'Human-judge calibration', 'Production QA']
   },
   {
     title: 'Build',
     description: 'Turn AI workflows into maintainable products.',
-    items: ['Python', 'FastAPI', 'PyTorch', 'LangChain / LangGraph', 'Hugging Face']
+    items: ['Python', 'FastAPI', 'PyTorch', 'LangGraph / deepagents', 'MCP servers', 'RAG / hybrid search', 'Hugging Face']
   },
   {
     title: 'Operate',
     description: 'Design for failures, cost, latency, and change.',
-    items: ['Docker', 'AWS S3', 'PostgreSQL', 'CI/CD', 'Prometheus / Evidently']
+    items: ['Docker', 'AWS S3', 'PostgreSQL', 'CI/CD', 'Prompt caching / model routing', 'Prometheus / Evidently']
   },
   {
     title: 'Ship',
