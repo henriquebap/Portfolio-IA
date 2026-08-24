@@ -71,7 +71,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
             )}
 
             {project.metrics && (
-              <SimpleGrid columns={3} spacing={4}>
+              <SimpleGrid columns={{ base: 1, sm: 3 }} spacing={4}>
                 {project.metrics.map((metric) => (
                   <Box key={metric.label}>
                     <Text fontWeight={700} fontSize="lg">{metric.value}</Text>

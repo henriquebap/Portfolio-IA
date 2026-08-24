@@ -37,8 +37,9 @@ const FeaturedProjects = () => {
             <Box>
               <Text className="eyebrow" mb={3}>Selected work</Text>
               <Text color="gray.600" lineHeight="1.75">
-                Five projects, told the same way: the problem, the decisions behind the solution,
-                and what shipped.
+                This site is the long version of my CV: the same work, with the reasoning and
+                trade-offs a one-page resume has no room for. Five projects, each told as the
+                problem, the decisions behind the solution, and what shipped.
               </Text>
             </Box>
           </Reveal>

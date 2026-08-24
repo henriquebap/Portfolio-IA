@@ -1,8 +1,8 @@
 export const profile = {
   name: 'Henrique Baptista',
   title: 'AI Engineer',
-  subtitle: 'Production AI Systems · Evaluation · Voice AI',
-  tagline: 'I build AI systems that hold up in production. My work covers agents, evaluation, data pipelines, deployment, and the product around them.',
+  subtitle: 'Agents · LLM Evaluation · Voice AI',
+  tagline: 'I build production agent, LLM, and Voice AI systems, plus the evaluation layer that proves they work.',
   about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, agents, voice AI, and product engineering meet.`,
   aboutExtended: `In my most recent role I built the evaluation stack for medical AI: ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. On my own, I design and operate agent products, from a multi-agent SaaS to the system an auto mechanic shop runs on every day. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
@@ -13,13 +13,6 @@ export const profile = {
   education: 'Postgraduate Program in Machine Learning Engineering, FIAP (completed Mar 2026)',
   educationBachelor: 'Bachelor in Systems Analysis & Development, FIAP (completed Dec 2024)'
 };
-
-export const proofPoints = [
-  { value: 'Live', label: 'LLM-as-Judge evaluators in production' },
-  { value: 'Voice', label: 'clinical ASR evaluation and tuning' },
-  { value: '3', label: 'agent systems shipped' },
-  { value: '4', label: 'products operated end to end' }
-];
 
 export const caseStudies = [
   {
@@ -45,12 +38,12 @@ export const caseStudies = [
       'LLM-as-Judge evaluators in production, calibrated against human annotation'
     ],
     metrics: [
-      { value: 'Live', label: 'judges in production' },
-      { value: 'WER/CER', label: 'plus domain metrics' },
-      { value: 'VAD', label: 'context vs latency tuning' }
+      { value: 'In production', label: 'LLM-as-Judge evaluators' },
+      { value: 'Medication-first', label: 'evaluation, not average WER' },
+      { value: 'Context vs latency', label: 'the streaming ASR trade-off' }
     ],
     technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'LangSmith', 'AWS S3', 'Docker'],
-    skillsShown: ['Evaluation design', 'LLM-as-Judge in production', 'Fine-tuning data curation', 'Statistical validation', 'Data pipeline engineering'],
+    skillsShown: ['Evaluation design', 'LLM-as-Judge in production', 'ASR experimentation', 'Fine-tuning data curation', 'Data pipeline engineering'],
     flow: {
       nodes: [
         { label: 'Provider benchmark', detail: 'WER/CER, latency, and cost on our own audio' },
@@ -87,9 +80,9 @@ export const caseStudies = [
       'In-browser Whisper WASM transcription as a zero-cost privacy option'
     ],
     metrics: [
-      { value: '3', label: 'specialized subagents' },
-      { value: '2', label: 'STT paths (API / local)' },
-      { value: 'Live', label: 'in production' }
+      { value: 'Live SaaS', label: 'built and operated solo' },
+      { value: 'Sourced output', label: 'every claim referenced' },
+      { value: 'Local option', label: 'in-browser transcription' }
     ],
     technologies: ['Next.js', 'TypeScript', 'LangGraph', 'deepagents', 'Whisper', 'Supabase', 'Sentry'],
     skillsShown: ['Multi-agent system design', 'RAG & hybrid retrieval', 'Full-stack product engineering', 'Reliability engineering'],
@@ -131,9 +124,9 @@ export const caseStudies = [
       'Offline-first with cascading ID remapping, because the shop floor has no signal'
     ],
     metrics: [
-      { value: '3', label: 'channels, one engine' },
-      { value: 'Voice', label: 'to work-order items' },
-      { value: 'Daily', label: 'use in a real shop' }
+      { value: 'Daily use', label: 'in a real repair shop' },
+      { value: 'Three channels', label: 'one agent engine' },
+      { value: 'Voice in', label: 'work order out' }
     ],
     technologies: ['Next.js', 'TypeScript', 'OpenAI Agents SDK', 'Whisper', 'Supabase', 'Postgres', 'Dexie'],
     skillsShown: ['Agent tooling & guardrails', 'Voice AI in the field', 'Data modeling & migration', 'Offline-first architecture', 'Shipping for real users'],
@@ -172,9 +165,9 @@ export const caseStudies = [
       'Dockerized deployment on Hugging Face Spaces'
     ],
     metrics: [
-      { value: '92.59%', label: 'accuracy' },
+      { value: '92.59%', label: 'accuracy, held-out data' },
       { value: '0.97', label: 'ROC-AUC' },
-      { value: '95.39%', label: 'F1 score' }
+      { value: 'Monitored', label: 'drift after deploy' }
     ],
     technologies: ['Python', 'XGBoost', 'FastAPI', 'Streamlit', 'Evidently AI', 'Docker'],
     skillsShown: ['Applied ML modeling', 'Model monitoring', 'API design', 'Stakeholder-facing tooling'],
@@ -216,9 +209,9 @@ export const caseStudies = [
       'Selected among the challenge top ten teams'
     ],
     metrics: [
-      { value: 'R-CNN', label: 'architecture' },
-      { value: 'Top 10', label: 'placement' },
-      { value: 'COCO', label: 'dataset' }
+      { value: '~80%', label: 'less manual review' },
+      { value: 'Top 10', label: 'in the challenge' },
+      { value: 'From scratch', label: 'COCO dataset' }
     ],
     technologies: ['Python', 'Detectron2', 'PyTorch', 'Mask R-CNN', 'AWS EC2', 'AWS S3'],
     skillsShown: ['Computer vision', 'Dataset engineering', 'Cloud training workflows', 'Competitive ML delivery'],
