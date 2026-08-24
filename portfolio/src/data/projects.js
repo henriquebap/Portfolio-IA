@@ -15,9 +15,9 @@ export const profile = {
 };
 
 export const proofPoints = [
-  { value: '9', label: 'ASR providers benchmarked' },
-  { value: '10k+', label: 'clinical audio samples evaluated' },
   { value: 'Live', label: 'LLM-as-Judge evaluators in production' },
+  { value: 'Voice', label: 'clinical ASR evaluation and tuning' },
+  { value: '3', label: 'agent systems shipped' },
   { value: '4', label: 'products operated end to end' }
 ];
 
@@ -29,34 +29,34 @@ export const caseStudies = [
     eyebrow: 'Professional work · HealthTech',
     role: 'ML / AI Engineer',
     status: 'Private system',
-    shortDescription: 'From ASR benchmarking and data curation to LLM-as-Judge evaluators running in production for clinical audio.',
-    fullDescription: 'The full evaluation stack for medical voice AI: ASR benchmarking with domain metrics, human annotation with consensus, a medication-error post-processor, and LLM-as-Judge evaluators in production, calibrated against human judgment.',
+    shortDescription: 'From ASR evaluation and data curation to LLM-as-Judge evaluators running in production for clinical audio.',
+    fullDescription: 'The evaluation stack for medical voice AI: provider and configuration benchmarking on real clinical audio, human annotation with consensus, VAD and context tuning, and LLM-as-Judge evaluators in production, calibrated against human judgment.',
     narrative: {
       problem: 'Clinical audio is hard. Heavy accents, people talking over each other, dense medical vocabulary. Transcription errors are easy to miss, and in a healthcare product the ones you miss are the ones that hurt.',
-      approach: 'I benchmarked 9 ASR providers on 10k+ clinical audio samples with WER/CER plus a domain metric I created for medication errors, ran dual-annotator labeling in Argilla with automatic consensus, and built a lexical-phonetic post-processor from a taxonomy of real medication transcription errors. Then I moved up the stack: LLM-as-Judge evaluators for generated clinical documents, running in production on LangSmith.',
-      reasoning: 'No single check is trustworthy on medical terminology. One annotator makes mistakes, and one automated score misses whole categories of errors. So I combined human consensus, deterministic checks, and an LLM judge, then calibrated that judge against human annotation with statistical agreement gates before trusting its verdicts.',
-      outcome: 'The benchmark, not intuition, decided which provider ran in production. The post-processor corrects misrecognized drug names before they reach the clinical note, and the judge pipeline scores every generated document on faithfulness, correctness, and format, catching regressions before clinicians do.'
+      approach: 'I owned ASR quality: benchmarking commercial providers on our own clinical audio and running the experiments behind each decision, comparing models, VAD configurations, and internal prompts on WER, CER, latency, and cost, with dual-annotator labeling in Argilla underneath. Then I moved up the stack to LLM-as-Judge evaluators for the generated clinical documents, running in production on LangSmith.',
+      reasoning: 'Two things shaped the work. First, generic WER hides what matters: it treats a wrong preposition and a wrong medication name as the same error, when only one of them changes what a doctor reads. So evaluation centered on medication names. Second, no single check is trustworthy on medical terminology, so I combined human consensus, deterministic checks, and an LLM judge, and calibrated the judge against human annotation before trusting its verdicts.',
+      outcome: 'The most useful finding was about context. Current audio architectures transcribe markedly better when given longer, clearer context, which is exactly what a live-as-possible pipeline denies them. That is a real trade-off, not a tuning detail: past a point, chasing lower latency costs you accuracy. My work went into finding the middle ground where the accuracy gain holds and the user still watches their words appear while speaking.'
     },
     highlights: [
-      'Benchmark of 9 ASR providers across 10k+ clinical audio samples',
-      'Medication-error metric and taxonomy driving a lexical-phonetic post-processor',
+      'Provider, model, VAD, and prompt experiments benchmarked on our own clinical audio',
+      'Evaluation centered on medication names, where a single wrong word changes the meaning',
+      'Context-versus-latency trade-off characterized for streaming clinical ASR',
       'Dual-annotator consensus pipeline with adjudication, live dashboard, and 24/7 webhook sync',
-      'LLM-as-Judge evaluators in production, calibrated against human annotation',
-      'End-to-end latency observability for the realtime transcription pipeline'
+      'LLM-as-Judge evaluators in production, calibrated against human annotation'
     ],
     metrics: [
-      { value: '9', label: 'ASR providers' },
-      { value: '10k+', label: 'samples evaluated' },
-      { value: 'Live', label: 'judges in production' }
+      { value: 'Live', label: 'judges in production' },
+      { value: 'WER/CER', label: 'plus domain metrics' },
+      { value: 'VAD', label: 'context vs latency tuning' }
     ],
     technologies: ['Python', 'PyTorch', 'Whisper', 'Hugging Face', 'Argilla', 'LangSmith', 'AWS S3', 'Docker'],
     skillsShown: ['Evaluation design', 'LLM-as-Judge in production', 'Fine-tuning data curation', 'Statistical validation', 'Data pipeline engineering'],
     flow: {
       nodes: [
-        { label: 'ASR benchmark', detail: '9 providers, 10k+ samples, WER/CER + domain metric' },
+        { label: 'Provider benchmark', detail: 'WER/CER, latency, and cost on our own audio' },
         { label: 'Human annotation', detail: 'Dual-annotator consensus in Argilla' },
-        { label: 'Error taxonomy', detail: 'Real medication failures cataloged' },
-        { label: 'Post-processor', detail: 'Lexical-phonetic drug-name correction' },
+        { label: 'Error analysis', detail: 'Focused on medication names' },
+        { label: 'VAD & context tuning', detail: 'Accuracy against live-transcription latency' },
         { label: 'Fine-tuning dataset', detail: 'Curated audio-text pairs on HF Hub' },
         { label: 'LLM-as-Judge in production', detail: 'Calibrated against human annotation' }
       ]
@@ -117,23 +117,23 @@ export const caseStudies = [
     shortDescription: 'The full management system an auto mechanic shop runs on, with an AI layer across Telegram, WhatsApp, and voice.',
     fullDescription: 'A complete shop-management system for a working auto mechanic shop: work orders, scheduling, vehicle inspection, inventory, financials, and invoicing, built offline-first and extended with a conversational agent, voice capture, and AI-assisted diagnostics.',
     narrative: {
-      problem: 'A repair shop running on a Firebird database from 2018 and a lot of paper. Work orders, stock, and money each lived somewhere else, nothing reconciled, and the shop floor has no cell signal. The people using it are mechanics with greasy hands holding a phone, not office workers at a desk.',
-      approach: 'I built the whole system: 34 Postgres tables with row-level security per job (owner, front desk, mechanic), work orders with a validated state machine, 57-point vehicle inspection, atomic inventory, financials, and invoicing. Then the AI layer on the OpenAI Agents SDK: an inventory agent with typed tools that answers on Telegram, WhatsApp, and web through one engine, voice capture that turns dictation into priced work-order items, and diagnostics assembled from each vehicle history.',
-      reasoning: 'Two constraints drove every decision. First, no signal on the floor: the app is offline-first on IndexedDB with a sync queue, and the hard part was remapping IDs in cascade when records created offline finally reach the server. Second, this is a real business with real money in it, so the agent never writes blindly: anomalous stock movements and possible duplicates come back as a confirmation request instead of an action, senders are checked against the employee table, and every stock movement traces back to the message that caused it.',
-      outcome: 'Live at the shop and used every day, with 2,078 clients and 5,527 historical work orders migrated off the old database through an idempotent, record-validated pipeline. Every AI interaction is logged with its input, output, model, and context snapshot, which is the dataset the next iteration will be evaluated against.'
+      problem: 'A repair shop running on a legacy database and a lot of paper. Work orders, stock, and money each lived somewhere else and nothing reconciled, and the shop floor has no cell signal. The people using it are mechanics with greasy hands holding a phone, not office workers at a desk.',
+      approach: 'I built the whole system, from the data model and role-based access to work orders, vehicle inspection, inventory, and financials, and migrated years of history off the old database. Then the part that changed how the shop actually works: an AI layer on the OpenAI Agents SDK, with an inventory agent that answers on Telegram, WhatsApp, and web through one engine, voice capture that turns dictation into priced work-order items, and diagnostics assembled from each vehicle service history.',
+      reasoning: 'Two constraints drove every decision. First, no signal on the floor: the app is offline-first, and the hard part was remapping IDs in cascade when records created offline finally reach the server. Second, this is a real business with real money in it, so the agent never writes blindly. Anomalous stock movements and likely duplicates come back as a confirmation request instead of an action, senders are checked against the employee table, and every stock movement traces back to the message that caused it. The refusal lives in the code, not in the model goodwill.',
+      outcome: 'Live at the shop and used every day by people who do not know or care what an LLM is. They know they can say "two oil filters went out" into Telegram and the stock is right. Every AI interaction is logged with its input, output, model, and context snapshot, which is the dataset the next iteration gets evaluated against.'
     },
     highlights: [
       'Conversational inventory agent on the OpenAI Agents SDK, one engine serving Telegram, WhatsApp, and web',
       'Tool-level guardrails: confirmation gate on anomalous stock movements, duplicate detection, sender allowlist, rate limiting',
       'Voice to structured data: dictation becomes typed, priced work-order line items',
-      'Predictive diagnostics assembled from each vehicle last 30 work orders and inspections',
-      'Offline-first with cascading ID remapping, because the shop floor has no signal',
-      '34 tables and 103 row-level security policies; legacy data migrated from a 2018 Firebird database'
+      'AI diagnostics assembled server-side from each vehicle service and inspection history',
+      'Every AI interaction logged with input, output, model, and context snapshot',
+      'Offline-first with cascading ID remapping, because the shop floor has no signal'
     ],
     metrics: [
-      { value: '34', label: 'Postgres tables' },
       { value: '3', label: 'channels, one engine' },
-      { value: '5.5k', label: 'work orders migrated' }
+      { value: 'Voice', label: 'to work-order items' },
+      { value: 'Daily', label: 'use in a real shop' }
     ],
     technologies: ['Next.js', 'TypeScript', 'OpenAI Agents SDK', 'Whisper', 'Supabase', 'Postgres', 'Dexie'],
     skillsShown: ['Agent tooling & guardrails', 'Voice AI in the field', 'Data modeling & migration', 'Offline-first architecture', 'Shipping for real users'],
@@ -143,8 +143,8 @@ export const caseStudies = [
         { label: 'Voice or chat', detail: 'Dictation, Telegram, WhatsApp, or web' },
         { label: 'Whisper + LLM', detail: 'Speech to typed, priced line items' },
         { label: 'Agent with typed tools', detail: 'Inventory reads and writes, behind guardrails' },
-        { label: 'Offline queue', detail: 'IndexedDB, cascading ID remap on sync' },
-        { label: 'Work order & books', detail: 'Postgres with per-role access, audit trail' }
+        { label: 'Offline queue', detail: 'Cascading ID remap on sync' },
+        { label: 'Work order & books', detail: 'Per-role access, full audit trail' }
       ]
     },
     icon: 'medical',
@@ -347,22 +347,27 @@ export const capabilities = [
   {
     title: 'Evaluate',
     description: 'Make model quality observable and testable.',
-    items: ['LLM-as-Judge', 'LangSmith', 'Evaluation datasets', 'WER / CER', 'Human-judge calibration', 'Production QA']
+    items: ['LLM-as-Judge', 'LangSmith', 'Evaluation datasets', 'WER / CER (jiwer)', 'Argilla annotation', 'Human-judge calibration', 'Ablation & failure analysis']
+  },
+  {
+    title: 'Model',
+    description: 'Train, adapt, and interrogate models.',
+    items: ['PyTorch', 'Hugging Face', 'scikit-learn', 'XGBoost', 'pandas / NumPy', 'MLflow', 'Whisper / WhisperX', 'VAD & diarization', 'Detectron2 / YOLO']
   },
   {
     title: 'Build',
     description: 'Turn AI workflows into maintainable products.',
-    items: ['Python', 'FastAPI', 'PyTorch', 'LangGraph / deepagents', 'MCP', 'RAG / hybrid search', 'Hugging Face']
+    items: ['Python', 'FastAPI', 'LangGraph / deepagents', 'OpenAI Agents SDK', 'MCP', 'RAG & hybrid search', 'Embeddings', 'ChromaDB / pgvector / Pinecone']
   },
   {
     title: 'Operate',
     description: 'Design for failures, cost, latency, and change.',
-    items: ['Docker', 'AWS S3', 'PostgreSQL', 'CI/CD', 'Prompt caching / model routing', 'Prometheus / Evidently']
+    items: ['Docker', 'AWS (S3, EC2)', 'PostgreSQL', 'CI/CD', 'Prompt caching & model routing', 'Prometheus / Grafana', 'Evidently drift monitoring']
   },
   {
     title: 'Ship',
     description: 'Own the path from system design to user experience.',
-    items: ['TypeScript', 'Next.js', 'Supabase', 'REST APIs', 'Product engineering']
+    items: ['TypeScript', 'Next.js', 'Supabase', 'REST APIs', 'Streamlit / Gradio', 'Product engineering']
   }
 ];
 

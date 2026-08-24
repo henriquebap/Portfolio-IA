@@ -10,7 +10,7 @@ const Skills = () => (
         <Box>
           <Text className="eyebrow" mb={3}>Skills</Text>
           <Text color="gray.600" lineHeight="1.75">
-            Organized around the production loop: evaluate, build, operate, ship.
+            Organized around the production loop: evaluate, model, build, operate, ship.
           </Text>
         </Box>
 
