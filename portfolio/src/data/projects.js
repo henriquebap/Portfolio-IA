@@ -4,7 +4,7 @@ export const profile = {
   subtitle: 'Production AI Systems · Evaluation · Voice AI',
   tagline: 'I build AI systems that hold up in production. My work covers agents, evaluation, data pipelines, deployment, and the product around them.',
   about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, agents, voice AI, and product engineering meet.`,
-  aboutExtended: `In my most recent role I built the evaluation stack for medical AI: ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. On my own, I design and operate agent products, from a multi-agent SaaS to AI running inside a real auto shop. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
+  aboutExtended: `In my most recent role I built the evaluation stack for medical AI: ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. On my own, I design and operate agent products, from a multi-agent SaaS to the system an auto mechanic shop runs on every day. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',
@@ -108,8 +108,51 @@ export const caseStudies = [
     accent: 'blue'
   },
   {
-    id: 'datathon-passos-magicos',
+    id: 'wilmec',
     index: '03',
+    title: 'Wilmec',
+    eyebrow: 'Client work · Live in production',
+    role: 'Sole engineer',
+    status: 'In daily use',
+    shortDescription: 'The full management system an auto mechanic shop runs on, with an AI layer across Telegram, WhatsApp, and voice.',
+    fullDescription: 'A complete shop-management system for a working auto mechanic shop: work orders, scheduling, vehicle inspection, inventory, financials, and invoicing, built offline-first and extended with a conversational agent, voice capture, and AI-assisted diagnostics.',
+    narrative: {
+      problem: 'A repair shop running on a Firebird database from 2018 and a lot of paper. Work orders, stock, and money each lived somewhere else, nothing reconciled, and the shop floor has no cell signal. The people using it are mechanics with greasy hands holding a phone, not office workers at a desk.',
+      approach: 'I built the whole system: 34 Postgres tables with row-level security per job (owner, front desk, mechanic), work orders with a validated state machine, 57-point vehicle inspection, atomic inventory, financials, and invoicing. Then the AI layer on the OpenAI Agents SDK: an inventory agent with typed tools that answers on Telegram, WhatsApp, and web through one engine, voice capture that turns dictation into priced work-order items, and diagnostics assembled from each vehicle history.',
+      reasoning: 'Two constraints drove every decision. First, no signal on the floor: the app is offline-first on IndexedDB with a sync queue, and the hard part was remapping IDs in cascade when records created offline finally reach the server. Second, this is a real business with real money in it, so the agent never writes blindly: anomalous stock movements and possible duplicates come back as a confirmation request instead of an action, senders are checked against the employee table, and every stock movement traces back to the message that caused it.',
+      outcome: 'Live at the shop and used every day, with 2,078 clients and 5,527 historical work orders migrated off the old database through an idempotent, record-validated pipeline. Every AI interaction is logged with its input, output, model, and context snapshot, which is the dataset the next iteration will be evaluated against.'
+    },
+    highlights: [
+      'Conversational inventory agent on the OpenAI Agents SDK, one engine serving Telegram, WhatsApp, and web',
+      'Tool-level guardrails: confirmation gate on anomalous stock movements, duplicate detection, sender allowlist, rate limiting',
+      'Voice to structured data: dictation becomes typed, priced work-order line items',
+      'Predictive diagnostics assembled from each vehicle last 30 work orders and inspections',
+      'Offline-first with cascading ID remapping, because the shop floor has no signal',
+      '34 tables and 103 row-level security policies; legacy data migrated from a 2018 Firebird database'
+    ],
+    metrics: [
+      { value: '34', label: 'Postgres tables' },
+      { value: '3', label: 'channels, one engine' },
+      { value: '5.5k', label: 'work orders migrated' }
+    ],
+    technologies: ['Next.js', 'TypeScript', 'OpenAI Agents SDK', 'Whisper', 'Supabase', 'Postgres', 'Dexie'],
+    skillsShown: ['Agent tooling & guardrails', 'Voice AI in the field', 'Data modeling & migration', 'Offline-first architecture', 'Shipping for real users'],
+    flow: {
+      nodes: [
+        { label: 'Mechanic on the floor', detail: 'Phone, no signal, greasy hands' },
+        { label: 'Voice or chat', detail: 'Dictation, Telegram, WhatsApp, or web' },
+        { label: 'Whisper + LLM', detail: 'Speech to typed, priced line items' },
+        { label: 'Agent with typed tools', detail: 'Inventory reads and writes, behind guardrails' },
+        { label: 'Offline queue', detail: 'IndexedDB, cascading ID remap on sync' },
+        { label: 'Work order & books', detail: 'Postgres with per-role access, audit trail' }
+      ]
+    },
+    icon: 'medical',
+    accent: 'purple'
+  },
+  {
+    id: 'datathon-passos-magicos',
+    index: '04',
     title: 'Education Risk Prediction',
     eyebrow: 'FIAP capstone · Social impact',
     role: 'ML Engineer',
@@ -153,7 +196,7 @@ export const caseStudies = [
   },
   {
     id: 'bike-detection',
-    index: '04',
+    index: '05',
     title: 'Insurance Computer Vision',
     eyebrow: 'Porto Seguro challenge · Top-10 finalist',
     role: 'ML / Computer Vision Engineer',
@@ -270,8 +313,8 @@ export const agentWork = [
   {
     id: 'agent-wilmec',
     title: 'Wilmec',
-    focus: 'AI in a real shop',
-    description: 'Agents inside an auto-shop system used daily by a real business: mechanics dictate service items by voice (Whisper structures them into work orders), AI-assisted diagnosis, and a knowledge base that reuses past cases. Guardrail: AI assists, never decides alone.'
+    focus: 'Agent on the shop floor',
+    description: 'An inventory agent on the OpenAI Agents SDK with typed tools, answering on Telegram, WhatsApp, and web through one engine. Anomalous stock movements and possible duplicates come back as a confirmation request instead of an action, and every movement traces back to the message that caused it.'
   },
   {
     id: 'agent-food-service',

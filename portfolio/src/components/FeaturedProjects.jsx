@@ -37,7 +37,7 @@ const FeaturedProjects = () => {
             <Box>
               <Text className="eyebrow" mb={3}>Selected work</Text>
               <Text color="gray.600" lineHeight="1.75">
-                Four projects, told the same way: the problem, the decisions behind the solution,
+                Five projects, told the same way: the problem, the decisions behind the solution,
                 and what shipped.
               </Text>
             </Box>
