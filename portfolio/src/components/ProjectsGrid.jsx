@@ -11,7 +11,7 @@ const ProjectsGrid = () => (
         <Box>
           <Text className="eyebrow" mb={3}>Working with agents now</Text>
           <Text color="gray.600" lineHeight="1.75" mb={6}>
-            Agents are the thread through my current work — four places where I'm applying them today:
+            Agents are the thread through my current work. Three places where I'm applying them today:
           </Text>
           <VStack align="stretch" spacing={4}>
             {agentWork.map((project) => (
