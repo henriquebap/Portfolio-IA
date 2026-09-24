@@ -50,7 +50,7 @@ export default function ContatoFlutuante({ mensagem }) {
                 className="w-[min(320px,calc(100vw-2rem))] rounded-2xl bg-white p-5 text-tinta shadow-[0_24px_50px_-20px_rgba(17,25,33,0.55)] ring-1 ring-linha"
               >
                 <p className="rotulo text-azul">Conversa de 20 minutos</p>
-                <p className="mt-2 font-semibold leading-snug">Me chama por onde preferir. Eu mesmo respondo.</p>
+                <p className="mt-2 font-semibold leading-snug">Me chama por onde preferir.</p>
                 <div className="mt-4 grid gap-2">
                   <a
                     href={whatsapp(mensagem)}
