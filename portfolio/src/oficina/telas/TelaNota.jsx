@@ -1,6 +1,6 @@
 import { CabecalhoOS, Cartao, Linha, Pilula, Tela } from './ui'
 
-// Escondida enquanto NOTA_FISCAL_NO_AR (oferta.js) estiver desligada.
+// Some do build publicado enquanto NOTA_FISCAL_NO_AR (oferta.js) estiver desligada.
 export default function TelaNota() {
   return (
     <Tela>

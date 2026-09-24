@@ -2,7 +2,7 @@
 // (HOB-Tech/docs/00, "A oficina que…"). Só entra o que existe hoje na Wil Mec
 // (HOB-Tech/oficina/01, coluna "Existe"). foco: ponto da tela onde o zoom entra.
 
-import { NOTA_FISCAL_NO_AR } from './oferta'
+import { MOSTRAR_NOTA_FISCAL } from './oferta'
 
 export const PILARES = [
   { id: 'tecnologia', texto: 'acredita em tecnologia' },
@@ -72,7 +72,7 @@ const TODAS = [
   {
     id: 'nota',
     pilar: 'gestao',
-    publicado: NOTA_FISCAL_NO_AR,
+    publicado: MOSTRAR_NOTA_FISCAL,
     titulo: 'OS paga, nota pronta para conferir.',
     texto: 'Quando a OS é paga ou entregue, a nota já está montada. Você confere e emite com um clique.',
     zoom: 1.2,

@@ -1,4 +1,4 @@
-import { GARANTIAS, MENSALIDADE, NOTA_FISCAL_NO_AR } from './oferta'
+import { GARANTIAS, MENSALIDADE, MOSTRAR_NOTA_FISCAL } from './oferta'
 
 // O que tem no sistema, por área. Só o que existe hoje (HOB-Tech/oficina/01,
 // coluna "Existe"); placa automática e aviso automático de OS ficam de fora.
@@ -48,7 +48,7 @@ const AREAS = [
       'Contas a pagar e previsão de caixa',
       'Fatura do cartão lida e conferida',
       'Fechamento do mês com DRE e CSV para o contador',
-      ...(NOTA_FISCAL_NO_AR ? ['Nota fiscal pronta quando a OS é paga (pacote)'] : []),
+      ...(MOSTRAR_NOTA_FISCAL ? ['Nota fiscal pronta quando a OS é paga (pacote)'] : []),
     ],
   },
   {
