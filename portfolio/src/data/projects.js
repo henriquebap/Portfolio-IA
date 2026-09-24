@@ -308,12 +308,6 @@ export const agentWork = [
     title: 'Wilmec',
     focus: 'Agent on the shop floor',
     description: 'An inventory agent on the OpenAI Agents SDK with typed tools, answering on Telegram, WhatsApp, and web through one engine. Anomalous stock movements and possible duplicates come back as a confirmation request instead of an action, and every movement traces back to the message that caused it.'
-  },
-  {
-    id: 'agent-food-service',
-    title: 'Food Service Agent',
-    focus: 'Voice agent',
-    description: 'A LangGraph agent with intent routing that finds restaurants, remembers preferences in vector memory, and places the reservation itself over a real phone call (Twilio + TTS + Whisper).'
   }
 ];
 
