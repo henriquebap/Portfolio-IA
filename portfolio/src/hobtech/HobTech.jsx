@@ -1,3 +1,4 @@
+import ContatoFlutuante from '../shared/ContatoFlutuante'
 import Cta from '../shared/Cta'
 import HobSymbol from '../shared/HobSymbol'
 import { agentWork, caseStudies, productEngineering } from '../data/projects'
@@ -40,6 +41,8 @@ const CASOS = [
     resumo: 'Campanha bilíngue com métricas ao vivo, captação de contatos e painel administrativo para a equipe.',
   },
 ]
+
+const MENSAGEM = 'Oi, Henrique! Vi a HOB Tech e quero conversar sobre um projeto.'
 
 export default function HobTech() {
   return (
@@ -97,7 +100,7 @@ export default function HobTech() {
         <Cta
           titulo="Tem uma operação que merece um sistema de verdade?"
           texto="Me conta como o trabalho acontece hoje. Em 20 minutos por vídeo eu digo se dá para ajudar e por onde começaria."
-          mensagem="Oi, Henrique! Vi a HOB Tech e quero conversar sobre um projeto."
+          mensagem={MENSAGEM}
         />
       </main>
 
@@ -109,6 +112,7 @@ export default function HobTech() {
           <a href="/oficina" className="hover:text-azul">HOB Oficina</a>
         </nav>
       </footer>
+      <ContatoFlutuante mensagem={MENSAGEM} />
     </>
   )
 }

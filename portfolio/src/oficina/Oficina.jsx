@@ -1,3 +1,4 @@
+import ContatoFlutuante from '../shared/ContatoFlutuante'
 import Cta from '../shared/Cta'
 import { MENSAGEM_OFICINA } from '../shared/contato'
 import Cenas from './Cenas'
@@ -33,6 +34,7 @@ export default function Oficina() {
         />
       </main>
       <Rodape />
+      <ContatoFlutuante mensagem={MENSAGEM_OFICINA} />
     </>
   )
 }

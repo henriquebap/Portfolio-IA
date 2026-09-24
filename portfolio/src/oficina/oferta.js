@@ -5,10 +5,10 @@
 
 export const OFICINAS_POR_MES = 5
 
-// Nota fiscal em testes na Wil Mec (PR #82 do Wilmec-system). Ligar só depois da
-// primeira nota real. Até lá a seção, a cena e a menção ao pacote aparecem só no
-// `npm run dev` (para revisar) e somem do build publicado.
-export const NOTA_FISCAL_NO_AR = false
+// Nota fiscal (PR #82 do Wilmec-system): liberada ao público em 23/09/2026, com os
+// testes reais começando na Wil Mec. Com false, a seção, a cena e a menção ao
+// pacote aparecem só no `npm run dev` e somem do build publicado.
+export const NOTA_FISCAL_NO_AR = true
 export const MOSTRAR_NOTA_FISCAL = NOTA_FISCAL_NO_AR || import.meta.env?.DEV === true
 
 // Desligar à mão quando as 2 primeiras do mês fecharem; religar quando o mês virar.

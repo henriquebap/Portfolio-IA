@@ -37,7 +37,7 @@ function CenasRolando() {
   const cena = CENAS[pos.i]
   return (
     <section id="pilares" ref={ref} aria-label="O sistema funcionando" style={{ height: `${N * 115}svh` }} className="relative">
-      <div className="sticky top-0 mx-auto grid h-svh max-w-6xl grid-rows-[minmax(0,1fr)_auto] items-center gap-4 px-5 pb-5 pt-4 md:grid-cols-[minmax(0,1fr)_auto] md:grid-rows-1 md:gap-16 md:py-10">
+      <div className="sticky top-0 mx-auto grid h-svh max-w-6xl grid-rows-[minmax(0,1fr)_auto] items-center gap-4 px-5 pb-20 pt-4 md:grid-cols-[minmax(0,1fr)_auto] md:grid-rows-1 md:gap-16 md:py-10">
         <div className="relative z-10 order-2 md:order-1">
           <Trilho ativo={cena.pilar} />
           <AnimatePresence mode="wait">

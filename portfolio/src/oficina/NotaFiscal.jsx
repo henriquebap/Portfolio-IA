@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Check } from './telas/icones'
-import { MOSTRAR_NOTA_FISCAL, NOTA_FISCAL_NO_AR } from './oferta'
+import { MOSTRAR_NOTA_FISCAL } from './oferta'
 
 // Pacote nota fiscal, como o PR #82 do Wilmec-system faz: a nota se monta sozinha
 // quando a OS é paga ou entregue, e o dono confere e emite com um clique. Não
@@ -23,11 +23,6 @@ export default function NotaFiscal() {
     <section className="border-b border-linha bg-papel-2">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:py-28">
         <div>
-          {!NOTA_FISCAL_NO_AR && (
-            <p className="mb-6 inline-block rounded-md bg-amber-500/15 px-3 py-1.5 text-sm font-semibold text-amber-800">
-              Só no localhost: some do site publicado até a primeira nota real (oferta.js).
-            </p>
-          )}
           <p className="rotulo text-azul">Pacote nota fiscal</p>
           <h2 className="titulo mt-4 text-[clamp(2rem,4.6vw,3.4rem)]">A nota se monta sozinha. Você só confere.</h2>
           <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-grafite">
