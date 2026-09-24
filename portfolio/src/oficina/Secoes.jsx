@@ -35,10 +35,10 @@ export function WilMec() {
 }
 
 const NAO_E_PARA = [
-  'quem procura o sistema mais barato',
-  'oficina de uma pessoa só',
-  'rede ou franquia',
-  'quem não quer mudar o jeito de trabalhar',
+  'Quem procura um sistema simples e genérico',
+  'Oficina que não quer crescer',
+  'Quem acha que o cliente só importa até a entrega',
+  'Quem não quer trocar por um sistema melhor',
 ]
 
 export function ParaQuem() {
@@ -55,9 +55,9 @@ export function ParaQuem() {
         </div>
         <div className="self-end rounded-2xl border border-linha bg-white/60 p-6">
           <p className="rotulo text-grafite">Não é para</p>
-          <ul className="mt-3 grid gap-2.5">
+          <ul className="mt-3 divide-y divide-linha">
             {NAO_E_PARA.map((t) => (
-              <li key={t} className="flex gap-3 text-lg"><span className="text-grafite" aria-hidden="true">—</span>{t}</li>
+              <li key={t} className="py-3 text-lg first:pt-1 last:pb-0">{t}</li>
             ))}
           </ul>
         </div>

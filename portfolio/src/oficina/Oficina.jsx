@@ -5,6 +5,7 @@ import Demo from './Demo'
 import Hero from './Hero'
 import { DoSeuJeito, Diferente, Preco, Recursos } from './Produto'
 import { Oferta, ParaQuem, Rodape, WilMec } from './Secoes'
+import WhatsApp from './WhatsApp'
 
 // O "apoio visual pós-mensagem" (HOB-Tech/docs/04): a oficina já leu a história
 // e o perfil na mensagem; aqui ela vê funcionando. Copy de HOB-Tech/docs/00.
@@ -17,6 +18,7 @@ export default function Oficina() {
         <Demo />
         <WilMec />
         <Recursos />
+        <WhatsApp />
         <DoSeuJeito />
         <Diferente />
         <ParaQuem />

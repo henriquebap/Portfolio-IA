@@ -48,15 +48,17 @@ const AREAS = [
       'Contas a pagar e previsão de caixa',
       'Fatura do cartão lida e conferida',
       'Fechamento do mês com DRE e CSV para o contador',
+      ...(NOTA_FISCAL_NO_AR ? ['Nota fiscal pronta quando a OS é paga (pacote)'] : []),
     ],
   },
   {
     titulo: 'IA no dia a dia',
     itens: [
-      'O mecânico fala e os itens entram na OS',
-      'Diagnóstico reescrito em português de relatório',
-      'Sugestão de preventiva pelo histórico do carro',
-      'Tudo registrado na Central de IA; quem decide é a equipe',
+      'O mecânico fala e os itens entram na OS; o diagnóstico sai em português de relatório',
+      'Em cada carro, o que vale oferecer, com o motivo e a urgência',
+      'Mensagens ao cliente no tom da oficina, com as respostas lidas e organizadas',
+      'Histórico arrumado: serviços classificados e cadastros duplicados encontrados',
+      'Central de IA para ver, ligar, desligar e testar cada automação',
     ],
   },
 ]
@@ -78,9 +80,6 @@ export function Recursos() {
           </div>
         ))}
       </div>
-      <p className="mt-6 text-grafite">
-        Pacotes à parte: {NOTA_FISCAL_NO_AR && 'nota fiscal e '}WhatsApp dedicado, com cobrança automática de quem ficou devendo.
-      </p>
     </section>
   )
 }
@@ -123,19 +122,20 @@ export function DoSeuJeito() {
 const COMPARA = [
   ['Origem', 'Feito para qualquer negócio e adaptado para oficina', 'Nasceu dentro de uma oficina e é usado nela todo dia'],
   ['Instalação', 'Cadastro online e vídeo tutorial', 'Presencial: eu configuro e treino a equipe no balcão'],
-  ['IA', 'Aparece na propaganda', 'Funciona no dia a dia: o mecânico fala e o item entra na OS'],
+  ['IA', 'Um chat na propaganda', 'Trabalha por trás de cada OS: aponta o que vale oferecer, escreve ao cliente no tom da oficina, lê as respostas e organiza o histórico. Quem decide é a equipe'],
   ['Cliente', 'Recebe um PDF', 'Acompanha a OS pelo celular e recebe o lembrete da revisão'],
-  ['Gestão', 'Relatório de entradas e saídas', 'Quem levou sem pagar fica na tela; a fatura do cartão vira despesa conferida'],
+  ['Evolução', 'Atualização igual para todo mundo; pedido vira chamado', 'O que a sua oficina precisa entra no sistema e liga só para vocês'],
 ]
 
 export function Diferente() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
       <p className="rotulo text-grafite">O diferencial</p>
-      <h2 className="titulo mt-4 max-w-[20ch] text-[clamp(2rem,5vw,3.5rem)]">Muito sistema promete. Este você acabou de ver funcionando.</h2>
-      <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-grafite">
-        Tudo o que está nesta página existe e roda hoje numa oficina de verdade.
-      </p>
+      <h2 className="titulo mt-4 text-[clamp(1.9rem,4.2vw,3rem)]">
+        <span className="block md:whitespace-nowrap">Muito sistema promete.</span>
+        <span className="block text-azul md:whitespace-nowrap">Tudo o que você viu aqui já funciona.</span>
+      </h2>
+      <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-grafite">Roda hoje, todo dia, numa oficina de verdade.</p>
       <div className="mt-12 overflow-hidden rounded-2xl border border-linha bg-white" role="table" aria-label="Sistema comum comparado ao HOB Oficina">
         <div className="hidden grid-cols-[140px_1fr_1fr] border-b border-linha bg-papel-2 md:grid" role="row">
           <span className="rotulo p-4 text-grafite" role="columnheader" />
