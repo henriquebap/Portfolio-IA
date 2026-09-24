@@ -49,6 +49,7 @@ const About = () => (
             Experience & education
           </Heading>
           <VStack align="stretch" spacing={2} fontSize="sm" color="gray.600">
+            <Text>Founder, HOB Tech: management systems with AI for real operations (2026 to present)</Text>
             <Text>ML / AI Engineer, VOA Health, production medical AI (Feb 2025 to Jul 2026)</Text>
             <Text>Working on AI problems end to end since 2023</Text>
             <Text>{profile.education}</Text>

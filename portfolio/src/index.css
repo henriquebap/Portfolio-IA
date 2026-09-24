@@ -1,4 +1,5 @@
-@import "tailwindcss";
+/* source(none): o /sobre é Chakra; as utilities do Tailwind são das outras páginas. */
+@import "tailwindcss" source(none);
 
 :root {
   color-scheme: light;

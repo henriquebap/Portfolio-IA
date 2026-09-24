@@ -1,0 +1,199 @@
+@import "../shared/brand.css";
+
+/*
+ * Hub sem scroll: três fichas que dividem a altura da tela. No celular as fichas
+ * empilham em linhas (texto à esquerda, visual à direita); do `sm` em diante,
+ * ou com o celular deitado, viram três colunas.
+ */
+.hub {
+  box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(14px, 2.4vw, 32px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(10px, 2vh, 22px);
+}
+
+.hub-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.hub-cards {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 18px);
+}
+
+.ficha {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas: "aba vivo" "corpo vivo" "ir vivo";
+  column-gap: 14px;
+  padding: clamp(14px, 2vw, 26px);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
+  animation: sobe 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(var(--i) * 90ms + 60ms);
+}
+
+.ficha:hover {
+  translate: 0 -4px;
+  box-shadow: 0 14px 30px -18px rgb(17 25 33 / 0.45);
+}
+
+.aba { grid-area: aba; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.corpo { grid-area: corpo; align-self: end; display: grid; gap: 6px; }
+.ir { grid-area: ir; margin-top: 10px; }
+.ir span { display: inline-block; transition: translate 0.2s ease; }
+.ficha:hover .ir span { translate: 4px 0; }
+
+.nome { font-size: clamp(1.5rem, 3.4vw, 2.75rem); }
+.desc {
+  font-size: clamp(0.875rem, 1.15vw, 1.0625rem);
+  line-height: 1.4;
+  max-width: 34ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vivo {
+  grid-area: vivo;
+  align-self: center;
+  width: clamp(92px, 30vw, 150px);
+}
+
+.ficha-papel { background: #fffdfa; color: var(--color-tinta); box-shadow: inset 0 0 0 1.5px var(--color-tinta); }
+.ficha-papel .aba, .ficha-papel .ir { color: var(--color-grafite); }
+.ficha-azul { background: var(--color-azul); color: #fff; }
+.ficha-azul .aba, .ficha-azul .ir { color: rgb(255 255 255 / 0.78); }
+.ficha-noite { background: var(--color-noite); color: var(--color-papel); }
+.ficha-noite .aba, .ficha-noite .ir { color: var(--color-azul-claro); }
+
+@media (min-width: 640px), (orientation: landscape) and (max-height: 520px) {
+  .hub-cards { grid-template-rows: minmax(0, 1fr); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ficha {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    grid-template-areas: "aba" "vivo" "corpo" "ir";
+  }
+  .vivo { width: min(100%, 260px); justify-self: center; }
+  .desc { -webkit-line-clamp: 3; }
+}
+
+
+.hub-rodape { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--color-grafite); }
+.hub-rodape a { color: inherit; text-decoration: none; min-height: 24px; }
+.hub-rodape a:hover { color: var(--color-azul); }
+
+/* Ficha 1: duas linhas digitadas, como um terminal. */
+.vivo-terminal {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--color-papel-2);
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 1vw, 0.8rem);
+  color: var(--color-tinta);
+}
+.vivo-terminal .linha {
+  display: inline-block;
+  width: 17ch;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: digita 1s steps(17) backwards;
+  animation-delay: 0.5s;
+}
+.vivo-terminal .linha + .linha { animation-delay: 1.6s; }
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: var(--color-azul);
+  animation: pisca 1s steps(1) infinite;
+}
+
+/* Ficha 2: o desenho da vistoria, com o capô em atenção pulsando. */
+.carro {
+  position: relative;
+  display: block;
+  aspect-ratio: 1310 / 592;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+}
+.carro img {
+  position: absolute;
+  left: -9.0076%;
+  top: -5.0676%;
+  width: 117.2519%;
+  height: 172.973%;
+  max-width: none;
+}
+.carro svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.r { stroke-width: 6; animation: acende 0.5s ease-out backwards; }
+.r-ok { fill: rgb(16 185 129 / 0.28); stroke: #10b981; animation-delay: 0.9s; }
+.r-tras { animation-delay: 1.15s; }
+.r-atencao {
+  fill: rgb(245 158 11 / 0.32);
+  stroke: #f59e0b;
+  animation: acende 0.5s ease-out 1.4s backwards, pulso 1.6s ease-in-out 2s infinite;
+}
+
+/* Ficha 3: o anel do símbolo se desenha, depois o HB aparece. */
+.vivo-simbolo svg { display: block; width: min(100%, 132px); margin: 0 auto; }
+.anel {
+  fill: none;
+  stroke: var(--color-azul-claro);
+  stroke-width: 12;
+  stroke-dasharray: 100;
+  animation: desenha 1.2s cubic-bezier(0.6, 0, 0.3, 1) 0.4s backwards;
+}
+.letras { fill: var(--color-azul-claro); animation: aparece 0.5s ease-out 1.5s backwards; }
+
+/*
+ * Tela baixa (iPhone SE, celular deitado): o visual sai antes do texto e a ficha
+ * encolhe. Fica depois das regras dos visuais para vencer o display delas.
+ */
+@media (max-height: 600px) {
+  .vivo { display: none; }
+  .ficha {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "aba" "corpo" "ir";
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    padding: 12px 14px;
+  }
+  .nome { font-size: clamp(1.25rem, 3vw, 2rem); }
+  .desc { -webkit-line-clamp: 1; }
+  .ir { margin-top: 4px; }
+  .hub-rodape a:last-child { display: none; }
+}
+
+@keyframes sobe { from { opacity: 0; translate: 0 18px; } }
+@keyframes digita { from { width: 0; } }
+@keyframes pisca { 50% { opacity: 0; } }
+@keyframes acende { from { opacity: 0; } }
+@keyframes pulso { 50% { stroke-opacity: 0.25; } }
+@keyframes desenha { from { stroke-dashoffset: 100; } }
+@keyframes aparece { from { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ficha, .ficha .ir span, .vivo-terminal .linha, .cursor, .r, .anel, .letras { animation: none; transition: none; }
+}

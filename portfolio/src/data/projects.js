@@ -1,10 +1,10 @@
 export const profile = {
   name: 'Henrique Baptista',
-  title: 'AI Engineer',
+  title: 'Founder, HOB Tech · AI Engineer',
   subtitle: 'Agents · LLM Evaluation · Voice AI',
-  tagline: 'I build production agent, LLM, and Voice AI systems, plus the evaluation layer that proves they work.',
+  tagline: 'I build management systems and put AI to work in real operations: agents, LLM, and Voice AI, plus the evaluation layer that proves they work.',
   about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, agents, voice AI, and product engineering meet.`,
-  aboutExtended: `In my most recent role I built the evaluation stack for medical AI: ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. On my own, I design and operate agent products, from a multi-agent SaaS to the system an auto mechanic shop runs on every day. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
+  aboutExtended: `In my most recent role I built the evaluation stack for medical AI: ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. Today I run HOB Tech, where I build management systems for small businesses and put AI to work inside them. The first is the system an auto repair shop runs on every day, now becoming a product for other shops, alongside a multi-agent SaaS I operate. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
     linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
     github: 'https://github.com/henriquebap',
@@ -108,11 +108,11 @@ export const caseStudies = [
     role: 'Sole engineer',
     status: 'In daily use',
     shortDescription: 'The full management system an auto mechanic shop runs on, with an AI layer across Telegram, WhatsApp, and voice.',
-    fullDescription: 'A complete shop-management system for a working auto mechanic shop: work orders, scheduling, vehicle inspection, inventory, financials, and invoicing, built offline-first and extended with a conversational agent, voice capture, and AI-assisted diagnostics.',
+    fullDescription: 'A complete shop-management system for a working auto mechanic shop: work orders, scheduling, vehicle inspection, inventory, financials, and invoicing, extended with a conversational agent, voice capture, and AI-assisted diagnostics.',
     narrative: {
       problem: 'A repair shop running on a legacy database and a lot of paper. Work orders, stock, and money each lived somewhere else and nothing reconciled, and the shop floor has no cell signal. The people using it are mechanics with greasy hands holding a phone, not office workers at a desk.',
       approach: 'I built the whole system, from the data model and role-based access to work orders, vehicle inspection, inventory, and financials, and migrated years of history off the old database. Then the part that changed how the shop actually works: an AI layer on the OpenAI Agents SDK, with an inventory agent that answers on Telegram, WhatsApp, and web through one engine, voice capture that turns dictation into priced work-order items, and diagnostics assembled from each vehicle service history.',
-      reasoning: 'Two constraints drove every decision. First, no signal on the floor: the app is offline-first, and the hard part was remapping IDs in cascade when records created offline finally reach the server. Second, this is a real business with real money in it, so the agent never writes blindly. Anomalous stock movements and likely duplicates come back as a confirmation request instead of an action, senders are checked against the employee table, and every stock movement traces back to the message that caused it. The refusal lives in the code, not in the model goodwill.',
+      reasoning: 'Two constraints drove every decision. First, weak signal on the floor: the daily screens keep an offline mode, and the hard part was remapping IDs in cascade when records created offline finally reach the server. Second, this is a real business with real money in it, so the agent never writes blindly. Anomalous stock movements and likely duplicates come back as a confirmation request instead of an action, senders are checked against the employee table, and every stock movement traces back to the message that caused it. The refusal lives in the code, not in the model goodwill.',
       outcome: 'Live at the shop and used every day by people who do not know or care what an LLM is. They know they can say "two oil filters went out" into Telegram and the stock is right. Every AI interaction is logged with its input, output, model, and context snapshot, which is the dataset the next iteration gets evaluated against.'
     },
     highlights: [
@@ -121,7 +121,7 @@ export const caseStudies = [
       'Voice to structured data: dictation becomes typed, priced work-order line items',
       'AI diagnostics assembled server-side from each vehicle service and inspection history',
       'Every AI interaction logged with input, output, model, and context snapshot',
-      'Offline-first with cascading ID remapping, because the shop floor has no signal'
+      'Offline mode for the daily screens, with cascading ID remapping on sync'
     ],
     metrics: [
       { value: 'Daily use', label: 'in a real repair shop' },
@@ -129,7 +129,7 @@ export const caseStudies = [
       { value: 'Voice in', label: 'work order out' }
     ],
     technologies: ['Next.js', 'TypeScript', 'OpenAI Agents SDK', 'Whisper', 'Supabase', 'Postgres', 'Dexie'],
-    skillsShown: ['Agent tooling & guardrails', 'Voice AI in the field', 'Data modeling & migration', 'Offline-first architecture', 'Shipping for real users'],
+    skillsShown: ['Agent tooling & guardrails', 'Voice AI in the field', 'Data modeling & migration', 'Offline sync', 'Shipping for real users'],
     flow: {
       nodes: [
         { label: 'Mechanic on the floor', detail: 'Phone, no signal, greasy hands' },
@@ -308,12 +308,6 @@ export const agentWork = [
     title: 'Wilmec',
     focus: 'Agent on the shop floor',
     description: 'An inventory agent on the OpenAI Agents SDK with typed tools, answering on Telegram, WhatsApp, and web through one engine. Anomalous stock movements and possible duplicates come back as a confirmation request instead of an action, and every movement traces back to the message that caused it.'
-  },
-  {
-    id: 'agent-food-service',
-    title: 'Food Service Agent',
-    focus: 'Voice agent',
-    description: 'A LangGraph agent with intent routing that finds restaurants, remembers preferences in vector memory, and places the reservation itself over a real phone call (Twilio + TTS + Whisper).'
   }
 ];
 
