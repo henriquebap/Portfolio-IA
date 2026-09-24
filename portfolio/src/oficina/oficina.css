@@ -1,0 +1,46 @@
+@import "../shared/brand.css";
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Carimbo de borracha: tinta com borda dupla, levemente torto. */
+.carimbo {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border: 0.14em double currentColor;
+  border-radius: 0.3em;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: rgb(255 255 255 / 0.85);
+}
+
+/*
+ * Mapa do veículo, portado de hob-oficina/src/app/globals.css: a cor sai do pior
+ * nível da área; a área aberta pulsa.
+ */
+.vm-region {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  outline: none;
+  transition: fill 0.18s ease, stroke 0.18s ease;
+}
+.vm-region[role='button'] { cursor: pointer; }
+.vm-region[role='button']:hover { fill: rgb(0 83 179 / 0.1); stroke: rgb(83 92 102 / 0.6); stroke-dasharray: 6 4; }
+.vm-region[data-level='BOM'] { fill: rgb(16 185 129 / 0.28); stroke: #10b981; stroke-dasharray: none; }
+.vm-region[data-level='ATENCAO'] { fill: rgb(245 158 11 / 0.3); stroke: #f59e0b; stroke-dasharray: none; }
+.vm-region[data-level='CRITICO'] { fill: rgb(239 68 68 / 0.32); stroke: #ef4444; stroke-dasharray: none; }
+.vm-region[data-selected='true'] { stroke-width: 3; animation: vm-pulse 1.6s ease-in-out infinite; }
+.vm-region:focus-visible { stroke: var(--color-azul); stroke-width: 3; }
+@keyframes vm-pulse { 50% { stroke-opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .vm-region[data-selected='true'] { animation: none; } }
+
+/* Chamariz da demo: um halo que pulsa em volta do que dá para tocar. */
+.chama { animation: chama 1.6s ease-in-out infinite; }
+@keyframes chama { 50% { box-shadow: 0 0 0 6px rgb(0 83 179 / 0.28); } }
+@media (prefers-reduced-motion: reduce) { .chama { animation: none; box-shadow: 0 0 0 4px rgb(0 83 179 / 0.28); } }

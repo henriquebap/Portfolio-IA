@@ -26,7 +26,7 @@ const Navbar = () => {
     >
       <Container maxW="3xl" px={{ base: 5, md: 6 }}>
         <Flex h="56px" align="center" justify="space-between">
-          <Link href="#top" fontWeight={700} fontSize="md" _hover={{ textDecoration: 'none', color: 'accent.600' }}>
+          <Link href="/" fontWeight={700} fontSize="md" _hover={{ textDecoration: 'none', color: 'accent.600' }}>
             Henrique Baptista
           </Link>
 

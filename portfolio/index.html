@@ -1,63 +1,105 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f9f6f2" />
+    <link rel="icon" type="image/svg+xml" href="/hob-simbolo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <meta name="description" content="Henrique Baptista, AI Engineer building reliable production AI systems across evaluation, Voice AI, data pipelines, APIs, and product." />
-    <meta name="keywords" content="ML Engineer, AI Engineer, LLM Evaluation, Voice AI, ASR, Python, FastAPI, PyTorch, Hugging Face, Henrique Baptista" />
-    <meta name="author" content="Henrique Baptista" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <title>Henrique Baptista · HOB Tech</title>
+    <meta name="description" content="Henrique Baptista, fundador da HOB Tech. Sistemas de gestão construídos dentro da operação, com IA onde ela faz diferença." />
     <link rel="canonical" href="https://henriquebap.com/" />
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Henrique Baptista | AI Engineer" />
-    <meta property="og:description" content="Reliable production AI systems: evaluation, Voice AI, data pipelines, APIs, and product engineering." />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Henrique Baptista · HOB Tech" />
+    <meta property="og:description" content="Sobre mim, o HOB Oficina e projetos sob medida." />
     <meta property="og:url" content="https://henriquebap.com/" />
-    <meta property="og:image" content="https://henriquebap.com/og-image.png" />
+    <meta property="og:image" content="https://henriquebap.com/og/hub.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Henrique Baptista | AI Engineer" />
-    <meta name="twitter:description" content="Reliable production AI systems: evaluation, Voice AI, data pipelines, APIs, and product engineering." />
-    <meta name="twitter:image" content="https://henriquebap.com/og-image.png" />
-    
-    <title>Henrique Baptista | AI Engineer</title>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Henrique Baptista",
-      "jobTitle": "AI Engineer",
-      "url": "https://henriquebap.com/",
-      "email": "mailto:henrique.obap@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "São Paulo",
-        "addressCountry": "BR"
-      },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "FIAP"
-      },
-      "knowsAbout": ["Machine Learning", "AI Engineering", "LLM Evaluation", "Voice AI", "ASR", "AI Agents", "MLOps"],
-      "sameAs": [
-        "https://github.com/henriquebap",
-        "https://www.linkedin.com/in/henrique-baptista777/"
-      ]
-    }
+    <script>
+      // Links antigos do portfólio (henriquebap.com/#wilmec) agora moram em /sobre.
+      if (/^#[\w-]+$/.test(location.hash)) location.replace('/sobre' + location.hash)
     </script>
+    <link rel="stylesheet" href="/src/hub/hub.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <main class="hub">
+      <header class="hub-topo">
+        <h1 class="titulo text-[clamp(1.35rem,3.2vw,2rem)]">Henrique Baptista</h1>
+        <p class="rotulo text-grafite">Fundador da HOB Tech · São Paulo</p>
+      </header>
+
+      <nav class="hub-cards" aria-label="Para onde ir">
+        <a class="ficha ficha-papel" href="/sobre" style="--i: 0">
+          <span class="rotulo aba" lang="en">About · portfolio in English</span>
+          <span class="vivo vivo-terminal" aria-hidden="true">
+            <span class="linha">&gt; build systems</span>
+            <span class="linha">&gt; put AI to work<b class="cursor"></b></span>
+          </span>
+          <span class="corpo">
+            <span class="titulo nome">Sobre mim</span>
+            <span class="desc">Trajetória, projetos e currículo de quem constrói os sistemas.</span>
+          </span>
+          <span class="rotulo ir">Abrir <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="ficha ficha-azul" href="/oficina" style="--i: 1">
+          <span class="rotulo aba">Produto</span>
+          <span class="vivo vivo-carro" aria-hidden="true">
+            <span class="carro">
+              <img src="/vistoria/carro-vistas.webp" alt="" />
+              <svg viewBox="118 30 1310 592">
+                <path class="r r-ok" d="M1330,123 L1358,142 L1386,181 L1414,263 L1419,319 L1419,346 L1414,403 L1386,485 L1358,523 L1330,543 Z" />
+                <path class="r r-atencao" d="M1122,88 L1178,87 L1234,90 L1276,98 L1318,116 L1330,123 L1330,543 L1318,549 L1276,566 L1234,573 L1178,574 L1122,574 Z" />
+                <path class="r r-ok r-tras" d="M128,301 L142,207 L170,147 L198,129 L246,114 L246,549 L198,534 L170,514 L142,456 L128,359 Z" />
+              </svg>
+            </span>
+          </span>
+          <span class="corpo">
+            <span class="titulo nome">HOB Oficina</span>
+            <span class="desc">O sistema que nasceu dentro de uma oficina. Veja funcionando.</span>
+          </span>
+          <span class="rotulo ir">Ver o sistema <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="ficha ficha-noite" href="/hobtech" style="--i: 2">
+          <span class="rotulo aba">Sob medida</span>
+          <span class="vivo vivo-simbolo" aria-hidden="true">
+            <!-- Mesmo desenho de src/shared/HobSymbol.jsx (o hub é HTML estático, sem React). -->
+            <svg viewBox="0 0 100 100">
+              <mask id="hb-hub">
+                <rect x="54" y="0" width="46" height="100" fill="#fff" />
+                <path d="M54 14H62A11 15.25 0 0 1 62 44.5H54Z" fill="#000" />
+                <path d="M54 55.5H64A14 15.25 0 0 1 64 86H54Z" fill="#000" />
+                <path d="M90 38C85 43 81 46 81 50C81 54 85 57 90 62Z" fill="#000" />
+              </mask>
+              <g class="letras">
+                <circle cx="50" cy="50" r="50" mask="url(#hb-hub)" />
+                <rect x="21" y="10" width="10" height="80" />
+                <rect x="31" y="44.5" width="11" height="11" />
+                <rect x="42" y="2" width="12" height="96" />
+              </g>
+              <circle class="anel" cx="50" cy="50" r="44" pathLength="100" />
+            </svg>
+          </span>
+          <span class="corpo">
+            <span class="titulo nome">HOB Tech</span>
+            <span class="desc">Sistemas de gestão construídos dentro da operação, com IA onde ela faz diferença.</span>
+          </span>
+          <span class="rotulo ir">Projetos sob medida <span aria-hidden="true">→</span></span>
+        </a>
+      </nav>
+
+      <footer class="hub-rodape rotulo">
+        <a href="mailto:henrique.obap@gmail.com">henrique.obap@gmail.com</a>
+        <a href="https://wa.me/5511942821734" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/henrique-baptista777/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </footer>
+    </main>
   </body>
 </html>

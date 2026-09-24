@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview --host 0.0.0.0 --port ${PORT:-5000}"
+    "start": "vite preview --host 0.0.0.0 --port ${PORT:-5000}",
+    "test": "node --test \"src/**/*.test.js\""
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",

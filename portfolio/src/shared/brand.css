@@ -1,0 +1,54 @@
+/*
+ * Marca HOB (direção B, "Ficha de serviço"): papel, tinta e azul, com Archivo
+ * expandido nos títulos e IBM Plex Mono nos dados. Único lugar para trocar o
+ * tema do hub, do /oficina e do /hobtech; as cores ainda estão "a repensar"
+ * (HOB-Tech/marca/README.md).
+ */
+@import "tailwindcss";
+
+@theme {
+  --color-papel: #f9f6f2;
+  --color-papel-2: #f1ece4;
+  --color-linha: #ddd5ca;
+  --color-tinta: #111921;
+  --color-grafite: #535c66;
+  --color-azul: #0053b3;
+  --color-azul-claro: #73b6fa;
+  --color-noite: #091018;
+
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+@layer base {
+  html {
+    background: var(--color-papel);
+    color: var(--color-tinta);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: var(--font-sans);
+    /* clip, não hidden: hidden quebra o position: sticky das cenas. */
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-azul-claro);
+    outline-offset: 3px;
+  }
+}
+
+@utility titulo {
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+@utility rotulo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
