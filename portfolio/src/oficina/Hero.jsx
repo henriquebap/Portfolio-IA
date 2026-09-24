@@ -29,8 +29,8 @@ export default function Hero() {
             O sistema que nasceu dentro de uma <span className="text-azul">oficina.</span>
           </motion.h1>
           <motion.p variants={entra} className="mt-7 max-w-[50ch] text-lg leading-relaxed text-grafite">
-            Foi feito sob medida para a Wil Mec, oficina de câmbio automático em São Miguel Paulista, e é usado lá todo dia
-            desde agosto de 2026. Role a página e veja funcionando.
+            Foi feito sob medida para a Wil Mec, oficina de câmbio automático em São Miguel Paulista, que usa o sistema todo
+            dia. Role a página e veja funcionando.
           </motion.p>
           <motion.div variants={entra} className="mt-9 flex flex-wrap gap-3">
             <a
@@ -54,7 +54,7 @@ export default function Hero() {
           className="mx-auto"
         >
           <PhoneFrame className="h-[min(620px,78svh)]">
-            <TelaNovaOS aberta atrasoCarimbo={1.9} />
+            <TelaNovaOS aberta atraso={2.3} />
           </PhoneFrame>
         </motion.div>
       </section>

@@ -2,6 +2,8 @@
 // (HOB-Tech/docs/00, "A oficina que…"). Só entra o que existe hoje na Wil Mec
 // (HOB-Tech/oficina/01, coluna "Existe"). foco: ponto da tela onde o zoom entra.
 
+import { NOTA_FISCAL_NO_AR } from './oferta'
+
 export const PILARES = [
   { id: 'tecnologia', texto: 'acredita em tecnologia' },
   { id: 'ia', texto: 'quer usar IA no dia a dia' },
@@ -68,10 +70,9 @@ const TODAS = [
     foco: ['50%', '26%'],
   },
   {
-    // Em testes na Wil Mec (PR #82 do Wilmec-system). Publicar depois da primeira nota real.
     id: 'nota',
     pilar: 'gestao',
-    publicado: false,
+    publicado: NOTA_FISCAL_NO_AR,
     titulo: 'OS paga, nota pronta para conferir.',
     texto: 'Quando a OS é paga ou entregue, a nota já está montada. Você confere e emite com um clique.',
     zoom: 1.2,

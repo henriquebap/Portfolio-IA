@@ -1,6 +1,6 @@
-import { Carimbo, CabecalhoOS, Cartao, Linha, Pilula, Tela } from './ui'
+import { CabecalhoOS, Cartao, Linha, Pilula, Tela } from './ui'
 
-// Escondida (roteiro.js: publicado false) até a primeira nota real sair na Wil Mec.
+// Escondida enquanto NOTA_FISCAL_NO_AR (oferta.js) estiver desligada.
 export default function TelaNota() {
   return (
     <Tela>
@@ -14,7 +14,6 @@ export default function TelaNota() {
         <Linha rotulo="Peças" valor="R$ 138,00" />
         <span className="mt-1 rounded-lg bg-azul py-2 text-center font-semibold text-white">Conferi, emitir</span>
       </Cartao>
-      <div className="relative h-16"><Carimbo className="absolute right-4 top-2 text-[17px]">Nota emitida</Carimbo></div>
     </Tela>
   )
 }

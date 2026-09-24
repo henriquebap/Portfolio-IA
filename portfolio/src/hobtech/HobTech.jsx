@@ -12,8 +12,14 @@ const CASOS = [
     id: 'wilmec',
     titulo: 'Wil Mec',
     tipo: 'Sistema de gestão · oficina',
-    resumo: 'O sistema inteiro de uma oficina de câmbio automático: OS, vistoria, estoque, financeiro e pós-venda. Em uso todo dia desde agosto de 2026, virou o HOB Oficina.',
+    resumo: 'O sistema inteiro de uma oficina de câmbio automático: OS, vistoria, estoque, financeiro e pós-venda, usado todo dia pela equipe. Virou o HOB Oficina.',
     link: { href: '/oficina', texto: 'Ver o HOB Oficina' },
+    destaque: true,
+  },
+  {
+    id: 'vinibap',
+    tipo: 'Site, painel e documentos',
+    resumo: 'Site com painel administrativo e um sistema que gera documentos personalizados a partir do que a equipe cadastra.',
   },
   {
     id: 'wordin',
@@ -21,10 +27,11 @@ const CASOS = [
     resumo: 'Transforma gravações longas em documentos organizados, com cada afirmação ligada ao trecho de onde saiu.',
   },
   {
-    id: 'agent-food-service',
-    titulo: 'Agente de reservas por voz',
-    tipo: 'Agente',
-    resumo: 'Encontra o restaurante, lembra as preferências de quem pede e faz a reserva numa ligação telefônica de verdade.',
+    id: 'datathon-passos-magicos',
+    titulo: 'Passos Mágicos',
+    tipo: 'IA para uma ONG',
+    resumo: 'Modelo que aponta os alunos em risco de defasagem escolar, com um painel para a equipe decidir onde agir primeiro.',
+    textoLink: 'Ver o painel',
   },
   {
     id: 'mission-philippines',
@@ -65,9 +72,9 @@ export default function HobTech() {
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {CASOS.map((c) => {
                 const p = doPortfolio(c.id)
-                const link = c.link ?? (p.liveUrl && { href: p.liveUrl, texto: new URL(p.liveUrl).hostname.replace('www.', '') })
+                const link = c.link ?? (p.liveUrl && { href: p.liveUrl, texto: c.textoLink ?? new URL(p.liveUrl).hostname.replace('www.', '') })
                 return (
-                  <article key={c.id} className="flex flex-col rounded-2xl bg-white p-7 ring-1 ring-linha">
+                  <article key={c.id} className={`flex flex-col rounded-2xl bg-white p-7 ring-1 ring-linha ${c.destaque ? 'md:col-span-2' : ''}`}>
                     <p className="rotulo text-azul">{c.tipo}</p>
                     <h2 className="titulo mt-3 text-[1.7rem]">{c.titulo ?? p.title}</h2>
                     <p className="mt-3 leading-relaxed text-grafite">{c.resumo}</p>

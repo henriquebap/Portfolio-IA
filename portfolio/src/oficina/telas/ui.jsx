@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 // Peças das telas de exemplo. Imitam o app (fundo cinza-claro, cartões brancos,
 // azul primário) com dados fictícios; nada aqui fala com servidor.
 
@@ -41,20 +39,6 @@ const TONS = {
 
 export function Pilula({ tom = 'cinza', children }) {
   return <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold ${TONS[tom]}`}>{children}</span>
-}
-
-// Carimbo de borracha: a assinatura visual da página (o papel da OS).
-export function Carimbo({ children, tom = 'text-azul', className = '', atraso = 0 }) {
-  return (
-    <motion.span
-      initial={{ scale: 1.8, opacity: 0, rotate: -16 }}
-      animate={{ scale: 1, opacity: 1, rotate: -8 }}
-      transition={{ type: 'spring', stiffness: 420, damping: 16, delay: atraso }}
-      className={`carimbo ${tom} ${className}`}
-    >
-      {children}
-    </motion.span>
-  )
 }
 
 export function Linha({ rotulo, valor, className = '' }) {

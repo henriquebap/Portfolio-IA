@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Bell, Download, Mail } from './icones'
-import { Carimbo, Cartao, Linha, Pilula } from './ui'
+import { Cartao, Linha, Pilula } from './ui'
 
 const ITENS = [
   ['Pastilha de freio dianteira', '2 × R$ 50,00'],
@@ -56,13 +56,12 @@ export default function TelaAcompanhar({ etapa = 0, onEntregar }) {
             <Bell className="size-3.5 shrink-0 text-azul" /> Lembrete da revisão dos 60 mil marcado para perto de 15/11.
           </motion.p>
         )}
-        <div className="relative mt-auto mb-20">
+        <div className="mt-auto mb-20">
           {onEntregar && etapa < 2 && (
             <button type="button" onClick={onEntregar} className="flex h-10 w-full items-center justify-center rounded-lg bg-azul font-semibold text-white chama">
               Entregar o carro
             </button>
           )}
-          {onEntregar && etapa === 2 && <Carimbo className="absolute -top-24 right-2 text-[17px]">Entregue</Carimbo>}
         </div>
       </div>
     </div>
