@@ -7,6 +7,7 @@ import Hero from './Hero'
 import { DoSeuJeito, Diferente, Preco, Recursos } from './Produto'
 import { Oferta, ParaQuem, Rodape, WilMec } from './Secoes'
 import NotaFiscal from './NotaFiscal'
+import Site from './Site'
 import WhatsApp from './WhatsApp'
 
 // O "apoio visual pós-mensagem" (HOB-Tech/docs/04): a oficina já leu a história
@@ -22,6 +23,7 @@ export default function Oficina() {
         <Recursos />
         <WhatsApp />
         <NotaFiscal />
+        <Site />
         <DoSeuJeito />
         <Diferente />
         <ParaQuem />

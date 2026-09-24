@@ -1,4 +1,4 @@
-import { GARANTIAS, MENSALIDADE, MOSTRAR_NOTA_FISCAL } from './oferta'
+import { GARANTIAS, MENSALIDADE, MOSTRAR_NOTA_FISCAL, MOSTRAR_SITE } from './oferta'
 
 // O que tem no sistema, por área. Só o que existe hoje (HOB-Tech/oficina/01,
 // coluna "Existe"); placa automática e aviso automático de OS ficam de fora.
@@ -163,7 +163,8 @@ export function Preco() {
           De R$ {MENSALIDADE.de} a R$ {MENSALIDADE.ate} <span className="text-grafite">por mês</span>
         </p>
         <p className="mt-5 max-w-[60ch] text-lg leading-relaxed text-grafite">
-          O valor depende do que a sua oficina liga. A instalação é presencial, com treinamento da equipe, e fecha na conversa.
+          O valor depende do que a sua oficina liga. A instalação é presencial, com treinamento da equipe, e fecha na conversa
+          {MOSTRAR_SITE && ', assim como o site da oficina'}.
           Sem fidelidade. Os dados do sistema antigo vêm junto quando dá para exportar.
         </p>
         <ul className="mt-8 grid gap-3 border-t border-linha pt-6 text-sm leading-relaxed text-grafite md:grid-cols-3">

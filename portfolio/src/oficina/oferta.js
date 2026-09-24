@@ -11,6 +11,11 @@ export const OFICINAS_POR_MES = 5
 export const NOTA_FISCAL_NO_AR = true
 export const MOSTRAR_NOTA_FISCAL = NOTA_FISCAL_NO_AR || import.meta.env?.DEV === true
 
+// Pacote site da oficina (molde do site da Wil Mec, HOB-Tech/oficina/01 "Site
+// institucional"). Mesmo esquema da nota: com false, aparece só no `npm run dev`.
+export const SITE_NO_AR = true
+export const MOSTRAR_SITE = SITE_NO_AR || import.meta.env?.DEV === true
+
 // Desligar à mão quando as 2 primeiras do mês fecharem; religar quando o mês virar.
 export const METADE_INSTALACAO = true
 
