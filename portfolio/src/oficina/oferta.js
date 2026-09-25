@@ -22,13 +22,14 @@ export const METADE_INSTALACAO = true
 // Parceira fundadora: o bloco some sozinho depois desta data (pode ir até '2026-11-30').
 export const FUNDADORA_ATE = '2026-10-31'
 
+// Os 3 primeiros aparecem na caixa da oferta; o resto fica no "ver todos".
 export const BENEFICIOS_FUNDADORA = [
   '10% na mensalidade por 6 meses',
+  '60 dias com a IA do plano Inteligente liberada',
+  '30 dias de garantia',
   '10% em pacotes e serviços adicionais enquanto for cliente',
   'acesso antecipado às novidades',
-  '60 dias com a IA do plano Inteligente liberada',
   'voto no que entra primeiro',
-  '30 dias de garantia',
 ]
 
 // Data local em 'YYYY-MM-DD' comparada como texto: sem fuso nem new Date(string).

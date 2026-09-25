@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { MENSAGEM_OFICINA, whatsapp } from '../shared/contato'
 import PhoneFrame from './PhoneFrame'
 import { AREAS, NIVEIS } from './telas/regioes'
 import TelaAcompanhar from './telas/TelaAcompanhar'
@@ -61,43 +62,51 @@ export default function Demo() {
 
   return (
     <section id="experimente" className="border-y border-linha bg-papel-2">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-[minmax(0,1fr)_auto] md:py-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-12 md:py-24">
         <div>
           <p className="rotulo text-azul">Experimente</p>
-          <h2 className="titulo mt-4 text-[clamp(2rem,5vw,3.5rem)]">Passe um carro pela oficina.</h2>
-          <p className="mt-5 max-w-[48ch] text-lg leading-relaxed text-grafite">
-            Do balcão à entrega, em cinco passos. É de exemplo: nada é salvo e nenhuma mensagem sai daqui.
-          </p>
-          <ol className="mt-9 grid max-w-lg gap-1.5">
-            {PASSOS.map((p, i) => (
-              <li key={p.id}>
+          <h2 className="titulo titulo-m mt-3">Passe um <span className="text-azul">carro</span> pela oficina.</h2>
+          <a
+            href={whatsapp(MENSAGEM_OFICINA)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex min-h-12 items-center rounded-full bg-azul px-6 font-semibold text-white transition-colors hover:bg-tinta"
+          >
+            Quero ver na minha oficina
+          </a>
+
+          <div className="mt-8 max-w-md rounded-2xl bg-white p-5 ring-1 ring-linha md:mt-10">
+            {/* ponytail: números em vez da lista dos 5 passos; o nome aparece só no passo da vez. */}
+            <div className="flex gap-1.5" role="group" aria-label="Passos da demonstração">
+              {PASSOS.map((p, i) => (
                 <button
+                  key={p.id}
                   type="button"
                   onClick={() => setAtual(i)}
                   aria-current={i === atual ? 'step' : undefined}
-                  className={`flex w-full items-baseline gap-3 rounded-lg px-3 py-2.5 text-left transition-colors ${i === atual ? 'bg-white shadow-sm ring-1 ring-linha' : 'hover:bg-white/60'}`}
+                  aria-label={`Passo ${i + 1}: ${p.rotulo}`}
+                  className={`grid size-9 place-items-center rounded-full font-mono text-sm transition-colors ${i === atual ? 'bg-tinta text-papel' : i < atual ? 'bg-azul/10 text-azul' : 'bg-papel-2 text-grafite hover:bg-linha'}`}
                 >
-                  <span className={`font-mono text-sm ${i < atual ? 'text-azul' : 'text-grafite'}`}>{i < atual ? '✓' : `${i + 1}.`}</span>
-                  <span>
-                    <span className={`block font-semibold ${i === atual ? 'text-tinta' : 'text-grafite'}`}>{p.rotulo}</span>
-                    {i === atual && <span className="mt-0.5 block text-sm text-grafite">{p.dica}</span>}
-                  </span>
+                  {i < atual ? '✓' : i + 1}
                 </button>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={ultimo ? recomecar : () => setAtual(atual + 1)}
-              className="inline-flex min-h-12 items-center rounded-full bg-tinta px-6 font-semibold text-papel transition-colors hover:bg-azul"
-            >
-              {ultimo ? 'Recomeçar' : `Próximo: ${PASSOS[atual + 1].rotulo.toLowerCase()}`}
-            </button>
-            <p className="text-sm text-grafite" aria-live="polite">{aviso}</p>
+              ))}
+            </div>
+            <p className="mt-4 font-semibold">{PASSOS[atual].rotulo}</p>
+            <p className="mt-1 text-sm text-grafite">{PASSOS[atual].dica}</p>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={ultimo ? recomecar : () => setAtual(atual + 1)}
+                className="inline-flex min-h-11 items-center rounded-full px-5 text-sm font-semibold text-tinta ring-1 ring-tinta/25 transition-colors hover:ring-tinta"
+              >
+                {ultimo ? 'Recomeçar' : `Próximo: ${PASSOS[atual + 1].rotulo.toLowerCase()}`}
+              </button>
+              <p className="text-sm text-grafite" aria-live="polite">{aviso}</p>
+            </div>
+            <p className="mt-4 text-xs text-grafite">É de exemplo: nada é salvo e nenhuma mensagem sai daqui.</p>
           </div>
         </div>
-        <PhoneFrame className="mx-auto h-[min(620px,82svh)]">{telas[PASSOS[atual].id]}</PhoneFrame>
+        <PhoneFrame className="mx-auto h-[min(600px,72svh)] md:h-[min(600px,76svh)]">{telas[PASSOS[atual].id]}</PhoneFrame>
       </div>
     </section>
   )
