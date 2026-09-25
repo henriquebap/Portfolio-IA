@@ -36,7 +36,7 @@ function CenasRolando() {
 
   const cena = CENAS[pos.i]
   return (
-    <section id="pilares" ref={ref} aria-label="O sistema funcionando" style={{ height: `${N * 115}svh` }} className="relative">
+    <section id="pilares" ref={ref} aria-label="O sistema funcionando" style={{ height: `${N * 80}svh` }} className="relative">
       <div className="sticky top-0 mx-auto grid h-svh max-w-6xl grid-rows-[minmax(0,1fr)_auto] items-center gap-4 px-5 pb-20 pt-4 md:grid-cols-[minmax(0,1fr)_auto] md:grid-rows-1 md:gap-16 md:py-10">
         <div className="relative z-10 order-2 md:order-1">
           <Trilho ativo={cena.pilar} />
@@ -50,7 +50,7 @@ function CenasRolando() {
               className="rounded-2xl bg-papel/95 md:bg-transparent"
             >
               <p className="rotulo text-azul md:hidden">A oficina que {PILARES.find((p) => p.id === cena.pilar).texto}</p>
-              <h3 className="titulo mt-2 text-[clamp(1.35rem,3.4vw,2.9rem)] md:mt-8">{cena.titulo}</h3>
+              <h3 className="titulo titulo-m mt-2 md:mt-8"><Titulo cena={cena} /></h3>
               <p className="mt-3 max-w-[46ch] text-[15px] leading-relaxed text-grafite md:mt-5 md:text-lg">{cena.texto}</p>
             </motion.div>
           </AnimatePresence>
@@ -68,7 +68,12 @@ function CenasRolando() {
   )
 }
 
-// O visitante vê em qual dos 5 perfis a tela da vez se encaixa.
+const Titulo = ({ cena }) => {
+  const [antes, depois] = cena.titulo.split(cena.chave)
+  return <>{antes}<span className="text-azul">{cena.chave}</span>{depois}</>
+}
+
+// O visitante vê em qual perfil a tela da vez se encaixa.
 function Trilho({ ativo }) {
   return (
     <ol className="hidden gap-2 md:grid" aria-label="A oficina que…">
@@ -94,7 +99,7 @@ function CenasParadas() {
         <div key={c.id} className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_auto]">
           <div>
             <p className="rotulo text-azul">A oficina que {PILARES.find((p) => p.id === c.pilar).texto}</p>
-            <h3 className="titulo mt-3 text-[clamp(1.35rem,3.4vw,2.6rem)]">{c.titulo}</h3>
+            <h3 className="titulo titulo-m mt-3"><Titulo cena={c} /></h3>
             <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-grafite">{c.texto}</p>
           </div>
           <PhoneFrame className="mx-auto h-[min(600px,80svh)]">

@@ -70,7 +70,7 @@ export default function TelaVistoria({ niveis = {}, onArea }) {
           </div>
         ))}
         {marcadas.length > piores.length && (
-          <p className="text-[10.5px] text-slate-500">{marcadas.length - piores.length} áreas OK</p>
+          <p className="text-[10.5px] text-slate-500">{marcadas.length - piores.length === 1 ? '1 área OK' : `${marcadas.length - piores.length} áreas OK`}</p>
         )}
       </Cartao>
       <Cartao className="grid gap-1">
