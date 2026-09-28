@@ -1,45 +1,14 @@
 import { motion } from 'framer-motion'
 import { whatsapp } from '../shared/contato'
-import { MOSTRAR_NOTA_FISCAL, MOSTRAR_SITE } from './oferta'
+import { ADICIONAIS, PLANOS } from './oferta'
 import { Balao, Check, Globo, Recibo } from './telas/icones'
 
-// Os adicionais numa tela só, cada um abrindo por uma dor que a oficina
-// reconhece. Só o que roda na Wil Mec (Wilmec-system PRs #57, #63, #70/#72 e
-// #82; HOB-Tech/oficina/01). Fora até existir: aviso automático de OS pronta,
-// anúncio no Google, agendamento online. Nota: "se monta sozinha", nunca
-// "emite sozinha" (a emissão automática foi retirada de propósito).
-const PACOTES = [
-  {
-    id: 'site',
-    publicado: MOSTRAR_SITE,
-    icone: Globo,
-    nome: 'Site da oficina',
-    gancho: 'Ainda não tem site?',
-    promessa: 'Quem procura oficina na sua região encontra a sua.',
-    itens: ['Com a marca, as fotos e os serviços', 'WhatsApp e mapa a um toque', 'Pedido de orçamento cai direto no sistema'],
-    botao: 'Quero o site',
-  },
-  {
-    id: 'whatsapp',
-    publicado: true,
-    icone: Balao,
-    nome: 'WhatsApp dedicado',
-    gancho: 'Cliente sumiu depois da entrega?',
-    promessa: 'Cuida do antes e do depois, com a IA escrevendo no tom de vocês.',
-    itens: ['Pré-venda: proposta com a resposta na OS', 'Pós-venda: pesquisa depois da entrega', 'Preventiva: lembrete da próxima revisão'],
-    botao: 'Quero o WhatsApp',
-  },
-  {
-    id: 'nota',
-    publicado: MOSTRAR_NOTA_FISCAL,
-    icone: Recibo,
-    nome: 'Nota fiscal',
-    gancho: 'Ainda faz nota na mão?',
-    promessa: 'Quando a OS é paga ou entregue, a nota se monta sozinha. Você confere e emite com um clique.',
-    itens: ['Serviço e peças, cada um na nota certa', 'Código fiscal das peças pelas suas compras', 'PDF da nota por e-mail para o cliente'],
-    botao: 'Quero a nota fiscal',
-  },
-]
+// Os adicionais numa tela só; os dados moram em oferta.js (também usados pelo
+// /oficina/planos). Aqui ficam só o ícone e a miniatura de cada um.
+const ICONE = { site: Globo, whatsapp: Balao, nota: Recibo }
+
+// "Já vem no Profissional e no Inteligente", tirado de PLANOS.incluidos.
+const jaVemEm = (id) => PLANOS.filter((pl) => pl.incluidos.includes(id)).map((pl) => pl.nome).join(' e no ')
 
 const SITE_DE_EXEMPLO = 'https://wil-mec.com'
 
@@ -84,7 +53,7 @@ const VISUAL = {
 }
 
 export default function Pacotes() {
-  const pacotes = PACOTES.filter((p) => p.publicado)
+  const pacotes = ADICIONAIS.filter((p) => p.publicado && !p.soNaMontagem).map((p) => ({ ...p, icone: ICONE[p.id] }))
   return (
     <section id="pacotes" className="bg-noite text-papel">
       <div className="mx-auto max-w-6xl px-5 py-9 md:py-10">
@@ -110,6 +79,7 @@ export default function Pacotes() {
                   <p className="rotulo flex items-center gap-2 text-azul-claro"><p.icone className="hidden size-4 md:block" />{p.nome}</p>
                   <h3 className="mt-1.5 text-lg font-bold leading-snug md:mt-2 md:text-xl">{p.gancho}</h3>
                   <p className="mt-1 text-sm leading-snug text-papel/70 md:text-base">{p.promessa}</p>
+                  {jaVemEm(p.id) && <p className="mt-1.5 text-sm font-semibold text-azul-claro">Já vem no {jaVemEm(p.id)}.</p>}
                   <ul className="mt-3 hidden gap-1.5 text-[15px] text-papel/85 md:grid">
                     {p.itens.map((i) => (
                       <li key={i} className="flex gap-2 leading-snug"><Check className="mt-0.5 size-4 shrink-0 text-azul-claro" />{i}</li>
