@@ -35,7 +35,8 @@ Mudou lá, muda aqui no mesmo PR. Se o doc e o código divergem, o doc vence.
   - `NOTA_FISCAL_NO_AR`, `SITE_NO_AR`: com `false`, o bloco aparece só no `npm run dev`. Use o mesmo esquema para qualquer adicional que ainda não pode ir ao público.
   - `PLANOS`, `INSTALACAO`, `PARCELAS`, `TREINO_DEDICADO`, `USUARIO_EXTRA` e `ADICIONAIS` (preço, dor, itens) alimentam `/oficina` e `/oficina/planos`. Mudou em `HOB-Tech/docs/02`, muda ali e rode `npm test`.
 - Cena nova: `roteiro.js` + tela em `src/oficina/telas/`. As telas são mockups HTML com dados fictícios, nunca print do app. Em `Pacotes.jsx` ficam só o ícone e a miniatura de cada adicional; o resto está em `ADICIONAIS`. Os itens do "ver tudo" estão em `areas.js`.
-- Ordem das seções (`Oficina.jsx`): hero → 5 cenas → demo → prova Wil Mec (azul) → adicionais (`Pacotes.jsx`) → o que tem dentro → por que a HOB (✗/✓) → oferta `#conversa`. Claro e escuro alternados, azul só na prova. Dois tamanhos de título, `titulo-g` e `titulo-m` (`oficina.css`).
+- Ordem das seções (`Oficina.jsx`): hero → 5 cenas → demo → prova Wil Mec (azul) → com a sua cara (`Personalizacao.jsx`) → adicionais (`Pacotes.jsx`) → o que tem dentro → por que a HOB (✗/✓) → oferta `#conversa`. Claro e escuro alternados, azul só na prova. Dois tamanhos de título, `titulo-g` e `titulo-m` (`oficina.css`).
+- "Com a sua cara" fica depois da Wil Mec porque a marca configurável (cores do app, aparência do PDF) existe no hob-oficina e não roda lá. O filme é o `FILME` de `roteiro.js`: cada quadro é um estado inteiro, e as 4 cores são variáveis `@property` (`oficina.css`) que viram o `--color-azul` da seção. Paleta nova no app, paleta nova em `PALETAS`.
 
 ### Decisões das revisões do Henrique (23 e 24/09/2026)
 

@@ -2,8 +2,8 @@
 
 html { scroll-behavior: smooth; }
 
-/* Só dois tamanhos de título abaixo do hero: grande na prova, nos pacotes e na
-   oferta; médio (abaixo de 30px, cerca de 2rem) no resto. */
+/* Só dois tamanhos de título abaixo do hero: grande na prova, em "com a sua cara",
+   nos pacotes e na oferta; médio (abaixo de 30px, cerca de 2rem) no resto. */
 @utility titulo-g { font-size: clamp(2.2rem, 5.2vw, 3.75rem); }
 @utility titulo-m { font-size: clamp(1.55rem, 2.6vw, 1.8rem); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -33,5 +33,22 @@ html { scroll-behavior: smooth; }
 
 /* Chamariz da demo: um halo que pulsa em volta do que dá para tocar. */
 .chama { animation: chama 1.6s ease-in-out infinite; }
-@keyframes chama { 50% { box-shadow: 0 0 0 6px rgb(0 83 179 / 0.28); } }
-@media (prefers-reduced-motion: reduce) { .chama { animation: none; box-shadow: 0 0 0 4px rgb(0 83 179 / 0.28); } }
+/* O halo segue o --color-azul: fora de .marca é o azul da HOB; dentro, a cor da oficina. */
+@keyframes chama { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-azul) 28%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .chama { animation: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-azul) 28%, transparent); } }
+
+/*
+ * "Com a sua cara": as 4 cores das paletas do app, registradas para o navegador
+ * animar a troca sem JS. Dentro da seção, o azul da página vira a principal da
+ * marca da vez, e as peças de telas/ui.jsx seguem sozinhas. Sem @property, a cor
+ * só troca, sem transição.
+ */
+@property --marca-principal { syntax: '<color>'; inherits: true; initial-value: #64748b; }
+@property --marca-secundaria { syntax: '<color>'; inherits: true; initial-value: #334155; }
+@property --marca-terciaria { syntax: '<color>'; inherits: true; initial-value: #94a3b8; }
+@property --marca-fundo { syntax: '<color>'; inherits: true; initial-value: #eef0f2; }
+.marca {
+  --color-azul: var(--marca-principal);
+  transition: --marca-principal 0.7s ease, --marca-secundaria 0.7s ease, --marca-terciaria 0.7s ease, --marca-fundo 0.7s ease;
+}
+@media (prefers-reduced-motion: reduce) { .marca { transition: none; } }
