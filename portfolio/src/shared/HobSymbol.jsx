@@ -1,5 +1,5 @@
 // Símbolo "HB no O" v4 (HOB-Tech/marca/simbolo/hob-simbolo.svg, caixa 100) em currentColor.
-// Path único gerado pela fonte da marca (HOB-Tech/marca/fonte); não redesenhar à mão.
+// Path do arquivo da marca (caixa 256) reescalado para a caixa 100, desvio máx. 0,007; não redesenhar à mão.
 export default function HobSymbol({ className }) {
   return (
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true">

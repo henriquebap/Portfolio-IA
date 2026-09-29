@@ -74,7 +74,6 @@ export default function HobTech() {
             width="1600"
             height="800"
             alt=""
-            loading="lazy"
             decoding="async"
             className="mt-12 aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-linha md:mt-16 md:aspect-[2/1]"
           />
