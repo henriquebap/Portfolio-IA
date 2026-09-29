@@ -165,7 +165,7 @@ function Legenda({ q }) {
     texto.split(' ').filter(Boolean).map((p) => [p, chave]),
   )
   return (
-    <motion.div exit={{ opacity: 0, y: -10, transition: { duration: 0.18 } }}>
+    <motion.div exit={{ opacity: 0, y: -10, transition: { duration: 0.15 } }}>
       <p className="rotulo text-[10px] text-azul md:text-xs">{String(n + 1).padStart(2, '0')} · {CAPITULOS[n].rotulo}</p>
       <p className="titulo mt-1.5 text-[1.15rem] leading-[1.05] md:text-[1.45rem]">
         {palavras.map(([p, chave], i) => (
@@ -175,7 +175,7 @@ function Legenda({ q }) {
               <motion.span
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
-                transition={{ delay: 0.045 * i, duration: 0.45, ease: [0.2, 0.7, 0.2, 1] }}
+                transition={{ delay: 0.03 * i, duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
                 className={`inline-block ${chave ? 'text-azul' : ''}`}
               >
                 {p}

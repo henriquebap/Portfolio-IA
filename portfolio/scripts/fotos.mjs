@@ -17,7 +17,7 @@ if (!url) {
 const TAMANHOS = [['desktop', 1280, 800, false], ['celular', 390, 844, true]]
 
 mkdirSync(saida, { recursive: true })
-await comChrome(9333, async ({ cdp, js, erros }) => {
+await comChrome(async ({ cdp, js, erros }) => {
   const rola = (y) => js(`scrollTo({ top: ${y}, behavior: 'instant' })`)
   const resumo = {}
   for (const [nome, w, h, mobile] of TAMANHOS) {
