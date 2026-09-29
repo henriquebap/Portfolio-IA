@@ -67,6 +67,16 @@ export default function HobTech() {
             Sou o Henrique Baptista, fundador da HOB Tech, especialista em desenvolvimento de sistemas e IA e pós-graduado em
             Machine Learning Engineering. Antes de escrever o sistema, eu entendo como o trabalho acontece de verdade.
           </p>
+          {/* Vitrine oficial (HOB-Tech/marca/vitrine/vitrine-vazio.jpg) recortada em 2:1, sem os textos "para oficinas"
+              e "v. 1.0": o /hobtech é de projetos sob medida, não só de oficina. Decorativa: a marca já está no topo. */}
+          <img
+            src="/hobtech/hero.jpg"
+            width="1600"
+            height="800"
+            alt=""
+            decoding="async"
+            className="mt-12 aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-linha md:mt-16 md:aspect-[2/1]"
+          />
         </section>
 
         <section className="border-t border-linha bg-papel-2">

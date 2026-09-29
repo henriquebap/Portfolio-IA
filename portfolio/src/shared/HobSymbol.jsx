@@ -1,23 +1,9 @@
-import { useId } from 'react'
-
-// Símbolo "HB no O" (HOB-Tech/marca/hob-simbolo.svg) em currentColor.
+// Símbolo "HB no O" v4 (HOB-Tech/marca/simbolo/hob-simbolo.svg, caixa 100) em currentColor.
+// Path do arquivo da marca (caixa 256) reescalado para a caixa 100, desvio máx. 0,007; não redesenhar à mão.
 export default function HobSymbol({ className }) {
-  const mask = useId()
   return (
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true">
-      <mask id={mask}>
-        <rect x="54" y="0" width="46" height="100" fill="#fff" />
-        <path d="M54 14H62A11 15.25 0 0 1 62 44.5H54Z" fill="#000" />
-        <path d="M54 55.5H64A14 15.25 0 0 1 64 86H54Z" fill="#000" />
-        <path d="M90 38C85 43 81 46 81 50C81 54 85 57 90 62Z" fill="#000" />
-      </mask>
-      <g fill="currentColor">
-        <circle cx="50" cy="50" r="50" mask={`url(#${mask})`} />
-        <rect x="21" y="10" width="10" height="80" />
-        <rect x="31" y="44.5" width="11" height="11" />
-        <rect x="42" y="2" width="12" height="96" />
-      </g>
-      <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" strokeWidth="12" />
+      <path fill="currentColor" fillRule="evenodd" d="M100 50C100 77.61 77.61 100 50 100C22.39 100 0 77.61 0 50C0 22.39 22.39 0 50 0C77.61 0 100 22.39 100 50ZM56 54.25V85.5C63.87 84.17 71.08 80.26 76.49 74.38C79.72 70.88 80.57 65.79 78.65 61.43C76.74 57.07 72.42 54.25 67.66 54.25ZM56 14.5V45.75H67.66C72.42 45.75 76.73 42.93 78.64 38.57C80.56 34.21 79.71 29.14 76.49 25.63C71.08 19.75 63.88 15.83 56 14.5ZM31 18.84V45.75H45.5V13.78C40.36 14.42 35.42 16.14 31 18.84ZM31 54.25V81.16C35.42 83.86 40.36 85.58 45.5 86.22V54.25ZM20.5 29.77C20.5 29.6 20.38 29.44 20.22 29.39C20.05 29.34 19.87 29.41 19.77 29.55C11.41 41.9 11.41 58.1 19.77 70.45C19.87 70.59 20.05 70.66 20.22 70.61C20.38 70.56 20.5 70.4 20.5 70.23ZM84.72 38.75C81.7 41.71 80 45.77 80 50C80 54.23 81.7 58.29 84.72 61.25C87.09 53.94 87.09 46.06 84.72 38.75Z" />
     </svg>
   )
 }
