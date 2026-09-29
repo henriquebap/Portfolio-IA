@@ -4,6 +4,7 @@ import Cenas from './Cenas'
 import Demo from './Demo'
 import Hero from './Hero'
 import Pacotes from './Pacotes'
+import Personalizacao from './Personalizacao'
 import { PorQue, Recursos } from './Produto'
 import { Oferta, Rodape, WilMec } from './Secoes'
 
@@ -18,6 +19,7 @@ export default function Oficina() {
         <Cenas />
         <Demo />
         <WilMec />
+        <Personalizacao />
         <Pacotes />
         <Recursos />
         <PorQue />

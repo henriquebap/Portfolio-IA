@@ -22,6 +22,8 @@ export const AREAS = [
       'Orçamento aprovado item a item',
       'Agenda de horários que vira OS',
       'PDF da OS e do orçamento com a sua marca: logo, cores e modelo',
+      // hob-oficina PR #44 (28/09/2026): Configurações › Geral, só o dono.
+      'Cores do app escolhidas pelo dono, para a equipe toda',
     ],
   },
   {
