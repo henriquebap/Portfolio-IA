@@ -163,7 +163,9 @@
   fill: none;
   stroke: var(--color-prata);
   stroke-width: 12.8;
-  stroke-dasharray: 100;
+  /* 101, não 100: com o traço do tamanho exato do caminho (pathLength=100) as duas pontas retas se encontram
+     às 3h e abrem uma costura em tela 2x/3x (3x: a junção cai a 7% da luminância). */
+  stroke-dasharray: 101;
   animation: desenha 1.2s cubic-bezier(0.6, 0, 0.3, 1) 0.4s backwards;
 }
 .letras { fill: var(--color-prata); animation: aparece 0.5s ease-out 1.5s backwards; }
@@ -191,7 +193,7 @@
 @keyframes pisca { 50% { opacity: 0; } }
 @keyframes acende { from { opacity: 0; } }
 @keyframes pulso { 50% { stroke-opacity: 0.25; } }
-@keyframes desenha { from { stroke-dashoffset: 100; } }
+@keyframes desenha { from { stroke-dashoffset: 101; } }
 @keyframes aparece { from { opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
