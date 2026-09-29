@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-henriquebap.com-0ea5e9?style=for-the-badge&logo=google-chrome&logoColor=white)](https://henriquebap.com/sobre)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Henrique_Baptista-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/henrique-baptista777/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Henrique_Baptista-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/henriqueobaptista/)
 [![Email](https://img.shields.io/badge/Email-henrique.obap%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:henrique.obap@gmail.com)
 
 </div>
