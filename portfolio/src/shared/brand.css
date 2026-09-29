@@ -1,8 +1,7 @@
 /*
- * Marca HOB (direção B, "Ficha de serviço"): papel, tinta e azul, com Archivo
- * expandido nos títulos e IBM Plex Mono nos dados. Único lugar para trocar o
- * tema do hub, do /oficina e do /hobtech; as cores ainda estão "a repensar"
- * (HOB-Tech/marca/README.md).
+ * Marca HOB v4 (HOB-Tech/marca/README.md, fonte única): papel, tinta e azul,
+ * prata sobre noite no escuro, Archivo expandido nos títulos e IBM Plex Mono nos
+ * dados. Único lugar para trocar o tema do hub, do /oficina e do /hobtech.
  */
 @import "tailwindcss";
 
@@ -15,6 +14,7 @@
   --color-azul: #0053b3;
   --color-azul-claro: #73b6fa;
   --color-noite: #091018;
+  --color-prata: #c9ced6;
 
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
