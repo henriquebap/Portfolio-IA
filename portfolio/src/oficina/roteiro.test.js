@@ -16,6 +16,7 @@ test('todo quadro com logo, cores, paletas ou pdf tem marca, e todo cap existe',
   for (const q of FILME) {
     if (q.logo || q.cores || q.paletas || q.pdf) assert.ok(MARCAS[q.marca], `quadro "${q.legenda}" sem marca`)
     assert.ok(caps.has(q.cap), `cap "${q.cap}" fora de CAPITULOS`)
+    if (q.chave) assert.ok(q.legenda.includes(q.chave), `chave "${q.chave}" fora da legenda`)
   }
   // O quadro parado do reduced-motion (Personalizacao.jsx) é o primeiro com o PDF.
   assert.notEqual(FILME.findIndex((q) => q.pdf), -1)

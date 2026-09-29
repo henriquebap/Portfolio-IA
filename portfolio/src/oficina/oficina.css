@@ -31,11 +31,13 @@ html { scroll-behavior: smooth; }
 @keyframes vm-pulse { 50% { stroke-opacity: 0.3; } }
 @media (prefers-reduced-motion: reduce) { .vm-region[data-selected='true'] { animation: none; } }
 
-/* Chamariz da demo: um halo que pulsa em volta do que dá para tocar. */
-.chama { animation: chama 1.6s ease-in-out infinite; }
-/* O halo segue o --color-azul: fora de .marca é o azul da HOB; dentro, a cor da oficina. */
-@keyframes chama { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-azul) 28%, transparent); } }
-@media (prefers-reduced-motion: reduce) { .chama { animation: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-azul) 28%, transparent); } }
+/* Chamariz da demo: um halo que pulsa em volta do que dá para tocar. Segue o --color-azul:
+   fora de .marca é o azul da HOB; dentro, a cor da oficina. A cor fica numa variável: com
+   color-mix(var()) direto no @keyframes, o minificador do build esvazia o quadro e o halo
+   some (foi ao ar assim no PR #10). */
+.chama { --chama: color-mix(in srgb, var(--color-azul) 28%, transparent); animation: chama 1.6s ease-in-out infinite; }
+@keyframes chama { 50% { box-shadow: 0 0 0 6px var(--chama); } }
+@media (prefers-reduced-motion: reduce) { .chama { animation: none; box-shadow: 0 0 0 4px var(--chama); } }
 
 /*
  * "Com a sua cara": as 4 cores das paletas do app, registradas para o navegador

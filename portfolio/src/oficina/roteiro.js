@@ -80,16 +80,17 @@ export const MARCAS = [
 // Cada quadro é o estado inteiro da tela; a tela anima de um para o outro.
 // marca: índice em MARCAS (null = genérico) · logo: o logo no topo do app ·
 // paletas: o cartão das paletas prontas · cores: a paleta da marca aplicada ·
-// pdf: a folha fora do celular · cap: o capítulo na barra do filme.
+// pdf: a folha fora do celular · cap: o capítulo na barra do filme · chave: o
+// trecho da legenda na cor da marca.
 export const FILME = [
-  { cap: 'logo', ms: 1500, marca: null, legenda: 'Todo sistema chega igual…' },
-  { cap: 'logo', ms: 1800, marca: 0, logo: true, legenda: '…até entrar o logo de vocês.' },
-  { cap: 'cores', ms: 1000, marca: 0, logo: true, paletas: true, legenda: 'Depois, as cores da oficina.' },
-  { cap: 'cores', ms: 1800, marca: 0, logo: true, paletas: true, cores: true, legenda: 'Do botão ao menu, para a equipe toda.' },
-  { cap: 'pdf', ms: 3400, marca: 0, logo: true, cores: true, pdf: true, legenda: 'E o PDF que chega ao cliente sai com o seu timbre.' },
-  { cap: 'cara', ms: 1000, marca: 1, logo: true, cores: true, pdf: true, legenda: 'Cada oficina…' },
-  { cap: 'cara', ms: 1000, marca: 2, logo: true, cores: true, pdf: true, legenda: 'Cada oficina…' },
-  { cap: 'cara', ms: 1800, marca: 2, logo: true, cores: true, pdf: true, legenda: '…com a sua cara.' },
+  { cap: 'logo', ms: 1500, marca: null, legenda: 'Todo sistema chega igual…', chave: 'igual…' },
+  { cap: 'logo', ms: 1300, marca: 0, logo: true, legenda: '…até entrar o logo de vocês.', chave: 'logo' },
+  { cap: 'cores', ms: 1000, marca: 0, logo: true, paletas: true, legenda: 'Depois, as cores da oficina.', chave: 'cores' },
+  { cap: 'cores', ms: 1800, marca: 0, logo: true, paletas: true, cores: true, legenda: 'Do botão ao menu, para a equipe toda.', chave: 'equipe toda.' },
+  { cap: 'pdf', ms: 3400, marca: 0, logo: true, cores: true, pdf: true, legenda: 'E o PDF que chega ao cliente sai com o seu timbre.', chave: 'seu timbre.' },
+  { cap: 'cara', ms: 1000, marca: 1, logo: true, cores: true, pdf: true, legenda: 'Cada oficina…', chave: 'oficina…' },
+  { cap: 'cara', ms: 1000, marca: 2, logo: true, cores: true, pdf: true, legenda: 'Cada oficina…', chave: 'oficina…' },
+  { cap: 'cara', ms: 1800, marca: 2, logo: true, cores: true, pdf: true, legenda: '…com a sua cara.', chave: 'sua cara.' },
 ]
 
 const inicio = (i) => FILME.slice(0, i).reduce((soma, q) => soma + q.ms, 0)

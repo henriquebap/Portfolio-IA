@@ -17,9 +17,9 @@ export default function Oficina() {
       <Hero />
       <main>
         <Cenas />
-        <Demo />
-        <WilMec />
         <Personalizacao />
+        <WilMec />
+        <Demo />
         <Pacotes />
         <Recursos />
         <PorQue />

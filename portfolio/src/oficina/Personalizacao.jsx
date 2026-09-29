@@ -1,5 +1,5 @@
 import { AnimatePresence, cancelFrame, frame, motion, useInView, useMotionValue, useMotionValueEvent, useReducedMotion, useTransform } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { whatsapp } from '../shared/contato'
 import { OFICINAS_POR_MES } from './oferta'
 import PhoneFrame from './PhoneFrame'
@@ -10,7 +10,7 @@ import TelaMarca from './telas/TelaMarca'
 
 // O que existe no hob-oficina desde 28/09/2026: cores do app (Configurações ›
 // Geral, PR #44), aparência do PDF (PR #23) e o logo, que a HOB põe na instalação.
-// Na Wil Mec a marca é fixa, por isso a seção vem depois da prova dela.
+// Na Wil Mec a marca é fixa: a prova dela, logo depois, fala do "dia a dia", não de "tudo".
 const PONTOS = [
   {
     icone: Paleta,
@@ -118,14 +118,15 @@ export default function Personalizacao() {
 }
 
 // O "vídeo": o celular com o app e a folha do PDF saindo dele, legenda embaixo.
-// Decorativo para leitor de tela: a mensagem está no texto da seção.
+// Decorativo para leitor de tela: a mensagem está no texto da seção. data-filme: o
+// scripts/filme.mjs grava este palco em MP4.
 function Palco({ ref, q, reduz }) {
   const marca = MARCAS[q.marca ?? 0]
   return (
-    <div ref={ref} aria-hidden="true" className="relative aspect-[5/6] overflow-hidden rounded-[2rem] bg-(--marca-fundo) ring-1 ring-linha sm:max-md:aspect-[6/5] lg:aspect-[6/5]">
+    <div ref={ref} data-filme aria-hidden="true" className="relative aspect-[5/6] overflow-hidden rounded-[2rem] bg-(--marca-fundo) ring-1 ring-linha sm:max-md:aspect-[6/5] lg:aspect-[6/5]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgb(255_255_255/0.9),transparent_55%)]" />
       {/* O celular fica no centro e abre espaço quando a folha do PDF sai dele. */}
-      <div className={`absolute inset-x-[7%] top-[5%] flex h-[78%] ${q.pdf ? 'justify-start' : 'justify-center'}`}>
+      <div className={`absolute inset-x-[7%] top-[4%] flex h-[74%] ${q.pdf ? 'justify-start' : 'justify-center'}`}>
         <motion.div layout transition={{ type: 'spring', stiffness: 140, damping: 20 }} className="h-full">
           <PhoneFrame className="h-full">
             <TelaMarca q={q} />
@@ -146,21 +147,44 @@ function Palco({ ref, q, reduz }) {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="absolute inset-x-3 bottom-3 flex justify-center">
+      <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-(--marca-fundo) from-45% to-transparent px-5 pb-4 pt-12 md:px-7 md:pb-6">
         <AnimatePresence mode="wait" initial={false}>
-          <motion.p
-            key={q.legenda}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.25 }}
-            className="rounded-2xl bg-tinta/85 px-4 py-2 text-center text-sm font-semibold text-white md:text-base"
-          >
-            {q.legenda}
-          </motion.p>
+          <Legenda key={q.legenda} q={q} />
         </AnimatePresence>
       </div>
     </div>
+  )
+}
+
+// A legenda entra palavra por palavra, subindo de uma máscara, como letreiro de
+// vídeo: letra do título (Archivo expandido), sem tarja, e a chave na cor da marca.
+function Legenda({ q }) {
+  const n = CAPITULOS.findIndex((c) => c.id === q.cap)
+  const [antes, depois] = q.chave ? q.legenda.split(q.chave) : [q.legenda, '']
+  const palavras = [[antes, false], [q.chave ?? '', true], [depois, false]].flatMap(([texto, chave]) =>
+    texto.split(' ').filter(Boolean).map((p) => [p, chave]),
+  )
+  return (
+    <motion.div exit={{ opacity: 0, y: -10, transition: { duration: 0.18 } }}>
+      <p className="rotulo text-[10px] text-azul md:text-xs">{String(n + 1).padStart(2, '0')} · {CAPITULOS[n].rotulo}</p>
+      <p className="titulo mt-1.5 text-[1.15rem] leading-[1.05] md:text-[1.45rem]">
+        {palavras.map(([p, chave], i) => (
+          <Fragment key={i}>
+            {i > 0 && ' '}
+            <span className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+              <motion.span
+                initial={{ y: '110%' }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.045 * i, duration: 0.45, ease: [0.2, 0.7, 0.2, 1] }}
+                className={`inline-block ${chave ? 'text-azul' : ''}`}
+              >
+                {p}
+              </motion.span>
+            </span>
+          </Fragment>
+        ))}
+      </p>
+    </motion.div>
   )
 }
 
