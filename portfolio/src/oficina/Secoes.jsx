@@ -65,7 +65,7 @@ export function Oferta() {
           </p>
           {METADE_INSTALACAO && (
             <p className="mt-4 rounded-xl bg-azul-claro/12 px-4 py-3 font-semibold text-azul-claro">
-              As 2 primeiras de cada mês pagam metade da instalação.
+              As 2 primeiras de cada mês pagam metade da instalação e do site.
             </p>
           )}
         </div>
@@ -108,6 +108,9 @@ export function Oferta() {
                 {EMAIL}
               </a>
             </div>
+            <a href="/oficina/planos" className="mt-4 inline-flex min-h-11 items-center font-semibold text-azul-claro underline-offset-4 hover:text-white hover:underline">
+              Monte o seu plano e veja quanto fica →
+            </a>
           </div>
         </div>
 

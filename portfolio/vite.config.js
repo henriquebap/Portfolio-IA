@@ -6,7 +6,7 @@ import process from 'node:process'
 
 // Uma entrada HTML por página: o robô de preview do WhatsApp não roda JS,
 // então cada link precisa do próprio <title>/OG no HTML servido.
-const PAGINAS = ['sobre', 'oficina', 'hobtech']
+const PAGINAS = ['sobre', 'oficina', 'oficina/planos', 'hobtech']
 
 // ponytail: o sirv do dev/preview só resolve /x/ → /x/index.html; /x sem barra
 // caía no fallback SPA e mostrava o hub. Reescreve antes do sirv.

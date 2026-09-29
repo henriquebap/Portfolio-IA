@@ -1,96 +1,5 @@
-import { MOSTRAR_NOTA_FISCAL } from './oferta'
-import { Brilho, Caixa, Carteira, Celular, Chave, Check, Prancheta, X } from './telas/icones'
-
-// O que tem no sistema, por área. Só o que existe hoje (HOB-Tech/oficina/01,
-// coluna "Existe"); placa automática e aviso automático de OS ficam de fora.
-// destaque e resumo: o cartão; amostra: um pedaço da tela do app, com dado
-// fictício; itens: a lista completa do "ver tudo".
-const AREAS = [
-  {
-    titulo: 'Balcão e OS',
-    icone: Prancheta,
-    destaque: 'Cliente, carro e OS numa tela só.',
-    resumo: 'Orçamento aprovado item a item e PDF com a sua marca.',
-    amostra: ['verde', 'OS #5712 · orçamento aprovado'],
-    itens: [
-      'No celular e no computador, com painéis do dia e do mês',
-      'Cadastro rápido: cliente, carro e OS numa tela',
-      'OS com status do começo à entrega',
-      'Orçamento aprovado item a item',
-      'Agenda de horários que vira OS',
-      'PDF da OS e do orçamento com a sua marca',
-    ],
-  },
-  {
-    titulo: 'Pátio e equipe',
-    icone: Chave,
-    destaque: 'Cada mecânico sabe o que fazer hoje.',
-    resumo: 'Vê só as OS dele, e o que ficou de ontem já aparece.',
-    amostra: ['ambar', 'Hoje: 3 OS · 1 ficou de ontem'],
-    itens: [
-      'Vistoria pelas áreas do carro, com fotos',
-      'Cada mecânico vê só as OS dele',
-      'Planejamento da semana: o que ficou de ontem aparece hoje',
-      'Kits de serviço prontos',
-    ],
-  },
-  {
-    titulo: 'Cliente',
-    icone: Celular,
-    destaque: 'O cliente acompanha pelo celular.',
-    resumo: 'E recebe o lembrete da próxima revisão por KM ou tempo.',
-    amostra: ['azul', 'Pronto para retirar · e-mail enviado'],
-    itens: [
-      'Página para acompanhar a OS pelo celular',
-      'E-mail de pronto e de entrega, com pedido de avaliação no Google',
-      'Lembrete da próxima revisão por KM ou tempo',
-      'QR de avaliação e de autocadastro',
-    ],
-  },
-  {
-    titulo: 'Estoque',
-    icone: Caixa,
-    destaque: 'Cada peça com foto e lugar certo.',
-    resumo: 'Estoque baixo avisa, e a compra vem sugerida pelo giro.',
-    amostra: ['azul', 'Pastilha dianteira · A3 · 4 un'],
-    itens: [
-      'Peças com foto, localização e mínimo',
-      'Entradas e saídas registradas; correção por estorno',
-      'Estoque baixo e sugestão de compra pelo giro',
-      'Assistente de estoque por chat: texto, áudio e foto',
-    ],
-  },
-  {
-    titulo: 'Dinheiro',
-    icone: Carteira,
-    destaque: 'Quem não pagou não some da tela.',
-    resumo: 'Fatura do cartão conferida e o mês fechado com DRE.',
-    amostra: ['vermelho', 'Entregue e não pago · R$ 640,00'],
-    itens: [
-      'Recebimentos em várias formas, com parcelas',
-      'Quem levou o carro sem pagar fica na tela até pagar',
-      'Contas a pagar e previsão de caixa',
-      'Fatura do cartão lida e conferida',
-      'Fechamento do mês com DRE e CSV para o contador',
-      ...(MOSTRAR_NOTA_FISCAL ? ['Nota fiscal pronta quando a OS é paga (adicional)'] : []),
-    ],
-  },
-  {
-    titulo: 'IA por trás',
-    icone: Brilho,
-    escuro: true,
-    destaque: 'A IA faz o trabalho chato.',
-    resumo: 'Sugere o que oferecer, escreve no tom da oficina e arruma o histórico. Quem decide é a equipe.',
-    amostra: ['ambar', 'Sugestão: fluido de freio · segurança'],
-    itens: [
-      'O mecânico fala e os itens entram na OS; o diagnóstico sai em português de relatório',
-      'Em cada carro, o que vale oferecer, com o motivo e a urgência',
-      'Mensagens ao cliente no tom da oficina, com as respostas lidas e organizadas',
-      'Histórico arrumado: serviços classificados e cadastros duplicados encontrados',
-      'Central de IA para ver, ligar, desligar e testar cada automação',
-    ],
-  },
-]
+import { AREAS, selo, texto } from './areas'
+import { Check, X } from './telas/icones'
 
 const PONTO = { verde: 'bg-emerald-500', ambar: 'bg-amber-500', azul: 'bg-azul-claro', vermelho: 'bg-red-500' }
 
@@ -139,7 +48,13 @@ export function Recursos() {
                 <p className="rotulo text-azul">{a.titulo}</p>
                 <ul className="mt-3 grid gap-2 text-[15px]">
                   {a.itens.map((i) => (
-                    <li key={i} className="flex gap-2.5 leading-snug"><span className="text-azul" aria-hidden="true">·</span>{i}</li>
+                    <li key={texto(i)} className="flex gap-2.5 leading-snug">
+                      <span className="text-azul" aria-hidden="true">·</span>
+                      <span>
+                        {texto(i)}
+                        {selo(i) && <span className="rotulo ml-2 whitespace-nowrap text-[10px] text-azul">{selo(i)}</span>}
+                      </span>
+                    </li>
                   ))}
                 </ul>
               </div>
