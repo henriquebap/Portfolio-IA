@@ -96,8 +96,9 @@ test('o total nunca aparece antes da escolha do plano, nem com rascunho salvo', 
 test('instalação pelo trabalho: base + adicionais ligados, igual em todo plano e em qualquer equipe', () => {
   const x = r({ plano: 'profissional', equipe: 6, adicionais: ['site'] })
   assert.deepEqual(umaVez(x, ANTES), {
-    remota: false, base: 39000, extras: [{ nome: 'Instalação do WhatsApp dedicado', valor: 10000 }], instalacao: 49000, criacao: 290000,
+    remota: false, base: 39000, extras: [{ nome: 'WhatsApp dedicado', valor: 10000 }], instalacao: 49000, criacao: 290000,
     metade: METADE_INSTALACAO ? { instalacao: 24500, criacao: 145000 } : null, criacaoFundadora: 261000,
+    total: 49000 + 290000, totalMetade: METADE_INSTALACAO ? 24500 + 145000 : null, totalFundadora: 49000 + 261000,
   })
   assert.equal(umaVez(x, DEPOIS).criacaoFundadora, null)
   assert.equal(umaVez(r({ plano: 'essencial', equipe: 3 }), DEPOIS).instalacao, 39000, 'Essencial de 3 pessoas')
@@ -112,6 +113,7 @@ test('treino dedicado: opcional, só para equipe a partir de 6', () => {
   assert.equal(visivel('treino', grande), true)
   assert.equal(umaVez(grande, DEPOIS).instalacao, 39000 + 10000 + 14000)
   if (METADE_INSTALACAO) assert.equal(umaVez(grande, DEPOIS).metade.instalacao, (39000 + 10000) / 2, 'a metade das 2 primeiras não cobre o treino dedicado')
+  if (METADE_INSTALACAO) assert.equal(umaVez(grande, DEPOIS).totalMetade, (39000 + 10000) / 2 + 14000, 'no total com desconto, o treino entra cheio')
   assert.equal(visivel('treino', { ...grande, equipe: 5 }), false)
   assert.equal(umaVez({ ...grande, equipe: 5 }, DEPOIS).instalacao, 49000, 'equipe menor não paga o treino dedicado')
 })
