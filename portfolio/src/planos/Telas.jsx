@@ -4,7 +4,7 @@ import { ADICIONAIS, BENEFICIOS_FUNDADORA, DOMINIO, FUNDADORA_ATE, GARANTIAS, PA
 import { Check } from '../oficina/telas/icones'
 import { EMAIL, whatsapp } from '../shared/contato'
 import {
-  ANOTA, DORES, MARCA, MAX_DORES, ORDEM, adicionaisValidos, brl, planoRecomendado, qtdExtras, textoWhatsApp, totais, umaVez, visivel,
+  ANOTA, DORES, MARCA, MAX_DORES, ORDEM, adicionaisValidos, brl, comFundadora, planoRecomendado, qtdExtras, textoWhatsApp, totais, umaVez, visivel,
 } from './montagem'
 
 // Uma função por passo da montagem. A casca (Planos.jsx) cuida do estado, da barra
@@ -60,6 +60,16 @@ const Opcao = ({ marcado, children, className = '', ...props }) => (
     {children}
   </button>
 )
+
+// O desconto fica colado ao preço que ele baixa, não numa frase no fim da página.
+const Desconto = ({ escuro, children }) => (
+  <span className={`mt-1 block w-fit rounded-md px-2 py-0.5 text-[13px] font-semibold ${escuro ? 'bg-white/15 text-white' : 'bg-azul-claro/20 text-azul'}`}>
+    {children}
+  </span>
+)
+
+// "R$ 250,00 da instalação + R$ 100,00 do WhatsApp dedicado": de onde vem o total.
+const composicao = (u) => [`${brl(u.base)} da instalação`, ...u.extras.map((x) => `${brl(x.valor)} do ${x.nome}`)].join(' + ')
 
 const Primario = ({ children, ...props }) => (
   <button type="button" className="inline-flex min-h-12 items-center justify-center rounded-full bg-azul px-6 font-semibold text-white transition-colors hover:bg-tinta" {...props}>
@@ -182,9 +192,13 @@ function Plano({ r, avancar }) {
           >
             <span className="titulo block text-2xl">{p.nome}</span>
             <span className="mt-1.5 block font-mono text-lg font-bold">{brl(p.mensal * 100)}<span className="text-sm font-normal opacity-70">/mês</span></span>
-            <span className="block text-sm opacity-70">
-              instalação {brl(umaVez({ ...r, plano: p.id }).instalacao)}, uma vez, com o treino da equipe
-            </span>
+            {fundadoraAberta() && (
+              <Desconto escuro={r.plano === p.id}>Fundadora: {brl(comFundadora(p.mensal * 100))}/mês por 6 meses</Desconto>
+            )}
+            <span className="mt-2 block text-sm opacity-70">Instalação {brl(umaVez({ ...r, plano: p.id }).instalacao)}, uma vez, com o treino da equipe</span>
+            {umaVez({ ...r, plano: p.id }).metade && (
+              <Desconto escuro={r.plano === p.id}>2 primeiras do mês: instalação por {brl(umaVez({ ...r, plano: p.id }).metade.instalacao)}</Desconto>
+            )}
             {p.id === recomendado && <span className="rotulo mt-2 inline-block rounded-full bg-azul-claro/25 px-2.5 py-1 text-[11px]">Recomendado para vocês</span>}
             <span className={`mt-2 block leading-snug ${r.plano === p.id ? 'text-papel/75' : 'text-grafite'}`}>{p.para}</span>
             <span className="mt-3 grid gap-1.5 text-[15px]">
@@ -294,8 +308,8 @@ function Adicional({ r, avancar, id }) {
 // Só no Essencial: a remota corta a visita (deslocamento e transporte) e baixa a
 // entrada para perto de uma mensalidade (decisão de 28/09/2026).
 function Instalacao({ r, avancar }) {
-  const presencial = umaVez({ ...r, remota: false }).instalacao
-  const remota = umaVez({ ...r, remota: true }).instalacao
+  const presencial = umaVez({ ...r, remota: false })
+  const remota = umaVez({ ...r, remota: true })
   return (
     <div className="grid gap-5">
       <Titulo rotulo="Uma vez só">Como prefere a instalação?</Titulo>
@@ -303,14 +317,18 @@ function Instalacao({ r, avancar }) {
         Nas duas, eu deixo o sistema no ar com a marca de vocês, treino a equipe toda e acompanho a primeira semana.
       </p>
       <div className="grid gap-2.5">
-        <Opcao marcado={!r.remota} onClick={() => avancar({ ...r, remota: false })}>
-          Presencial · {brl(presencial)}
-          <span className="mt-1 block text-sm font-normal opacity-75">eu vou até a oficina e treino a equipe no balcão</span>
-        </Opcao>
-        <Opcao marcado={r.remota} onClick={() => avancar({ ...r, remota: true })}>
-          Remota · {brl(remota)}
-          <span className="mt-1 block text-sm font-normal opacity-75">treino por vídeo, sem visita</span>
-        </Opcao>
+        {[
+          { u: presencial, nome: 'Presencial', como: 'eu vou até a oficina e treino a equipe no balcão', marcado: !r.remota, remota: false },
+          { u: remota, nome: 'Remota', como: 'treino por vídeo, sem visita', marcado: r.remota, remota: true },
+        ].map((o) => (
+          <Opcao key={o.nome} marcado={o.marcado} onClick={() => avancar({ ...r, remota: o.remota })}>
+            {o.nome} · {brl(o.u.instalacao)}
+            <span className="mt-1 block text-sm font-normal opacity-75">{o.como}</span>
+            {o.u.extras.length > 0 && <span className="mt-0.5 block text-sm font-normal opacity-75">{composicao(o.u)}</span>}
+            {o.remota && <Desconto escuro={o.marcado}>{brl(presencial.instalacao - remota.instalacao)} a menos que a presencial</Desconto>}
+            {o.u.metade && <Desconto escuro={o.marcado}>2 primeiras do mês: {brl(o.u.metade.instalacao)}</Desconto>}
+          </Opcao>
+        ))}
       </div>
     </div>
   )
@@ -396,24 +414,55 @@ function Resumo({ r, ir, aoEnviar, recomecar }) {
       <div>
         <p className="rotulo text-grafite">Uma vez só</p>
         <dl className="mt-2 rounded-2xl bg-white px-5 py-2 ring-1 ring-linha [&>div:last-child]:border-0">
-          <Linha nome={`Instalação ${u.remota ? 'remota, com treino por vídeo' : 'presencial, com visita e treino'} da equipe`} valor={brl(u.base)} />
-          {u.extras.map((x) => <Linha key={x.nome} nome={x.nome} valor={brl(x.valor)} />)}
+          <div className="grid grid-cols-[1fr_auto] items-baseline gap-x-4 border-b border-linha py-2.5">
+            <dt>Instalação {u.remota ? 'remota' : 'presencial'}</dt>
+            <dd className="whitespace-nowrap font-mono">{brl(u.instalacao)}</dd>
+            <dd className="col-span-2 mt-1 grid gap-0.5 pl-3 text-sm text-grafite">
+              <span className="flex justify-between gap-4">
+                <span>{u.remota ? 'sistema no ar e treino por vídeo da equipe' : 'sistema no ar, visita e treino da equipe'}</span>
+                <span className="font-mono">{brl(u.base)}</span>
+              </span>
+              {u.extras.map((x) => (
+                <span key={x.nome} className="flex justify-between gap-4"><span>{x.nome}</span><span className="font-mono">{brl(x.valor)}</span></span>
+              ))}
+            </dd>
+          </div>
           {u.criacao > 0 && <Linha nome="Criação do site" valor={brl(u.criacao)} />}
+          <div className="flex items-baseline justify-between gap-4 py-3">
+            <dt className="font-bold">Total, uma vez</dt>
+            <dd className="font-mono text-xl font-bold">{brl(u.total)}</dd>
+          </div>
         </dl>
-        {u.metade !== null && (
-          <p className="mt-3 font-semibold text-azul">
-            As 2 primeiras oficinas de cada mês pagam metade: instalação por {brl(u.metade.instalacao)}
-            {u.criacao > 0 && <> e criação do site por {brl(u.metade.criacao)}</>}
-            {u.extras.some((e) => e.opcional) && ' (o treino dedicado fica fora)'}.
-          </p>
+        {(u.totalMetade !== null || u.totalFundadora) && (
+          <div className="mt-3 grid gap-2 rounded-2xl bg-azul-claro/15 px-5 py-4 text-azul">
+            <p className="rotulo">Com desconto</p>
+            {u.totalMetade !== null && (
+              <p className="leading-snug">
+                <strong className="block">2 primeiras oficinas do mês</strong>
+                <s className="opacity-60">{brl(u.total)}</s>{' '}
+                <strong className="font-mono">{brl(u.totalMetade)}</strong>
+                <span className="block text-sm">
+                  metade da instalação{u.criacao > 0 && ' e do site'}{u.extras.some((e) => e.opcional) && '; o treino dedicado entra cheio'}
+                </span>
+              </p>
+            )}
+            {u.totalFundadora && (
+              <p className="leading-snug">
+                <strong className="block">Fundadora até {dataPorExtenso(FUNDADORA_ATE)}</strong>
+                <s className="opacity-60">{brl(u.total)}</s>{' '}
+                <strong className="font-mono">{brl(u.totalFundadora)}</strong>
+                <span className="block text-sm">10% na criação do site</span>
+              </p>
+            )}
+            {u.totalMetade !== null && u.totalFundadora && <p className="text-sm">Os descontos não se somam: vale o maior.</p>}
+          </div>
         )}
-        {u.criacaoFundadora && <p className="mt-1.5 text-grafite">Como fundadora, a criação do site sai por {brl(u.criacaoFundadora)}.</p>}
         <p className="mt-3 rounded-xl bg-azul-claro/15 px-4 py-3 font-semibold text-azul">
           Dá para parcelar sem juros: em até {PARCELAS.boletoPix}x no boleto ou Pix, ou em até {PARCELAS.cartao}x no cartão
-          ({PARCELAS.cartao} × {brl(Math.round((u.instalacao + u.criacao) / PARCELAS.cartao))}).
+          ({PARCELAS.cartao} × {brl(Math.round(u.total / PARCELAS.cartao))}).
         </p>
         <p className="mt-3 text-sm leading-relaxed text-grafite">
-          Estes são os valores de tabela: o final fecha na conversa e nunca passa do que está aqui. Os descontos não se somam; vale o maior.
+          Estes são os valores de tabela: o final fecha na conversa e nunca passa do que está aqui.
           {t.sobConsulta.length > 0 && ` ${t.sobConsulta.map((a) => a.nome).join(' e ')}: valor na conversa.`}
         </p>
         <p className="mt-2 text-sm leading-relaxed text-grafite">{DOMINIO}</p>

@@ -109,6 +109,10 @@ export function planoRecomendado(r) {
   return 'profissional'
 }
 
+// Preço de fundadora: 10% a menos (docs/02). Um lugar só para a mensalidade, o site
+// e os cartões mostrarem a mesma conta.
+export const comFundadora = (centavos) => Math.round(centavos * 0.9)
+
 // Tudo em centavos. Fundadora (docs/02): 10% na mensalidade por 6 meses e 10% nos
 // adicionais enquanto for cliente; o usuário extra é adicional. Sob consulta fica fora.
 export function totais(r, hoje = new Date()) {
@@ -118,7 +122,7 @@ export function totais(r, hoje = new Date()) {
   return {
     mensal,
     sobConsulta: adicionaisValidos(r).filter((a) => a.mensal === null),
-    fundadora: fundadoraAberta(hoje) ? { seisMeses: Math.round(mensal * 0.9), depois: base + Math.round(adicionais * 0.9) } : null,
+    fundadora: fundadoraAberta(hoje) ? { seisMeses: comFundadora(mensal), depois: base + comFundadora(adicionais) } : null,
   }
 }
 
@@ -133,7 +137,7 @@ export function umaVez(r, hoje = new Date()) {
   const remota = Boolean(r.remota) && visivel('instalacao', r)
   const base = plano(r) ? (remota ? INSTALACAO.remota : INSTALACAO.base) * 100 : 0
   const extras = !plano(r) ? [] : [
-    ...ativos(r).filter((a) => a.instalacao).map((a) => ({ nome: `Instalação do ${a.nome}`, valor: a.instalacao * 100 })),
+    ...ativos(r).filter((a) => a.instalacao).map((a) => ({ nome: a.nome, valor: a.instalacao * 100 })),
     ...(r.treino && visivel('treino', r) ? [{ nome: `Treino dedicado (${TREINO_DEDICADO.horas} h)`, valor: TREINO_DEDICADO.valor * 100, opcional: true }] : []),
   ]
   const instalacao = base + extras.reduce((s, x) => s + x.valor, 0)
@@ -141,14 +145,20 @@ export function umaVez(r, hoje = new Date()) {
   const semOpcional = instalacao - extras.filter((x) => x.opcional).reduce((s, x) => s + x.valor, 0)
   const site = adicionaisValidos(r).find((a) => a.criacao)
   const criacao = site ? site.criacao * 100 : 0
+  const metade = METADE_INSTALACAO ? { instalacao: Math.round(semOpcional / 2), criacao: Math.round(criacao / 2) } : null
+  const criacaoFundadora = criacao && fundadoraAberta(hoje) ? comFundadora(criacao) : null
   return {
     remota,
     base,
     extras,
     instalacao,
     criacao,
-    metade: METADE_INSTALACAO ? { instalacao: Math.round(semOpcional / 2), criacao: Math.round(criacao / 2) } : null,
-    criacaoFundadora: criacao && fundadoraAberta(hoje) ? Math.round(criacao * 0.9) : null,
+    metade,
+    criacaoFundadora,
+    // O que se paga uma vez, somado: cheio, e com cada desconto (que não se somam).
+    total: instalacao + criacao,
+    totalMetade: metade ? metade.instalacao + (instalacao - semOpcional) + metade.criacao : null,
+    totalFundadora: criacaoFundadora ? instalacao + criacaoFundadora : null,
   }
 }
 
