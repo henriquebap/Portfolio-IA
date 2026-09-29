@@ -3,6 +3,7 @@ import { BENEFICIOS_FUNDADORA, FUNDADORA_ATE, GARANTIAS, MENSALIDADE, METADE_INS
 
 // Números autorizados pelo Wilson (HOB-Tech/docs/00, "A história"; oficina/01, "Números do produto").
 // Sem a data de início do uso (soa recente) e sem "oficina experimental" (decisão de 23/09/2026).
+// "O dia a dia", não "tudo": "Com a sua cara" vem antes, e a marca configurável não roda na Wil Mec.
 const FICHA_WILMEC = [
   ['Oficina', 'câmbio automático, São Miguel Paulista (SP)'],
   ['Na praça', 'desde 2010 · 4,8★ em 160 avaliações no Google'],
@@ -16,7 +17,7 @@ export function WilMec() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-2 md:gap-12 md:py-24">
         <div>
           <p className="rotulo text-white/70">A oficina de referência</p>
-          <h2 className="titulo titulo-g mt-4">Tudo o que você viu roda hoje na <span className="text-azul-claro">Wil Mec.</span></h2>
+          <h2 className="titulo titulo-g mt-4">O dia a dia que você viu roda hoje na <span className="text-azul-claro">Wil Mec.</span></h2>
           <p className="mt-5 max-w-[44ch] leading-relaxed text-white/85 md:text-lg">
             Ao trazer os dados do sistema antigo, enxergamos problemas que antes ninguém via.
           </p>

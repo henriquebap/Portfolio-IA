@@ -35,8 +35,8 @@ Mudou lá, muda aqui no mesmo PR. Se o doc e o código divergem, o doc vence.
   - `NOTA_FISCAL_NO_AR`, `SITE_NO_AR`: com `false`, o bloco aparece só no `npm run dev`. Use o mesmo esquema para qualquer adicional que ainda não pode ir ao público.
   - `PLANOS`, `INSTALACAO`, `PARCELAS`, `TREINO_DEDICADO`, `USUARIO_EXTRA` e `ADICIONAIS` (preço, dor, itens) alimentam `/oficina` e `/oficina/planos`. Mudou em `HOB-Tech/docs/02`, muda ali e rode `npm test`.
 - Cena nova: `roteiro.js` + tela em `src/oficina/telas/`. As telas são mockups HTML com dados fictícios, nunca print do app. Em `Pacotes.jsx` ficam só o ícone e a miniatura de cada adicional; o resto está em `ADICIONAIS`. Os itens do "ver tudo" estão em `areas.js`.
-- Ordem das seções (`Oficina.jsx`): hero → 5 cenas → demo → prova Wil Mec (azul) → com a sua cara (`Personalizacao.jsx`) → adicionais (`Pacotes.jsx`) → o que tem dentro → por que a HOB (✗/✓) → oferta `#conversa`. Claro e escuro alternados, azul só na prova. Dois tamanhos de título, `titulo-g` e `titulo-m` (`oficina.css`).
-- "Com a sua cara" fica depois da Wil Mec porque a marca configurável (cores do app, aparência do PDF) existe no hob-oficina e não roda lá. O filme é o `FILME` de `roteiro.js`: cada quadro é um estado inteiro, e as 4 cores são variáveis `@property` (`oficina.css`) que viram o `--color-azul` da seção. Paleta nova no app, paleta nova em `PALETAS`.
+- Ordem das seções (`Oficina.jsx`): hero → 5 cenas → com a sua cara (`Personalizacao.jsx`) → prova Wil Mec (azul) → demo → adicionais (`Pacotes.jsx`) → o que tem dentro → por que a HOB (✗/✓) → oferta `#conversa`. Claro e escuro alternados, azul só na prova. Dois tamanhos de título, `titulo-g` e `titulo-m` (`oficina.css`).
+- "Com a sua cara" vem antes da prova da Wil Mec, e a marca configurável (cores do app, aparência do PDF) existe no hob-oficina mas não roda lá: por isso a prova diz "o dia a dia que você viu", nunca "tudo". O filme é o `FILME` de `roteiro.js`: cada quadro é um estado inteiro, e as 4 cores são variáveis `@property` (`oficina.css`) que viram o `--color-azul` da seção. Paleta nova no app, paleta nova em `PALETAS`. Mudou o filme, grave de novo os MP4 (`scripts/filme.mjs`, em Comandos).
 
 ### Decisões das revisões do Henrique (23 e 24/09/2026)
 
@@ -64,7 +64,7 @@ O `README.md` da raiz é a vitrine do GitHub e resume o `/sobre` (`data/projects
 
 ## Comandos
 
-Em `portfolio/`: `npm run dev` (5173) · `npm run build` · `npm run preview` (o build servido como em produção) · `npm test` (`node --test`) · `npm run lint`. No painel de preview: `portfolio-dev` e `portfolio-preview` (`.claude/launch.json`).
+Em `portfolio/`: `npm run dev` (5173) · `npm run build` · `npm run preview` (o build servido como em produção) · `npm test` (`node --test`) · `npm run lint`. No painel de preview: `portfolio-dev` e `portfolio-preview` (`.claude/launch.json`). Com o preview no ar, `node scripts/filme.mjs http://localhost:4173/oficina <pasta>` grava o filme do "Com a sua cara" em MP4, horizontal (1200×1000) e vertical (1080×1350); precisa do `ffmpeg`.
 
 Página nova: nome em `PAGINAS` (`vite.config.js`), `<pagina>/index.html` com `<title>` e OG próprios (o robô de preview do WhatsApp não roda JS), `public/og/<pagina>.jpg` (1200×630) e uma linha em `public/sitemap.xml`.
 
