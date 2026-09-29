@@ -1,123 +1,23 @@
-# 🚀 Deploy no Railway
+# Deploy: henriquebap.com
 
-## Passos para Deploy
+Merge na `main` publica sozinho. Não há passo manual.
 
-### 1. Conectar com Railway
+- **Railway:** projeto `Portifolio-AI`, serviço `Portfolio-IA`, ambiente `production`.
+- **Build:** Railpack a partir da **raiz do repositório** (não de `portfolio/`), Node 22. O `package.json` da raiz só repassa: o script `install` roda `cd portfolio && npm install`, depois vêm `npm run build` e `npm run start` (`vite preview --host 0.0.0.0 --port $PORT`). Não há `railway.toml` nem `nixpacks.toml`; o Railpack detecta tudo pelo `package.json`.
+- **Domínio:** `henriquebap.com`, só o apex (`www` não tem DNS). O `vite preview` só responde aos hosts de `preview.allowedHosts` em `vite.config.js`: domínio novo entra lá também.
+- **Rotas:** cada página é uma entrada HTML do Vite (`PAGINAS` em `vite.config.js`). O middleware `mpa-sem-barra` faz `/oficina` (sem barra) servir `/oficina/index.html` no dev e no preview de produção.
 
-1. Acesse [Railway.app](https://railway.app/)
-2. Faça login com sua conta GitHub
-3. Clique em **"New Project"**
-4. Selecione **"Deploy from GitHub repo"**
-5. Escolha o repositório: `henriquebap/Portfolio-IA`
-6. Railway irá detectar automaticamente a configuração
-
-### 2. Configurar o Root Directory
-
-1. No Railway, vá em **Settings**
-2. Em **"Root Directory"**, defina: `portfolio`
-3. Salve as mudanças
-
-### 3. Configurar Variáveis de Ambiente (se necessário)
-
-No Railway, em **Variables**, adicione:
-- `NODE_ENV=production`
-
-### 4. Deploy Automático
-
-O Railway irá:
-- Instalar dependências (`npm install`)
-- Fazer build do projeto (`npm run build`)
-- Iniciar o servidor (`npm run start`)
-
-### 5. Configurar Domínio Personalizado
-
-1. No Railway, vá em **Settings** → **Domains**
-2. Clique em **"Custom Domain"**
-3. Adicione: `henriquebap.com` e `www.henriquebap.com`
-4. Configure os registros DNS no seu provedor de domínio:
-
-   ```
-   Tipo: CNAME
-   Nome: @
-   Valor: [seu-dominio].up.railway.app
-   
-   Tipo: CNAME
-   Nome: www
-   Valor: [seu-dominio].up.railway.app
-   ```
-
-### 6. SSL/HTTPS
-
-O Railway configura SSL automaticamente via Let's Encrypt.
-
----
-
-## 📦 Estrutura do Projeto
-
-```
-portfolio/
-├── src/              # Código fonte
-├── public/           # Arquivos estáticos
-├── dist/             # Build (gerado)
-├── package.json      # Dependências
-├── vite.config.js    # Config do Vite
-├── railway.toml      # Config do Railway
-└── DEPLOY.md         # Este arquivo
-```
-
----
-
-## 🔧 Comandos Úteis
+## Acompanhar um deploy
 
 ```bash
-# Desenvolvimento local
-npm run dev
-
-# Build para produção
-npm run build
-
-# Preview do build
-npm run preview
-
-# Rodar em produção
-npm run start
+# uma vez por worktree
+railway link --project Portifolio-AI --environment production --service Portfolio-IA
+# até SUCCESS ou FAILED
+railway deployment list
+# se falhar
+railway logs --build <id>
 ```
 
----
+Depois, abrir `https://henriquebap.com/<rota>` e conferir.
 
-## 📊 Monitoramento
-
-No Railway Dashboard você pode:
-- Ver logs em tempo real
-- Monitorar uso de recursos
-- Ver métricas de deploy
-- Configurar alertas
-
----
-
-## 🐛 Troubleshooting
-
-### Build falha
-- Verifique se o **Root Directory** está configurado como `portfolio`
-- Confirme que `NODE_ENV=production` está nas variáveis
-
-### Site não carrega
-- Verifique os logs no Railway
-- Confirme que a porta está configurada corretamente (`$PORT`)
-
-### Domínio não funciona
-- Aguarde propagação DNS (pode levar até 48h)
-- Verifique os registros CNAME no seu provedor
-
----
-
-## 🎉 Pronto!
-
-Seu portfolio estará disponível em:
-- **Railway URL**: `https://[seu-projeto].up.railway.app`
-- **Domínio personalizado**: `https://henriquebap.com`
-
----
-
-**Repositório GitHub**: https://github.com/henriquebap/Portfolio-IA
-
+Domínios e ambientes da HOB (o que fica ou não sob `henriquebap.com`): `HOB-Tech/docs/10-dominios-e-deploys.md`.

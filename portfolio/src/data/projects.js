@@ -6,7 +6,7 @@ export const profile = {
   about: `I work across the full lifecycle of production AI: defining what quality means, curating the right data, evaluating model behavior, building backend services, and shipping things people actually use. Most of my experience sits where LLM quality, agents, voice AI, and product engineering meet.`,
   aboutExtended: `In my most recent role I built the evaluation stack for medical AI: ASR benchmarks, human annotation pipelines, and LLM-as-Judge evaluators running in production. Today I run HOB Tech, where I build management systems for small businesses and put AI to work inside them. The first is the system an auto repair shop runs on every day, now becoming a product for other shops, alongside a multi-agent SaaS I operate. The pattern is the same everywhere: make quality measurable, plan for failure, and own the path from prototype to production.`,
   contact: {
-    linkedin: 'https://www.linkedin.com/in/henrique-baptista777/',
+    linkedin: 'https://www.linkedin.com/in/henriqueobaptista/',
     github: 'https://github.com/henriquebap',
     email: 'henrique.obap@gmail.com'
   },
