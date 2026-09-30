@@ -8,6 +8,7 @@ Site pessoal do Henrique e porta de entrada comercial da HOB Tech. Vite multi-p�
 | `/sobre` | `sobre/index.html` | `src/main.jsx` → `App.jsx`, `components/`, dados em `data/projects.js` | inglês | portfólio, a versão longa do CV |
 | `/oficina` | `oficina/index.html` | `src/oficina/` | pt-BR | landing do HOB Oficina, apoio visual depois da mensagem de prospecção |
 | `/oficina/planos` | `oficina/planos/index.html` | `src/planos/` (`Planos.jsx`, `Telas.jsx`; as contas e a ordem dos passos em `montagem.js`) | pt-BR | follow-up da prospecção: a oficina monta o plano uma pergunta por vez e manda pelo WhatsApp |
+| `/oficina/demo` | `oficina/demo/index.html` | `src/demo/` (`Demo.jsx`; prazo, endereço e toda a copy em `teste.js`) | pt-BR | entrada do teste de 30 dias: a oficina manda mensagem, o Henrique cria a oficina dela e manda o link e o login de dono |
 | `/hobtech` | `hobtech/index.html` | `src/hobtech/` | pt-BR | projetos sob medida |
 
 Comum às páginas: `src/shared/` (marca, CTA, botão flutuante "Conversar", `contato.js` com o WhatsApp e o e-mail comerciais).
@@ -37,6 +38,7 @@ Mudou lá, muda aqui no mesmo PR. Se o doc e o código divergem, o doc vence.
 - Cena nova: `roteiro.js` + tela em `src/oficina/telas/`. As telas são mockups HTML com dados fictícios, nunca print do app. Em `Pacotes.jsx` ficam só o ícone e a miniatura de cada adicional; o resto está em `ADICIONAIS`. Os itens do "ver tudo" estão em `areas.js`.
 - Ordem das seções (`Oficina.jsx`): hero → 5 cenas → com a sua cara (`Personalizacao.jsx`) → prova Wil Mec (azul) → demo → adicionais (`Pacotes.jsx`) → o que tem dentro → por que a HOB (✗/✓) → oferta `#conversa`. Claro e escuro alternados, azul só na prova. Dois tamanhos de título, `titulo-g` e `titulo-m` (`oficina.css`).
 - "Com a sua cara" vem antes da prova da Wil Mec, e a marca configurável (cores do app, aparência do PDF) existe no hob-oficina mas não roda lá: por isso a prova diz "o dia a dia que você viu", nunca "tudo". O filme é o `FILME` de `roteiro.js`: cada quadro é um estado inteiro, e as 4 cores são variáveis `@property` (`oficina.css`) que viram o `--color-azul` da seção. Paleta nova no app, paleta nova em `PALETAS`. Mudou o filme, grave de novo os MP4 (`scripts/filme.mjs`, em Comandos).
+- **`src/demo/teste.js` é a fonte do teste de 30 dias** (`/oficina/demo` e o link "Quero testar por 30 dias" no fim do `/oficina`): `TESTE_DIAS`, `GUARDA_DIAS`, o endereço `<nome-da-oficina>.henriquebap.com` e toda a copy da página; o JSX só desenha. `MENSAGEM_DEMO` (`shared/contato.js`) repete o "30" à mão e o `teste.test.js` confere. Sem preço (só `oferta.js`), sem IA como adjetivo. Nota, placa e avaliação no Google aparecem como **simulação**, com o selo do app, e a página não promete nenhuma delas como funcionando. A página só descreve o TESTE: o endereço em `henriquebap.com` é decisão de 29/09/2026 para o teste e nunca se promete à oficina contratada (a regra de Domínio abaixo segue valendo para ela). Só vai ao público depois que a plataforma de oficinas por subdomínio estiver no ar.
 
 ### Decisões das revisões do Henrique (23 e 24/09/2026)
 

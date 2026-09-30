@@ -1,11 +1,11 @@
 import { EMAIL, WHATSAPP_EXIBICAO, whatsapp } from './contato'
 
 // Fechamento das páginas da HOB: a menor ação possível é uma conversa de 20 min.
-export default function Cta({ titulo, texto, mensagem }) {
+export default function Cta({ titulo, texto, mensagem, rotulo = 'Conversa de 20 minutos, por vídeo' }) {
   return (
     <section id="conversa" className="bg-noite text-papel">
       <div className="mx-auto max-w-5xl px-5 py-20 md:py-28">
-        <p className="rotulo text-azul-claro">Conversa de 20 minutos, por vídeo</p>
+        <p className="rotulo text-azul-claro">{rotulo}</p>
         <h2 className="titulo mt-4 max-w-[18ch] text-[clamp(2rem,5vw,3.75rem)]">{titulo}</h2>
         <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-papel/80">{texto}</p>
         <div className="mt-10 flex flex-wrap gap-3">
