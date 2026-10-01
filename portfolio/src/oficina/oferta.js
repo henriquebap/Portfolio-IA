@@ -5,6 +5,14 @@
 
 export const OFICINAS_POR_MES = 5
 
+// Teste gratuito (Portfolio-IA#13, 01/10/2026): 7 dias é a regra geral; o Henrique
+// estende caso a caso, na conversa, e a página não diz isso nem promete prazo de
+// liberação. Só o que vale nos dois docs (HOB-Tech/docs/02 e docs/10): dados fictícios,
+// os da oficina só na instalação de verdade. Não citar WhatsApp, nota nem usuários.
+export const TESTE_DIAS = 7
+export const TESTE_PROMESSA =
+  'Uma instalação própria, com dados fictícios e sem compromisso. Os dados da sua oficina só entram na instalação de verdade.'
+
 // Nota fiscal (PR #82 do Wilmec-system): liberada ao público em 23/09/2026, com os
 // testes reais começando na Wil Mec. Com false, a seção, a cena e a menção ao
 // pacote aparecem só no `npm run dev` e somem do build publicado.

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { AREAS, texto } from '../oficina/areas'
-import { ADICIONAIS, BENEFICIOS_FUNDADORA, DOMINIO, FUNDADORA_ATE, GARANTIAS, PARCELAS, PLANOS, TREINO_DEDICADO, USUARIO_EXTRA, fundadoraAberta } from '../oficina/oferta'
+import { ADICIONAIS, BENEFICIOS_FUNDADORA, DOMINIO, FUNDADORA_ATE, GARANTIAS, PARCELAS, PLANOS, TESTE_DIAS, TESTE_PROMESSA, TREINO_DEDICADO, USUARIO_EXTRA, fundadoraAberta } from '../oficina/oferta'
+import { comTeste } from '../oficina/teste'
 import { Check } from '../oficina/telas/icones'
 import { EMAIL, whatsapp } from '../shared/contato'
 import {
@@ -476,6 +477,15 @@ function Resumo({ r, ir, aoEnviar, recomecar }) {
         <a href={`mailto:${EMAIL}?subject=${encodeURIComponent(MARCA)}&body=${encodeURIComponent(corpo)}`} onClick={aoEnviar}
           className="inline-flex min-h-12 items-center justify-center rounded-full px-6 font-semibold text-tinta ring-1 ring-tinta/25 transition-colors hover:ring-tinta">
           Prefiro por e-mail
+        </a>
+      </div>
+      <div className="rounded-2xl bg-white p-5 ring-1 ring-linha">
+        <p className="rotulo text-azul">Teste gratuito · {TESTE_DIAS} dias</p>
+        <p className="mt-2 font-semibold">Prefere ver funcionando antes de decidir?</p>
+        <p className="mt-1 text-sm leading-relaxed text-grafite">{TESTE_PROMESSA}</p>
+        <a href={whatsapp(comTeste(corpo))} target="_blank" rel="noopener noreferrer" onClick={aoEnviar}
+          className="mt-3 inline-flex min-h-12 items-center justify-center rounded-full px-6 font-semibold text-azul ring-1 ring-azul/40 transition-colors hover:bg-azul hover:text-white">
+          Quero testar antes
         </a>
       </div>
       <ul className="grid gap-1.5 border-t border-linha pt-4 text-sm text-grafite">

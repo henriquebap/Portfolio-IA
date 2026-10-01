@@ -1,5 +1,6 @@
 import { EMAIL, MENSAGEM_OFICINA, WHATSAPP_EXIBICAO, whatsapp } from '../shared/contato'
 import { BENEFICIOS_FUNDADORA, FUNDADORA_ATE, GARANTIAS, MENSALIDADE, METADE_INSTALACAO, OFICINAS_POR_MES, fundadoraAberta } from './oferta'
+import PedidoTeste from './PedidoTeste'
 
 // Números autorizados pelo Wilson (HOB-Tech/docs/00, "A história"; oficina/01, "Números do produto").
 // Sem a data de início do uso (soa recente) e sem "oficina experimental" (decisão de 23/09/2026).
@@ -114,6 +115,8 @@ export function Oferta() {
             </a>
           </div>
         </div>
+
+        <PedidoTeste />
 
         <ul className="grid gap-2 border-t border-papel/15 pt-5 text-xs leading-relaxed text-papel/60 md:gap-3 md:pt-6 md:text-sm md:col-span-2 md:grid-cols-3">
           {GARANTIAS.map((g) => <li key={g}>{g}</li>)}
