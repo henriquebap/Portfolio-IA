@@ -1,3 +1,4 @@
+import { TESTE_DIAS } from '../demo/teste'
 import { EMAIL, MENSAGEM_OFICINA, WHATSAPP_EXIBICAO, whatsapp } from '../shared/contato'
 import { BENEFICIOS_FUNDADORA, FUNDADORA_ATE, GARANTIAS, MENSALIDADE, METADE_INSTALACAO, OFICINAS_POR_MES, fundadoraAberta } from './oferta'
 import PedidoTeste from './PedidoTeste'
@@ -110,9 +111,14 @@ export function Oferta() {
                 {EMAIL}
               </a>
             </div>
-            <a href="/oficina/planos" className="mt-4 inline-flex min-h-11 items-center font-semibold text-azul-claro underline-offset-4 hover:text-white hover:underline">
-              Monte o seu plano e veja quanto fica →
-            </a>
+            <div className="mt-4 flex flex-wrap gap-x-6">
+              <a href="/oficina/planos" className="inline-flex min-h-11 items-center font-semibold text-azul-claro underline-offset-4 hover:text-white hover:underline">
+                Monte o seu plano e veja quanto fica →
+              </a>
+              <a href="/oficina/demo" className="inline-flex min-h-11 items-center font-semibold text-azul-claro underline-offset-4 hover:text-white hover:underline">
+                Quero testar por {TESTE_DIAS} dias →
+              </a>
+            </div>
           </div>
         </div>
 
